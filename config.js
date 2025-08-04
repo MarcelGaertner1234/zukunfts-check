@@ -28,10 +28,10 @@ const config = {
     
     // Contact Information
     contact: {
-        email: 'support@futurecheck.pro',
-        phone: '+49 (0) 123 456789',
+        email: 'gaertner-marcel@web.de',
+        phone: '+41 76 801 53 30',
         company: 'FutureCheck',
-        address: 'Musterstraße 123, 80333 München'
+        address: 'Michelsrotweg 6, 74821 Mosbach'
     },
     
     // Feature Flags
