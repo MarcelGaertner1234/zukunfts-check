@@ -271,6 +271,52 @@
                 <label class="form-label" for="phone">Telefonnummer (für Rückfragen)</label>
                 <input type="tel" id="phone" name="phone" class="form-input-checkout" placeholder="+49 123 456789">
             </div>
+            
+            <!-- Zusätzliche Fragen für die Analyse -->
+            <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #e9ecef;">
+                <h3 style="font-size: 18px; margin-bottom: 20px; color: #1a1a1a;">Kurze Fragen für Ihre maßgeschneiderte Analyse</h3>
+                
+                <div class="form-row">
+                    <label class="form-label" for="industry">In welcher Branche sind Sie tätig? *</label>
+                    <select id="industry" name="industry" required class="form-input-checkout">
+                        <option value="">Bitte auswählen...</option>
+                        <option value="Handel">Handel & E-Commerce</option>
+                        <option value="Produktion">Produktion & Fertigung</option>
+                        <option value="Dienstleistung">Dienstleistung & Beratung</option>
+                        <option value="Handwerk">Handwerk & Bau</option>
+                        <option value="Gesundheit">Gesundheit & Pflege</option>
+                        <option value="IT">IT & Software</option>
+                        <option value="Gastronomie">Gastronomie & Hotellerie</option>
+                        <option value="Andere">Andere Branche</option>
+                    </select>
+                </div>
+                
+                <div class="form-row">
+                    <label class="form-label" for="employees">Wie viele Mitarbeiter hat Ihr Unternehmen? *</label>
+                    <select id="employees" name="employees" required class="form-input-checkout">
+                        <option value="">Bitte auswählen...</option>
+                        <option value="1-10">1-10 Mitarbeiter</option>
+                        <option value="11-50">11-50 Mitarbeiter</option>
+                        <option value="51-200">51-200 Mitarbeiter</option>
+                        <option value="201-500">201-500 Mitarbeiter</option>
+                        <option value="500+">Mehr als 500 Mitarbeiter</option>
+                    </select>
+                </div>
+                
+                <div class="form-row">
+                    <label class="form-label" for="challenge">Was ist Ihre größte digitale Herausforderung? *</label>
+                    <select id="challenge" name="challenge" required class="form-input-checkout">
+                        <option value="">Bitte auswählen...</option>
+                        <option value="Website veraltet">Veraltete Website / Online-Präsenz</option>
+                        <option value="Keine Digitalisierung">Fehlende Digitalisierung der Prozesse</option>
+                        <option value="Konkurrenz online stärker">Konkurrenz ist online stärker</option>
+                        <option value="Kundengewinnung">Schwierigkeiten bei Online-Kundengewinnung</option>
+                        <option value="Ineffiziente Prozesse">Ineffiziente manuelle Prozesse</option>
+                        <option value="Keine Strategie">Keine klare Digital-Strategie</option>
+                        <option value="Andere">Andere Herausforderung</option>
+                    </select>
+                </div>
+            </div>
 
             <div class="payment-methods">
                 <div class="payment-method">💳 Kreditkarte</div>

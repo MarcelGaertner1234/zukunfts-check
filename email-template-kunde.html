@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>E-Mail Templates für FutureCheck</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+        .template {
+            background: #f8f9fa;
+            border: 2px solid #e9ecef;
+            padding: 30px;
+            margin: 30px 0;
+            border-radius: 8px;
+        }
+        .email-content {
+            background: white;
+            padding: 30px;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .copy-btn {
+            background: #097fe8;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .copy-btn:hover {
+            background: #0056b3;
+        }
+        h1 {
+            color: #1a1a1a;
+        }
+        h2 {
+            color: #097fe8;
+            margin-top: 40px;
+        }
+        .note {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        code {
+            background: #e9ecef;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+    <h1>📧 E-Mail Templates für FutureCheck</h1>
+    
+    <div class="note">
+        <strong>⚠️ Wichtig:</strong> Diese Templates kannst du entweder:
+        <ul>
+            <li>Manuell per E-Mail versenden (Copy & Paste)</li>
+            <li>In Formspree als Auto-Response einrichten</li>
+            <li>Später automatisieren mit einem E-Mail-Service</li>
+        </ul>
+    </div>
+
+    <h2>Template 1: Bestellbestätigung (Sofort nach Bestellung)</h2>
+    <div class="template">
+        <div class="email-content">
+            <strong>Betreff:</strong> Ihre FutureCheck-Analyse wurde beauftragt ✅<br><br>
+            
+            Sehr geehrte/r <code>[NAME]</code>,<br><br>
+            
+            vielen Dank für Ihr Vertrauen in FutureCheck!<br><br>
+            
+            Wir haben Ihren Auftrag für die digitale Reifegradanalyse Ihres Unternehmens <strong><code>[FIRMENNAME]</code></strong> erhalten.<br><br>
+            
+            <strong>📊 Was passiert als Nächstes?</strong><br>
+            • Unser Expertenteam beginnt sofort mit der Analyse Ihrer Website: <code>[WEBSITE]</code><br>
+            • Wir untersuchen Ihre digitale Präsenz nach ISO 27001 Standards<br>
+            • Wir vergleichen Sie mit Best Practices Ihrer Branche (<code>[BRANCHE]</code>)<br>
+            • Wir identifizieren konkrete Optimierungspotentiale<br><br>
+            
+            <strong>⏰ Lieferung:</strong><br>
+            Sie erhalten Ihren persönlichen 30-seitigen Report innerhalb der nächsten <strong>24 Stunden</strong> per E-Mail.<br><br>
+            
+            <strong>Ihre Bestellnummer:</strong> <code>[ORDER-ID]</code><br><br>
+            
+            Bei Fragen stehe ich Ihnen gerne zur Verfügung:<br>
+            📧 gaertner-marcel@web.de<br>
+            📱 +41 76 801 53 30<br><br>
+            
+            Mit freundlichen Grüßen<br>
+            Marcel Gärtner<br>
+            FutureCheck Professional Services<br><br>
+            
+            <small style="color: #666;">
+            P.S.: Nach Erhalt Ihres Reports können wir gerne ein kostenloses 30-minütiges Beratungsgespräch vereinbaren, 
+            um die Ergebnisse zu besprechen und Ihre Fragen zu klären.
+            </small>
+        </div>
+        <button class="copy-btn" onclick="copyTemplate(this)">Template kopieren</button>
+    </div>
+
+    <h2>Template 2: Report-Lieferung (Nach 24 Stunden)</h2>
+    <div class="template">
+        <div class="email-content">
+            <strong>Betreff:</strong> Ihr FutureCheck Report ist fertig! 📊<br><br>
+            
+            Sehr geehrte/r <code>[NAME]</code>,<br><br>
+            
+            wie versprochen erhalten Sie hiermit Ihren persönlichen FutureCheck Report für <strong><code>[FIRMENNAME]</code></strong>.<br><br>
+            
+            <strong>📎 Im Anhang finden Sie:</strong><br>
+            • Ihren 30-seitigen Analysebericht (PDF)<br>
+            • Executive Summary (1 Seite)<br>
+            • Konkrete Handlungsempfehlungen<br><br>
+            
+            <strong>🎯 Ihre wichtigsten Ergebnisse:</strong><br>
+            • Digital Maturity Score: <code>[SCORE]</code>/100<br>
+            • Identifiziertes Einsparpotential: <code>[EINSPARPOTENTIAL]</code>€/Jahr<br>
+            • Top-Priorität: <code>[TOP-MASSNAHME]</code><br><br>
+            
+            <strong>📞 Kostenloses Beratungsgespräch:</strong><br>
+            Als Teil Ihres Pakets steht Ihnen ein 30-minütiges Beratungsgespräch zur Verfügung.<br>
+            Vereinbaren Sie hier einen Termin: <code>[CALENDLY-LINK oder "Antworten Sie einfach auf diese E-Mail"]</code><br><br>
+            
+            <strong>💡 Nächste Schritte:</strong><br>
+            1. Lesen Sie die Executive Summary (Seite 2-3)<br>
+            2. Fokussieren Sie sich auf die Top-3-Maßnahmen (Seite 15-20)<br>
+            3. Vereinbaren Sie Ihr Beratungsgespräch<br><br>
+            
+            Ich freue mich darauf, die Ergebnisse mit Ihnen zu besprechen!<br><br>
+            
+            Mit freundlichen Grüßen<br>
+            Marcel Gärtner<br>
+            FutureCheck Professional Services<br><br>
+            
+            <small style="color: #666;">
+            P.S.: 94% unserer Kunden können mindestens eine unserer Empfehlungen innerhalb von 7 Tagen umsetzen. 
+            Lassen Sie uns gemeinsam Ihre digitale Transformation starten!
+            </small>
+        </div>
+        <button class="copy-btn" onclick="copyTemplate(this)">Template kopieren</button>
+    </div>
+
+    <h2>🤖 Formspree Auto-Response einrichten</h2>
+    <div class="note">
+        <strong>So richtest du die automatische Bestätigung ein:</strong>
+        <ol>
+            <li>Gehe zu <a href="https://formspree.io" target="_blank">formspree.io</a> und logge dich ein</li>
+            <li>Klicke auf dein Formular (movlkqpp)</li>
+            <li>Gehe zu "Settings" → "Auto Response"</li>
+            <li>Aktiviere "Send auto response"</li>
+            <li>Kopiere Template 1 (oben) und füge es ein</li>
+            <li>Ersetze die Platzhalter mit Formspree-Variablen:
+                <ul>
+                    <li><code>[NAME]</code> → <code>{{name}}</code></li>
+                    <li><code>[FIRMENNAME]</code> → <code>{{company}}</code></li>
+                    <li><code>[WEBSITE]</code> → <code>{{website}}</code></li>
+                    <li><code>[BRANCHE]</code> → <code>{{industry}}</code></li>
+                </ul>
+            </li>
+            <li>Speichern!</li>
+        </ol>
+    </div>
+
+    <h2>📝 Manuelle E-Mail-Checkliste</h2>
+    <div class="template">
+        <strong>Nach jeder Bestellung:</strong>
+        <ol>
+            <li>✅ Formspree-E-Mail erhalten</li>
+            <li>✅ Kundendaten in Excel/Tabelle eintragen</li>
+            <li>✅ Bestätigungs-E-Mail senden (Template 1)</li>
+            <li>✅ Kalendereintrag für Report-Lieferung (+24h)</li>
+            <li>✅ Analyse durchführen</li>
+            <li>✅ Report erstellen (Canva/Word)</li>
+            <li>✅ Report-E-Mail senden (Template 2)</li>
+            <li>✅ Follow-up nach 3 Tagen</li>
+        </ol>
+    </div>
+
+    <script>
+        function copyTemplate(button) {
+            const content = button.previousElementSibling.innerText;
+            navigator.clipboard.writeText(content).then(() => {
+                const originalText = button.innerText;
+                button.innerText = '✅ Kopiert!';
+                button.style.background = '#28a745';
+                setTimeout(() => {
+                    button.innerText = originalText;
+                    button.style.background = '#097fe8';
+                }, 2000);
+            });
+        }
+    </script>
+</body>
+</html>
