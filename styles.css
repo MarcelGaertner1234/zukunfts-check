@@ -880,133 +880,191 @@ details[open] .faq-question::after {
 
 /* Mobile Responsive */
 @media (max-width: 768px) {
-    /* Hero Mobile */
+    /* Hero Mobile - Optimized */
     .hero {
-        padding: 60px 0;
+        padding: 60px 0 40px;
     }
     
     .hero-title {
-        font-size: 28px;
-        line-height: 1.3;
+        font-size: 24px;
+        line-height: 1.4;
+        margin-bottom: 15px;
     }
     
     .subtitle-hero {
-        font-size: 20px;
+        font-size: 18px;
         display: block;
-        margin-top: 10px;
+        margin-top: 8px;
+        line-height: 1.3;
     }
     
     .hero-subtitle {
-        font-size: 16px;
-        margin-bottom: 30px;
+        font-size: 15px;
+        margin-bottom: 25px;
+        line-height: 1.5;
     }
     
-    /* Form Mobile */
+    /* Form Mobile - Enhanced */
     .form-group {
         flex-direction: column;
-        gap: 15px;
+        gap: 20px;
+        margin-bottom: 25px;
     }
     
     .form-input {
         width: 100%;
-        padding: 16px;
+        padding: 18px 16px;
         font-size: 16px;
+        border-radius: 8px;
+        border: 2px solid #e9ecef;
+    }
+    
+    .form-input:focus {
+        border-color: #097fe8;
+        box-shadow: 0 0 0 3px rgba(9, 127, 232, 0.1);
     }
     
     .btn-primary {
         width: 100%;
-        padding: 18px;
-        font-size: 16px;
+        padding: 20px;
+        font-size: 17px;
+        font-weight: 600;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(9, 127, 232, 0.3);
     }
     
-    /* Trust Badges Mobile */
+    /* Trust Badges Mobile - Better Spacing */
     .trust-badges {
         flex-direction: column;
         align-items: center;
-        gap: 15px;
+        gap: 12px;
+        margin-top: 25px;
+        padding-top: 25px;
     }
     
-    /* Stats Grid Mobile */
+    .trust-badges span {
+        font-size: 14px;
+        padding: 8px 12px;
+        background: rgba(9, 127, 232, 0.05);
+        border-radius: 6px;
+        border: 1px solid rgba(9, 127, 232, 0.1);
+    }
+    
+    /* Stats Grid Mobile - More Prominent */
     .stats-grid {
         grid-template-columns: 1fr;
-        gap: 20px;
-        margin: 30px 0;
+        gap: 25px;
+        margin: 35px 0;
     }
     
     .stat-item {
-        padding: 25px 20px;
+        padding: 30px 20px;
+        text-align: center;
+        box-shadow: 0 3px 15px rgba(0,0,0,0.08);
     }
     
     .stat-number {
-        font-size: 36px;
+        font-size: 42px;
+        margin-bottom: 12px;
+        font-weight: 700;
     }
     
     .stat-text {
-        font-size: 14px;
+        font-size: 15px;
+        line-height: 1.4;
+        color: #444;
     }
     
     .reality-check {
-        padding: 25px 20px;
-        margin-top: 25px;
+        padding: 30px 25px;
+        margin-top: 35px;
+        box-shadow: 0 3px 15px rgba(0,0,0,0.08);
     }
     
     .reality-check h3 {
         font-size: 20px;
+        margin-bottom: 15px;
     }
     
-    /* Analysis Grid Mobile */
+    .reality-check p {
+        font-size: 15px;
+        line-height: 1.6;
+    }
+    
+    /* Analysis Grid Mobile - Better Layout */
     .analysis-grid {
         grid-template-columns: 1fr;
-        gap: 20px;
-        margin-top: 30px;
+        gap: 25px;
+        margin-top: 35px;
     }
     
     .analysis-item {
-        padding: 20px;
+        padding: 25px 20px;
+        box-shadow: 0 2px 12px rgba(0,0,0,0.06);
     }
     
     .analysis-icon {
-        font-size: 28px;
+        font-size: 32px;
+        margin-bottom: 12px;
     }
     
     .analysis-item h3 {
-        font-size: 16px;
+        font-size: 17px;
+        margin-bottom: 12px;
     }
     
-    /* Product Showcase Mobile */
+    .analysis-item p {
+        font-size: 14px;
+        line-height: 1.5;
+    }
+    
+    /* Product Showcase Mobile - Improved Layout */
     .product-showcase {
         grid-template-columns: 1fr;
-        gap: 30px;
+        gap: 35px;
         text-align: center;
     }
     
     .report-mockup {
-        width: 200px;
-        height: 280px;
+        width: 180px;
+        height: 250px;
+        margin: 0 auto;
     }
     
     .report-title {
-        font-size: 20px;
+        font-size: 18px;
     }
     
     .report-pages {
-        font-size: 28px;
+        font-size: 24px;
     }
     
     .product-details {
-        gap: 20px;
+        gap: 25px;
+        text-align: left;
     }
     
     .product-item {
-        gap: 15px;
+        gap: 18px;
+        padding: 20px;
+        background: rgba(248, 249, 250, 0.7);
+        border-radius: 8px;
+        border-left: 3px solid #097fe8;
     }
     
     .product-icon {
-        font-size: 28px;
+        font-size: 32px;
+        flex-shrink: 0;
     }
     
     .product-text h3 {
-        font-size: 16px;
+        font-size: 17px;
+        margin-bottom: 8px;
+    }
+    
+    .product-text p {
+        font-size: 14px;
+        line-height: 1.5;
     }
     
     /* Trust Section Mobile */
@@ -1019,31 +1077,51 @@ details[open] .faq-question::after {
         font-size: 11px;
     }
     
-    /* General Mobile */
+    /* General Mobile - Enhanced */
     .problem-grid,
     .solution-grid,
     .benefits-grid {
         grid-template-columns: 1fr;
+        gap: 25px;
+    }
+    
+    .problem-item,
+    .solution-item {
+        padding: 25px 20px;
+        box-shadow: 0 2px 12px rgba(0,0,0,0.06);
     }
     
     .steps {
         flex-direction: column;
+        gap: 25px;
+    }
+    
+    .step {
+        padding: 25px 20px;
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+        border-left: 3px solid #097fe8;
     }
     
     .step-arrow {
         transform: rotate(90deg);
+        color: #097fe8;
+        font-size: 24px;
+        margin: 15px 0;
     }
     
     .section-title {
-        font-size: 24px;
-        margin-bottom: 40px;
+        font-size: 22px;
+        margin-bottom: 35px;
+        line-height: 1.3;
     }
     
     .amount {
-        font-size: 48px;
+        font-size: 44px;
     }
     
-    /* Padding Adjustments */
+    /* Padding Adjustments - Better Spacing */
     .why-need,
     .what-analyzed,
     .what-is-it,
@@ -1054,11 +1132,25 @@ details[open] .faq-question::after {
     .faq,
     .trust,
     .final-cta {
-        padding: 50px 0;
+        padding: 60px 0;
     }
     
     .container {
-        padding: 0 20px;
+        padding: 0 25px;
+        max-width: 100%;
+    }
+    
+    /* Better section separation */
+    .why-need {
+        margin-top: 20px;
+    }
+    
+    .what-analyzed {
+        background: white;
+    }
+    
+    .what-is-it {
+        background: #f8f9fa;
     }
     
     /* Checkout Mobile */
