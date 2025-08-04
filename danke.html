@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FutureCheck - Vielen Dank!</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .thank-you-container {
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+        }
+        
+        .thank-you-card {
+            max-width: 600px;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            padding: 60px 40px;
+            text-align: center;
+        }
+        
+        .success-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #4ade80, #22c55e);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 30px;
+            animation: scaleIn 0.5s ease-out;
+        }
+        
+        @keyframes scaleIn {
+            0% {
+                transform: scale(0);
+                opacity: 0;
+            }
+            50% {
+                transform: scale(1.1);
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+        
+        .checkmark {
+            color: white;
+            font-size: 40px;
+        }
+        
+        .thank-you-title {
+            font-size: 32px;
+            color: #1a1a1a;
+            margin-bottom: 20px;
+        }
+        
+        .thank-you-subtitle {
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 40px;
+            line-height: 1.6;
+        }
+        
+        .order-details {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 40px;
+            text-align: left;
+        }
+        
+        .order-detail-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        
+        .order-detail-row:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        .order-detail-label {
+            color: #666;
+            font-size: 14px;
+        }
+        
+        .order-detail-value {
+            color: #1a1a1a;
+            font-weight: 500;
+            font-size: 14px;
+        }
+        
+        .timeline {
+            margin: 40px 0;
+        }
+        
+        .timeline-title {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 30px;
+            color: #1a1a1a;
+        }
+        
+        .timeline-steps {
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        .timeline-step {
+            flex: 1;
+            text-align: center;
+            position: relative;
+        }
+        
+        .timeline-step::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            right: -50%;
+            height: 2px;
+            background: #e9ecef;
+            z-index: 0;
+        }
+        
+        .timeline-step:last-child::before {
+            display: none;
+        }
+        
+        .timeline-step.active::before {
+            background: #097fe8;
+        }
+        
+        .timeline-icon {
+            width: 40px;
+            height: 40px;
+            background: #e9ecef;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 10px;
+            position: relative;
+            z-index: 1;
+            font-size: 18px;
+        }
+        
+        .timeline-step.active .timeline-icon {
+            background: #097fe8;
+            color: white;
+        }
+        
+        .timeline-step.completed .timeline-icon {
+            background: #4ade80;
+            color: white;
+        }
+        
+        .timeline-label {
+            font-size: 12px;
+            color: #666;
+        }
+        
+        .timeline-time {
+            font-size: 10px;
+            color: #999;
+            margin-top: 5px;
+        }
+        
+        .action-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 40px;
+        }
+        
+        .btn-secondary {
+            padding: 12px 24px;
+            font-size: 16px;
+            border: 2px solid #097fe8;
+            color: #097fe8;
+            background: white;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .btn-secondary:hover {
+            background: #097fe8;
+            color: white;
+        }
+        
+        .contact-info {
+            margin-top: 40px;
+            padding-top: 40px;
+            border-top: 1px solid #e9ecef;
+            font-size: 14px;
+            color: #666;
+        }
+        
+        .contact-info a {
+            color: #097fe8;
+            text-decoration: none;
+        }
+        
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <span class="logo-text">FutureCheck</span>
+                <span class="logo-badge">MVP</span>
+            </div>
+        </div>
+    </header>
+
+    <div class="thank-you-container">
+        <div class="thank-you-card">
+            <div class="success-icon">
+                <span class="checkmark">✓</span>
+            </div>
+            
+            <h1 class="thank-you-title">Vielen Dank für Ihre Bestellung!</h1>
+            <p class="thank-you-subtitle">
+                Wir haben Ihre Bestellung erhalten und beginnen sofort mit der Analyse Ihrer Website.
+            </p>
+
+            <div class="order-details">
+                <div class="order-detail-row">
+                    <span class="order-detail-label">Bestellnummer:</span>
+                    <span class="order-detail-value">#FC-2024-001</span>
+                </div>
+                <div class="order-detail-row">
+                    <span class="order-detail-label">Website:</span>
+                    <span class="order-detail-value" id="confirmedWebsite">-</span>
+                </div>
+                <div class="order-detail-row">
+                    <span class="order-detail-label">E-Mail:</span>
+                    <span class="order-detail-value" id="confirmedEmail">-</span>
+                </div>
+                <div class="order-detail-row">
+                    <span class="order-detail-label">Betrag:</span>
+                    <span class="order-detail-value">197€ (bezahlt)</span>
+                </div>
+            </div>
+
+            <div class="timeline">
+                <h3 class="timeline-title">Was passiert als Nächstes?</h3>
+                <div class="timeline-steps">
+                    <div class="timeline-step completed">
+                        <div class="timeline-icon">✓</div>
+                        <div class="timeline-label">Bestellung</div>
+                        <div class="timeline-time">Erledigt</div>
+                    </div>
+                    <div class="timeline-step active">
+                        <div class="timeline-icon">🔍</div>
+                        <div class="timeline-label">Analyse</div>
+                        <div class="timeline-time">0-24h</div>
+                    </div>
+                    <div class="timeline-step">
+                        <div class="timeline-icon">📧</div>
+                        <div class="timeline-label">Report</div>
+                        <div class="timeline-time">24h</div>
+                    </div>
+                    <div class="timeline-step">
+                        <div class="timeline-icon">📞</div>
+                        <div class="timeline-label">Beratung</div>
+                        <div class="timeline-time">Nach Termin</div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="background: #fef3c7; border-left: 4px solid #f59e0b; padding: 20px; border-radius: 8px; text-align: left; margin: 30px 0;">
+                <strong style="color: #92400e;">📬 Wichtig:</strong>
+                <p style="margin-top: 10px; color: #92400e; font-size: 14px;">
+                    Sie erhalten in wenigen Minuten eine Bestätigungs-E-Mail mit allen Details Ihrer Bestellung. 
+                    Bitte prüfen Sie auch Ihren Spam-Ordner.
+                </p>
+            </div>
+
+            <div class="action-buttons">
+                <a href="index.html" class="btn-secondary">Zur Startseite</a>
+                <a href="#" onclick="window.print(); return false;" class="btn-secondary">Seite drucken</a>
+            </div>
+
+            <div class="contact-info">
+                <p>
+                    <strong>Haben Sie Fragen?</strong><br>
+                    Kontaktieren Sie uns gerne unter <a href="mailto:support@futurecheck.pro">support@futurecheck.pro</a><br>
+                    oder telefonisch unter +49 (0) 123 456789
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Get order data from localStorage
+        const orderData = localStorage.getItem('futurecheck_order');
+        if (orderData) {
+            const order = JSON.parse(orderData);
+            document.getElementById('confirmedWebsite').textContent = order.website || '-';
+            document.getElementById('confirmedEmail').textContent = order.email || '-';
+            
+            // Show demo notification
+            setTimeout(() => {
+                const notification = document.createElement('div');
+                notification.style.cssText = `
+                    position: fixed;
+                    bottom: 20px;
+                    right: 20px;
+                    background: #097fe8;
+                    color: white;
+                    padding: 20px;
+                    border-radius: 8px;
+                    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+                    max-width: 300px;
+                    animation: slideIn 0.5s ease-out;
+                `;
+                notification.innerHTML = `
+                    <strong>🎉 Demo-Modus</strong><br>
+                    <small style="opacity: 0.9;">In der echten Version würden Sie jetzt eine E-Mail erhalten und wir würden mit der Analyse beginnen!</small>
+                `;
+                document.body.appendChild(notification);
+                
+                setTimeout(() => {
+                    notification.style.animation = 'slideOut 0.5s ease-out';
+                    setTimeout(() => notification.remove(), 500);
+                }, 5000);
+            }, 2000);
+        } else {
+            // No order data, redirect to homepage
+            window.location.href = 'index.html';
+        }
+
+        // Add animation styles
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideIn {
+                from {
+                    transform: translateX(100%);
+                    opacity: 0;
+                }
+                to {
+                    transform: translateX(0);
+                    opacity: 1;
+                }
+            }
+            @keyframes slideOut {
+                from {
+                    transform: translateX(0);
+                    opacity: 1;
+                }
+                to {
+                    transform: translateX(100%);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>

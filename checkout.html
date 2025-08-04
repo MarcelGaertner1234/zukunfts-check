@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FutureCheck - Checkout</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .checkout-container {
+            max-width: 600px;
+            margin: 60px auto;
+            padding: 40px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+        
+        .checkout-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .checkout-title {
+            font-size: 28px;
+            color: #1a1a1a;
+            margin-bottom: 10px;
+        }
+        
+        .website-display {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            border-left: 4px solid #097fe8;
+        }
+        
+        .website-label {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 5px;
+        }
+        
+        .website-url {
+            font-size: 18px;
+            font-weight: 500;
+            color: #1a1a1a;
+        }
+        
+        .order-summary {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+        
+        .order-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #1a1a1a;
+        }
+        
+        .order-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        
+        .order-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            font-weight: bold;
+            font-size: 18px;
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 2px solid #097fe8;
+        }
+        
+        .checkout-form {
+            margin-bottom: 30px;
+        }
+        
+        .form-row {
+            margin-bottom: 20px;
+        }
+        
+        .form-label {
+            display: block;
+            font-size: 14px;
+            font-weight: 500;
+            color: #333;
+            margin-bottom: 8px;
+        }
+        
+        .form-input-checkout {
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            transition: all 0.3s;
+        }
+        
+        .form-input-checkout:focus {
+            outline: none;
+            border-color: #097fe8;
+            box-shadow: 0 0 0 3px rgba(9, 127, 232, 0.1);
+        }
+        
+        .btn-checkout {
+            width: 100%;
+            padding: 18px;
+            font-size: 18px;
+            font-weight: bold;
+            color: white;
+            background: linear-gradient(135deg, #097fe8, #0056b3);
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .btn-checkout:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(9, 127, 232, 0.3);
+        }
+        
+        .secure-badge {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #097fe8;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        
+        .payment-methods {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 20px 0;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+        
+        .payment-method {
+            padding: 8px 15px;
+            border: 2px solid #ddd;
+            border-radius: 6px;
+            font-size: 14px;
+            background: white;
+            color: #666;
+        }
+        
+        .loading-spinner {
+            display: none;
+            width: 20px;
+            height: 20px;
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #097fe8;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .btn-checkout.loading {
+            position: relative;
+            color: transparent;
+        }
+        
+        .btn-checkout.loading .loading-spinner {
+            display: block;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <span class="logo-text">FutureCheck</span>
+                <span class="logo-badge">MVP</span>
+            </div>
+        </div>
+    </header>
+
+    <div class="checkout-container">
+        <a href="index.html" class="back-link">← Zurück zur Startseite</a>
+        
+        <div class="checkout-header">
+            <h1 class="checkout-title">Fast geschafft!</h1>
+            <p>Vervollständigen Sie Ihre Bestellung</p>
+        </div>
+
+        <div class="website-display">
+            <div class="website-label">Zu analysierende Website:</div>
+            <div class="website-url" id="websiteDisplay">-</div>
+        </div>
+
+        <div class="order-summary">
+            <h3 class="order-title">Bestellübersicht</h3>
+            <div class="order-item">
+                <span>Digital-Analyse (24h)</span>
+                <span>197€</span>
+            </div>
+            <div class="order-item">
+                <span>30-seitiger PDF Report</span>
+                <span>Inklusive</span>
+            </div>
+            <div class="order-item">
+                <span>30 Min Beratungsgespräch</span>
+                <span>Inklusive</span>
+            </div>
+            <div class="order-item">
+                <span><strong>Gesamt</strong></span>
+                <span><strong>197€</strong></span>
+            </div>
+        </div>
+
+        <form class="checkout-form" id="checkoutForm" action="https://formspree.io/f/movlkqpp" method="POST">
+            <!-- Hidden field for website URL -->
+            <input type="hidden" id="website" name="website" value="">
+            
+            <!-- Honeypot field for spam protection -->
+            <input type="text" name="_gotcha" style="display:none">
+            
+            <!-- Subject line for email -->
+            <input type="hidden" name="_subject" value="Neue FutureCheck Bestellung!">
+            
+            <div class="form-row">
+                <label class="form-label" for="company">Firmenname *</label>
+                <input type="text" id="company" name="company" required class="form-input-checkout" placeholder="Mustermann GmbH">
+            </div>
+            
+            <div class="form-row">
+                <label class="form-label" for="name">Ihr Name *</label>
+                <input type="text" id="name" name="name" required class="form-input-checkout" placeholder="Max Mustermann">
+            </div>
+            
+            <div class="form-row">
+                <label class="form-label" for="email">E-Mail-Adresse *</label>
+                <input type="email" id="email" name="email" required class="form-input-checkout" placeholder="max@mustermann.de">
+            </div>
+            
+            <div class="form-row">
+                <label class="form-label" for="phone">Telefonnummer (für Rückfragen)</label>
+                <input type="tel" id="phone" name="phone" class="form-input-checkout" placeholder="+49 123 456789">
+            </div>
+
+            <div class="payment-methods">
+                <div class="payment-method">💳 Kreditkarte</div>
+                <div class="payment-method">🏦 SEPA</div>
+                <div class="payment-method">📱 PayPal</div>
+            </div>
+
+            <button type="submit" class="btn-checkout">
+                <span class="btn-text">Jetzt kostenpflichtig bestellen</span>
+                <div class="loading-spinner"></div>
+            </button>
+        </form>
+
+        <div class="secure-badge">
+            <span>🔒</span>
+            <span>Sichere Zahlung über Stripe • SSL-verschlüsselt</span>
+        </div>
+
+        <div style="margin-top: 30px; padding-top: 30px; border-top: 1px solid #eee; text-align: center; color: #666; font-size: 14px;">
+            <p><strong>100% Geld-zurück-Garantie</strong></p>
+            <p>Wenn Sie nicht zufrieden sind, erstatten wir Ihnen den vollen Betrag.</p>
+        </div>
+    </div>
+
+    <!-- Load configuration -->
+    <script src="config.js"></script>
+    
+    <script>
+        // Display the website URL from localStorage
+        const website = localStorage.getItem('futurecheck_website');
+        if (website) {
+            document.getElementById('websiteDisplay').textContent = website;
+            // Set website in hidden field for Formspree
+            document.getElementById('website').value = website;
+        } else {
+            // If no website, redirect back to homepage
+            window.location.href = 'index.html';
+        }
+
+        // Generate order ID
+        function generateOrderId() {
+            const date = new Date();
+            const year = date.getFullYear();
+            const random = Math.floor(Math.random() * 1000).toString().padStart(3, '0');
+            return `FC-${year}-${random}`;
+        }
+
+        // Handle form submission
+        document.getElementById('checkoutForm').addEventListener('submit', async function(e) {
+            // Check if using Formspree (form has action attribute)
+            const formAction = e.target.getAttribute('action');
+            const isFormspree = formAction && formAction.includes('formspree.io');
+            
+            if (config.features.stripeEnabled && config.stripe.paymentLink) {
+                // When Stripe is enabled, go directly to Stripe first
+                e.preventDefault();
+                
+                const button = e.target.querySelector('.btn-checkout');
+                button.classList.add('loading');
+                
+                const formData = {
+                    website: website,
+                    company: document.getElementById('company').value,
+                    name: document.getElementById('name').value,
+                    email: document.getElementById('email').value,
+                    phone: document.getElementById('phone').value,
+                    orderId: generateOrderId(),
+                    timestamp: new Date().toISOString()
+                };
+                
+                localStorage.setItem('futurecheck_order', JSON.stringify(formData));
+                
+                // Send to Formspree in background (don't wait for response)
+                if (isFormspree && !config.features.demoMode) {
+                    fetch(formAction, {
+                        method: 'POST',
+                        headers: {
+                            'Accept': 'application/json',
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            ...formData,
+                            order_id: formData.orderId,
+                            _subject: 'Neue FutureCheck Bestellung!'
+                        })
+                    }).then(() => {
+                        console.log('Formspree email sent successfully');
+                    }).catch(err => {
+                        console.error('Formspree error (non-blocking):', err);
+                    });
+                }
+                
+                // Direct redirect to Stripe (no delay)
+                const stripeUrl = `${config.stripe.paymentLink}?client_reference_id=${formData.orderId}&prefilled_email=${encodeURIComponent(formData.email)}`;
+                console.log('Redirecting to Stripe NOW:', stripeUrl);
+                
+                // Small delay just for button animation
+                setTimeout(() => {
+                    window.location.href = stripeUrl;
+                }, 300);
+                
+                return false;
+            }
+            
+            if (isFormspree && !config.features.demoMode) {
+                // Formspree only (no Stripe)
+                const formData = {
+                    website: website,
+                    company: document.getElementById('company').value,
+                    name: document.getElementById('name').value,
+                    email: document.getElementById('email').value,
+                    phone: document.getElementById('phone').value,
+                    orderId: generateOrderId(),
+                    timestamp: new Date().toISOString()
+                };
+                
+                localStorage.setItem('futurecheck_order', JSON.stringify(formData));
+                
+                // Add order ID to form
+                const orderInput = document.createElement('input');
+                orderInput.type = 'hidden';
+                orderInput.name = 'order_id';
+                orderInput.value = formData.orderId;
+                e.target.appendChild(orderInput);
+                
+                // Let the form submit naturally to Formspree
+                return true;
+            }
+            
+            // Demo mode or Stripe mode
+            e.preventDefault();
+            
+            const button = e.target.querySelector('.btn-checkout');
+            button.classList.add('loading');
+            
+            // Collect form data
+            const formData = {
+                website: website,
+                company: document.getElementById('company').value,
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                orderId: generateOrderId(),
+                timestamp: new Date().toISOString()
+            };
+            
+            // Store order data
+            localStorage.setItem('futurecheck_order', JSON.stringify(formData));
+            
+            // Check if Stripe is enabled
+            if (config.features.stripeEnabled && config.stripe.paymentLink) {
+                // Redirect to Stripe Payment Link
+                const stripeUrl = `${config.stripe.paymentLink}?client_reference_id=${formData.orderId}&prefilled_email=${encodeURIComponent(formData.email)}`;
+                window.location.href = stripeUrl;
+            } else {
+                // Demo mode - simulate payment
+                setTimeout(() => {
+                    if (config.features.demoMode) {
+                        alert(`DEMO MODE: Bestellung erhalten!\n\nBestellnummer: ${formData.orderId}\n\nWir analysieren jetzt: ${website}\n\nSie erhalten innerhalb von 24 Stunden Ihren Report an: ${formData.email}\n\n(Aktivieren Sie Formspree oder Stripe für echte Bestellungen)`);
+                    }
+                    
+                    // Redirect to thank you page
+                    window.location.href = 'danke.html';
+                }, 2000);
+            }
+        });
+    </script>
+</body>
+</html>
