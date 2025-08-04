@@ -10,9 +10,9 @@ const config = {
     
     // Stripe Configuration
     stripe: {
-        // Use Stripe Payment Links (no backend needed!)
-        paymentLink: 'https://buy.stripe.com/test_5kQeV60d8f5r4Rg77H7bW01', // Early Bird 197€
-        paymentLinkRegular: 'https://buy.stripe.com/test_dRm00c7FA9L7abA8bL7bW02', // Regular Price 497€
+        // LIVE Stripe Payment Links - ECHTE ZAHLUNGEN!
+        paymentLink: 'https://buy.stripe.com/cNi9AT0o20oC9KIeUQ8Ra00', // Early Bird 197€ LIVE
+        paymentLinkRegular: 'https://buy.stripe.com/14AfZh3Ae1sGbSQfYU8Ra01', // Regular Price 497€ LIVE
         currentPrice: 'earlyBird', // Switch to 'regular' after 20 customers
         successUrl: '/danke.html',
         cancelUrl: '/checkout.html'
