@@ -853,31 +853,146 @@ details[open] .faq-question::after {
 
 /* Mobile Responsive */
 @media (max-width: 768px) {
+    /* Hero Mobile */
+    .hero {
+        padding: 60px 0;
+    }
+    
     .hero-title {
-        font-size: 32px;
+        font-size: 28px;
+        line-height: 1.3;
+    }
+    
+    .subtitle-hero {
+        font-size: 20px;
+        display: block;
+        margin-top: 10px;
     }
     
     .hero-subtitle {
         font-size: 16px;
+        margin-bottom: 30px;
     }
     
+    /* Form Mobile */
     .form-group {
         flex-direction: column;
+        gap: 15px;
     }
     
     .form-input {
         width: 100%;
+        padding: 16px;
+        font-size: 16px;
     }
     
     .btn-primary {
         width: 100%;
+        padding: 18px;
+        font-size: 16px;
     }
     
+    /* Trust Badges Mobile */
     .trust-badges {
         flex-direction: column;
         align-items: center;
+        gap: 15px;
     }
     
+    /* Stats Grid Mobile */
+    .stats-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        margin: 30px 0;
+    }
+    
+    .stat-item {
+        padding: 25px 20px;
+    }
+    
+    .stat-number {
+        font-size: 36px;
+    }
+    
+    .stat-text {
+        font-size: 14px;
+    }
+    
+    .reality-check {
+        padding: 25px 20px;
+        margin-top: 25px;
+    }
+    
+    .reality-check h3 {
+        font-size: 20px;
+    }
+    
+    /* Analysis Grid Mobile */
+    .analysis-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        margin-top: 30px;
+    }
+    
+    .analysis-item {
+        padding: 20px;
+    }
+    
+    .analysis-icon {
+        font-size: 28px;
+    }
+    
+    .analysis-item h3 {
+        font-size: 16px;
+    }
+    
+    /* Product Showcase Mobile */
+    .product-showcase {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        text-align: center;
+    }
+    
+    .report-mockup {
+        width: 200px;
+        height: 280px;
+    }
+    
+    .report-title {
+        font-size: 20px;
+    }
+    
+    .report-pages {
+        font-size: 28px;
+    }
+    
+    .product-details {
+        gap: 20px;
+    }
+    
+    .product-item {
+        gap: 15px;
+    }
+    
+    .product-icon {
+        font-size: 28px;
+    }
+    
+    .product-text h3 {
+        font-size: 16px;
+    }
+    
+    /* Trust Section Mobile */
+    .trust-logos {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+    }
+    
+    .trust-item span {
+        font-size: 11px;
+    }
+    
+    /* General Mobile */
     .problem-grid,
     .solution-grid,
     .benefits-grid {
@@ -893,10 +1008,69 @@ details[open] .faq-question::after {
     }
     
     .section-title {
-        font-size: 28px;
+        font-size: 24px;
+        margin-bottom: 40px;
     }
     
     .amount {
         font-size: 48px;
+    }
+    
+    /* Padding Adjustments */
+    .why-need,
+    .what-analyzed,
+    .what-is-it,
+    .solution,
+    .deliverables,
+    .pricing,
+    .how-it-works,
+    .faq,
+    .trust,
+    .final-cta {
+        padding: 50px 0;
+    }
+    
+    .container {
+        padding: 0 20px;
+    }
+    
+    /* Checkout Mobile */
+    .checkout-container {
+        margin: 40px 20px;
+        padding: 25px;
+    }
+    
+    .checkout-title {
+        font-size: 24px;
+    }
+    
+    .website-display,
+    .order-summary {
+        padding: 15px;
+        margin-bottom: 20px;
+    }
+    
+    .form-input-checkout,
+    select.form-input-checkout {
+        padding: 16px;
+        font-size: 16px;
+        border-radius: 8px;
+    }
+    
+    .btn-checkout {
+        padding: 18px;
+        font-size: 16px;
+        border-radius: 8px;
+        min-height: 44px;
+    }
+    
+    .payment-methods {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .payment-method {
+        padding: 12px 20px;
+        font-size: 16px;
     }
 }
