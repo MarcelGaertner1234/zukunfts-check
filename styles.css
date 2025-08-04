@@ -883,20 +883,35 @@ details[open] .faq-question::after {
 /* Extra Small Devices Fix */
 @media (max-width: 375px) {
     .report-mockup {
-        width: 140px;
-        height: 200px;
+        width: 180px;
+        height: 250px;
     }
     
     .report-cover {
-        padding: 20px 15px;
+        padding: 18px 12px;
+    }
+    
+    .report-header {
+        font-size: 7px;
     }
     
     .report-title {
-        font-size: 14px;
+        font-size: 13px;
+        margin: 8px 0 4px;
+    }
+    
+    .report-subtitle {
+        font-size: 10px;
     }
     
     .report-pages {
-        font-size: 20px;
+        font-size: 18px;
+        margin: 8px 0;
+    }
+    
+    .report-badge {
+        font-size: 7px;
+        padding: 4px 8px;
     }
     
     .product-icon {
@@ -1058,38 +1073,40 @@ details[open] .faq-question::after {
     }
     
     .report-mockup {
-        width: 160px;
-        height: 220px;
+        width: 200px;
+        height: 280px;
         margin: 0 auto 20px;
         transform: none !important;
     }
     
     .report-cover {
-        padding: 25px 20px;
+        padding: 20px 15px;
         transform: none !important;
     }
     
     .report-header {
-        font-size: 9px;
+        font-size: 8px;
+        letter-spacing: 1px;
     }
     
     .report-title {
-        font-size: 16px;
-        margin: 15px 0 8px;
+        font-size: 14px;
+        margin: 10px 0 5px;
     }
     
     .report-subtitle {
-        font-size: 12px;
+        font-size: 11px;
+        margin-bottom: 10px;
     }
     
     .report-pages {
-        font-size: 22px;
-        margin: 15px 0;
+        font-size: 20px;
+        margin: 10px 0;
     }
     
     .report-badge {
-        font-size: 9px;
-        padding: 6px 12px;
+        font-size: 8px;
+        padding: 5px 10px;
     }
     
     .product-details {
