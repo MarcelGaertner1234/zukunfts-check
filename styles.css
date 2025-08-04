@@ -698,6 +698,7 @@ details[open] .faq-question::after {
 .what-is-it {
     padding: 80px 0;
     background: white;
+    overflow-x: hidden;
 }
 
 .product-showcase {
@@ -706,6 +707,7 @@ details[open] .faq-question::after {
     gap: 60px;
     align-items: center;
     margin: 50px 0;
+    max-width: 100%;
 }
 
 .report-mockup {
@@ -878,6 +880,34 @@ details[open] .faq-question::after {
     opacity: 1;
 }
 
+/* Extra Small Devices Fix */
+@media (max-width: 375px) {
+    .report-mockup {
+        width: 140px;
+        height: 200px;
+    }
+    
+    .report-cover {
+        padding: 20px 15px;
+    }
+    
+    .report-title {
+        font-size: 14px;
+    }
+    
+    .report-pages {
+        font-size: 20px;
+    }
+    
+    .product-icon {
+        font-size: 28px;
+    }
+    
+    .container {
+        padding: 0 15px;
+    }
+}
+
 /* Mobile Responsive */
 @media (max-width: 768px) {
     /* Hero Mobile - Optimized */
@@ -1023,20 +1053,43 @@ details[open] .faq-question::after {
         grid-template-columns: 1fr;
         gap: 35px;
         text-align: center;
+        overflow: hidden;
+        padding: 0 10px;
     }
     
     .report-mockup {
-        width: 180px;
-        height: 250px;
-        margin: 0 auto;
+        width: 160px;
+        height: 220px;
+        margin: 0 auto 20px;
+        transform: none !important;
+    }
+    
+    .report-cover {
+        padding: 25px 20px;
+        transform: none !important;
+    }
+    
+    .report-header {
+        font-size: 9px;
     }
     
     .report-title {
-        font-size: 18px;
+        font-size: 16px;
+        margin: 15px 0 8px;
+    }
+    
+    .report-subtitle {
+        font-size: 12px;
     }
     
     .report-pages {
-        font-size: 24px;
+        font-size: 22px;
+        margin: 15px 0;
+    }
+    
+    .report-badge {
+        font-size: 9px;
+        padding: 6px 12px;
     }
     
     .product-details {
@@ -1151,6 +1204,7 @@ details[open] .faq-question::after {
     
     .what-is-it {
         background: #f8f9fa;
+        overflow-x: hidden;
     }
     
     /* Checkout Mobile */
