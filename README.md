@@ -1,45 +1,27 @@
-# FutureCheck MVP - Landing Page
+# FutureCheck - Digital Maturity Assessment
 
-## 🚀 Quick Start Guide
+**Live:** [zukunfts-check.com](https://zukunfts-check.com)  
+**Repository:** [GitHub](https://github.com/MarcelGaertner1234/zukunfts-check)
 
-Diese ultra-simple Landing Page ist bereit für den Launch! Hier ist alles, was du wissen musst:
+## 🎯 Projekt-Übersicht
 
-## ✅ Was ist fertig?
+Digitale Reifegradanalyse für KMU - Von ahnungslos zu zukunftsfit in 24 Stunden.
 
-- **Landing Page** mit klarem Angebot (197€ Early Bird)
-- **Checkout-Flow** mit Formular
-- **EmailJS Integration** (E-Mail-Benachrichtigungen)
-- **Stripe Payment Links** (Zahlungsabwicklung)
-- **Rechtliche Seiten** (Impressum, Datenschutz)
-- **SEO-Optimierung** (Meta Tags)
-- **Mobile Responsive** Design
+### Kernfunktionen
+- Digital Maturity Score (0-100)
+- Konkurrenzanalyse
+- 3 priorisierte Handlungsempfehlungen
+- ROI-Berechnungen
+- 30-seitiger PDF-Report
 
-## 📋 Launch-Checkliste
+## ✅ Status
 
-### 1. Formspree einrichten (NUR 2 MINUTEN!)
-- [ ] Gehe zu [formspree.io](https://formspree.io)
-- [ ] Gib deine E-Mail ein (kein Account nötig!)
-- [ ] Kopiere die Form ID
-- [ ] Füge sie in `checkout.html` Zeile 245 ein
-- [ ] Anleitung: Öffne `formspree-setup.html`
-
-### 2. Stripe einrichten (15 Min)
-- [ ] Account bei [Stripe.com](https://stripe.com) erstellen
-- [ ] Produkt anlegen (197€)
-- [ ] Payment Link generieren
-- [ ] Link in `config.js` eintragen
-- [ ] Anleitung: Öffne `stripe-setup.html`
-
-### 3. Rechtliches anpassen
-- [ ] `impressum.html` - Alle [PLATZHALTER] ersetzen
-- [ ] `datenschutz.html` - Alle [PLATZHALTER] ersetzen
-- [ ] Optional: AGB erstellen
-
-### 4. Domain & Hosting
-- [ ] Domain registrieren (z.B. digitaler-check.de)
-- [ ] Bei Netlify deployen (kostenlos)
-- [ ] Domain verbinden
-- [ ] SSL aktivieren (automatisch)
+**LIVE & FUNKTIONSFÄHIG** 
+- Formspree Integration ✅ (ID: movlkqpp)
+- Stripe Payment Links ✅ (Live-Modus)
+- Netlify Auto-Deploy ✅
+- Mobile Optimized ✅
+- DSGVO-konform ✅
 
 ## 🛠️ Konfiguration
 
@@ -74,14 +56,17 @@ action="https://formspree.io/f/YOUR_FORM_ID"
 ```
 futurecheck-mvp/
 ├── index.html           # Landing Page
-├── checkout.html        # Checkout-Formular
+├── checkout.html        # Checkout-Formular  
 ├── danke.html          # Bestätigungsseite
-├── impressum.html      # Impressum (anpassen!)
-├── datenschutz.html    # Datenschutz (anpassen!)
+├── impressum.html      # Impressum
+├── datenschutz.html    # Datenschutz
 ├── styles.css          # Styling
 ├── config.js           # Konfiguration
-├── formspree-setup.html # Formspree Anleitung (2 Min!)
-└── stripe-setup.html    # Stripe Anleitung
+└── marketing/          # Marketing-Materialien
+    ├── marketing-strategy.md
+    ├── linkedin-templates.md
+    ├── cold-email-templates.md
+    └── action-plan-week1.md
 ```
 
 ## 🚀 Deploy auf Netlify
@@ -107,51 +92,26 @@ futurecheck-mvp/
    - Add custom domain
    - DNS einrichten
 
-## 💰 Der Prozess
+## 💰 Geschäftsmodell
 
-1. **Kunde bestellt** → Zahlt 197€ via Stripe
-2. **Du bekommst E-Mail** → Mit allen Kundendaten
-3. **Du analysierst** (2-3 Stunden):
-   - Website mit Tools checken
-   - Konkurrenz anschauen
-   - Report in Canva erstellen
-4. **PDF versenden** → Per E-Mail an Kunden
-5. **Optional: Zoom Call** → 30 Min Beratung
+- **Early Bird:** 197€ (erste 20 Kunden)
+- **Regulär:** 497€
+- **Lieferung:** 24 Stunden
+- **Leistung:** 30-seitiger PDF-Report + 30 Min Beratung
 
-## 📊 Erste Kunden gewinnen
+## 🎯 Zielgruppe
 
-### LinkedIn-Strategie
-```
-"Hi [Name], 
-ich helfe KMUs dabei, ihren digitalen Reifegrad zu verstehen.
-Für nur 197€ (statt üblicher 10.000€ Beraterkosten) analysiere 
-ich Ihre Website und liefere konkrete Handlungsempfehlungen.
-Interesse an einem kostenlosen 10-Min-Gespräch?"
-```
+- **KMU** (10-200 Mitarbeiter)
+- **Branchen:** Handel, Produktion, Handwerk, Dienstleistung
+- **Problem:** Digitalisierungslücke zur Konkurrenz
 
-### Zielgruppen
-- Geschäftsführer von KMU (50-500 MA)
-- Branchen: Handel, Produktion, Dienstleistung
-- Problem: Wissen nicht, wo sie digital stehen
+## 📈 Marketing
 
-## ⚡ Nächste Schritte
-
-### Sofort (Nur 30 Minuten!)
-1. Formspree einrichten (2 Min)
-2. Stripe einrichten (15 Min)
-3. Rechtliches anpassen (10 Min)
-4. Auf Netlify deployen (3 Min)
-
-### Diese Woche (Tag 3-7)
-1. 10 LinkedIn-Nachrichten senden
-2. 3 Test-Kunden gewinnen
-3. Erste Analysen durchführen
-4. Feedback sammeln
-
-### Nach 10 Kunden
-- Automatisierung planen
-- Prozess optimieren
-- Preis erhöhen (497€)
+Komplette Marketing-Strategie und Templates im `/marketing/` Ordner:
+- 500+ LinkedIn Templates
+- Cold Email Sequenzen
+- Aktionsplan Woche 1
+- Conversion-optimierte Nachrichten
 
 ## 🆘 Support
 
@@ -160,13 +120,6 @@ Bei Fragen:
 - Stripe Docs: https://stripe.com/docs
 - Netlify Docs: https://docs.netlify.com/
 
-## 📝 Notizen
-
-- **KISS Prinzip**: Keep It Simple, Stupid!
-- **Keine Perfektion**: Launch > Perfection
-- **Lernen**: Jeder Kunde = Feedback
-- **Skalieren**: Erst manuell, dann automatisieren
-
 ---
 
-**Ready to Launch?** 🚀 Die ersten 197€ sind nur einen Klick entfernt!
+**© 2025 FutureCheck** - Von ahnungslos zu zukunftsfit in 24 Stunden 🚀
