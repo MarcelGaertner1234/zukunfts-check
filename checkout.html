@@ -480,6 +480,12 @@
                     
                     // Redirect to thank you page
                     window.location.href = 'danke.html';
+                    // Re-enable after redirect (in case user hits back)
+                    setTimeout(() => {
+                        isSubmitting = false;
+                        button.disabled = false;
+                        button.classList.remove('loading');
+                    }, 2000);
                 }, 2000);
             }
         });

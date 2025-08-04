@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>⚠️ WICHTIG: Stripe Redirect URLs einstellen</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #d32f2f;
+            border-bottom: 3px solid #d32f2f;
+            padding-bottom: 10px;
+        }
+        .warning {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        .success {
+            background: #d4edda;
+            border-left: 4px solid #28a745;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        .step {
+            background: #f8f9fa;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            border-left: 4px solid #097fe8;
+        }
+        code {
+            background: #e9ecef;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: monospace;
+            color: #d32f2f;
+        }
+        .url-box {
+            background: #333;
+            color: #0f0;
+            padding: 15px;
+            border-radius: 4px;
+            font-family: monospace;
+            margin: 10px 0;
+            word-break: break-all;
+        }
+        ol li {
+            margin: 15px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>⚠️ WICHTIG: Stripe Payment Links konfigurieren</h1>
+        
+        <div class="warning">
+            <strong>Problem:</strong> Nach der Zahlung landen Kunden auf der Stripe Standard-Seite, nicht auf deiner Danke-Seite!
+        </div>
+
+        <h2>🔧 So stellst du die Redirect URLs ein:</h2>
+
+        <div class="step">
+            <h3>Schritt 1: Gehe zu deinen Payment Links</h3>
+            <ol>
+                <li>Login bei <a href="https://dashboard.stripe.com" target="_blank">Stripe Dashboard</a></li>
+                <li>Gehe zu <strong>"Produkte"</strong> → <strong>"Payment Links"</strong></li>
+                <li>Du siehst deine 2 Links:
+                    <ul>
+                        <li>FutureCheck Digital-Analyse - Early Bird (197€)</li>
+                        <li>FutureCheck Digital-Analyse - Standard (497€)</li>
+                    </ul>
+                </li>
+            </ol>
+        </div>
+
+        <div class="step">
+            <h3>Schritt 2: Early Bird Link (197€) bearbeiten</h3>
+            <ol>
+                <li>Klicke auf <strong>"FutureCheck Digital-Analyse - Early Bird"</strong></li>
+                <li>Klicke auf <strong>"Link bearbeiten"</strong> (oben rechts)</li>
+                <li>Scrolle zu <strong>"Nach der Zahlung"</strong></li>
+                <li>Aktiviere: <strong>"Weiterleitung nach erfolgreicher Zahlung"</strong></li>
+                <li>Füge diese URL ein:
+                    <div class="url-box">https://zukunfts-check.com/danke.html</div>
+                </li>
+                <li>Optional - Aktiviere auch: <strong>"Abbruch-URL"</strong>
+                    <div class="url-box">https://zukunfts-check.com/checkout.html</div>
+                </li>
+                <li>Klicke <strong>"Speichern"</strong></li>
+            </ol>
+        </div>
+
+        <div class="step">
+            <h3>Schritt 3: Standard Link (497€) bearbeiten</h3>
+            <ol>
+                <li>Wiederhole die gleichen Schritte für den Standard-Link</li>
+                <li>Gleiche URLs verwenden:
+                    <ul>
+                        <li><strong>Success:</strong> <code>https://zukunfts-check.com/danke.html</code></li>
+                        <li><strong>Cancel:</strong> <code>https://zukunfts-check.com/checkout.html</code></li>
+                    </ul>
+                </li>
+            </ol>
+        </div>
+
+        <div class="success">
+            <h3>✅ Was passiert dann?</h3>
+            <ul>
+                <li><strong>Nach erfolgreicher Zahlung:</strong> Kunde landet auf /danke.html</li>
+                <li><strong>Bei Abbruch:</strong> Kunde kommt zurück zu /checkout.html</li>
+                <li><strong>Bestelldaten:</strong> Sind im localStorage gespeichert und werden angezeigt</li>
+            </ul>
+        </div>
+
+        <h2>🎯 Zusätzliche Einstellungen (Optional)</h2>
+        
+        <div class="step">
+            <h3>Parameter die automatisch übergeben werden:</h3>
+            <p>Diese Parameter sendet unser JavaScript bereits mit:</p>
+            <ul>
+                <li><code>client_reference_id</code> = Order-ID (z.B. FC-2024-123)</li>
+                <li><code>prefilled_email</code> = Kunden-Email</li>
+            </ul>
+            <p>Stripe fügt automatisch hinzu:</p>
+            <ul>
+                <li><code>session_id</code> = Stripe Session ID</li>
+                <li><code>success=true</code> = Bei erfolgreicher Zahlung</li>
+            </ul>
+        </div>
+
+        <div class="warning">
+            <h3>⚠️ Wichtige Hinweise:</h3>
+            <ul>
+                <li>URLs müssen HTTPS verwenden (nicht HTTP)</li>
+                <li>Domain muss exakt übereinstimmen (zukunfts-check.com)</li>
+                <li>Änderungen wirken sofort auf ALLE neuen Zahlungen</li>
+                <li>Teste einmal mit Stripe Test-Karte: <code>4242 4242 4242 4242</code></li>
+            </ul>
+        </div>
+
+        <div style="margin-top: 40px; padding-top: 20px; border-top: 2px solid #e9ecef;">
+            <p><strong>Fertig?</strong> Teste den kompletten Flow einmal durch!</p>
+            <ol>
+                <li>Gehe zu zukunfts-check.com</li>
+                <li>Gib eine Test-Website ein</li>
+                <li>Fülle Checkout aus</li>
+                <li>Zahle mit Test-Karte</li>
+                <li>→ Du solltest auf /danke.html landen!</li>
+            </ol>
+        </div>
+    </div>
+</body>
+</html>

@@ -483,16 +483,48 @@
     </footer>
 
     <script>
-        // Simple form handler
+        // Form handler with validation
         document.getElementById('analysisForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            const website = document.getElementById('website').value;
+            const websiteInput = document.getElementById('website');
+            const website = websiteInput.value.trim();
             
-            // For now, just store in localStorage and redirect to checkout
+            // Basic validation
+            if (!website) {
+                websiteInput.style.borderColor = '#ef4444';
+                websiteInput.placeholder = 'Bitte geben Sie eine Website ein!';
+                websiteInput.focus();
+                return;
+            }
+            
+            // Add protocol if missing
+            let validatedUrl = website;
+            if (!website.startsWith('http://') && !website.startsWith('https://')) {
+                validatedUrl = 'https://' + website;
+            }
+            
+            // Basic URL format check
+            const urlPattern = /^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/;
+            if (!urlPattern.test(validatedUrl)) {
+                websiteInput.style.borderColor = '#ef4444';
+                websiteInput.value = '';
+                websiteInput.placeholder = 'Bitte geben Sie eine gültige Website ein (z.B. beispiel.de)';
+                websiteInput.focus();
+                return;
+            }
+            
+            // Store in localStorage and redirect
             localStorage.setItem('futurecheck_website', website);
             
+            // Disable button to prevent double submission
+            const button = e.target.querySelector('.btn-primary');
+            button.disabled = true;
+            button.textContent = 'Weiterleitung...';
+            
             // Redirect to checkout page
-            window.location.href = 'checkout.html';
+            setTimeout(() => {
+                window.location.href = 'checkout.html';
+            }, 300);
         });
 
         // Add smooth scroll behavior

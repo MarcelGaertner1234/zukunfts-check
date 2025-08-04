@@ -303,50 +303,94 @@
             <div class="contact-info">
                 <p>
                     <strong>Haben Sie Fragen?</strong><br>
-                    Kontaktieren Sie uns gerne unter <a href="mailto:support@futurecheck.pro">support@futurecheck.pro</a><br>
-                    oder telefonisch unter +49 (0) 123 456789
+                    Kontaktieren Sie uns gerne unter <a href="mailto:gaertner-marcel@web.de">gaertner-marcel@web.de</a><br>
+                    oder telefonisch unter +41 76 801 53 30
                 </p>
             </div>
         </div>
     </div>
 
     <script>
+        // Check if coming from Stripe (URL parameters)
+        const urlParams = new URLSearchParams(window.location.search);
+        const stripeSuccess = urlParams.get('success');
+        const sessionId = urlParams.get('session_id');
+        
         // Get order data from localStorage
         const orderData = localStorage.getItem('futurecheck_order');
-        if (orderData) {
+        
+        if (!orderData && !stripeSuccess) {
+            // No order data and not coming from Stripe - redirect to homepage
+            console.log('No order data found, redirecting to homepage');
+            window.location.href = 'index.html';
+        } else if (orderData) {
             const order = JSON.parse(orderData);
+            
+            // Display order details
             document.getElementById('confirmedWebsite').textContent = order.website || '-';
             document.getElementById('confirmedEmail').textContent = order.email || '-';
             
-            // Show demo notification
+            // Display more details if available
+            if (order.name) {
+                const nameRow = document.createElement('div');
+                nameRow.className = 'order-detail-row';
+                nameRow.innerHTML = `
+                    <span class="order-detail-label">Name:</span>
+                    <span class="order-detail-value">${order.name}</span>
+                `;
+                document.querySelector('.order-details').insertBefore(nameRow, document.querySelector('.order-details').children[1]);
+            }
+            
+            if (order.company) {
+                const companyRow = document.createElement('div');
+                companyRow.className = 'order-detail-row';
+                companyRow.innerHTML = `
+                    <span class="order-detail-label">Firma:</span>
+                    <span class="order-detail-value">${order.company}</span>
+                `;
+                document.querySelector('.order-details').insertBefore(companyRow, document.querySelector('.order-details').children[1]);
+            }
+            
+            // Clear localStorage after successful display (prevent reuse)
+            // But keep for 5 minutes in case of page refresh
             setTimeout(() => {
-                const notification = document.createElement('div');
-                notification.style.cssText = `
-                    position: fixed;
-                    bottom: 20px;
-                    right: 20px;
-                    background: #097fe8;
-                    color: white;
-                    padding: 20px;
-                    border-radius: 8px;
-                    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
-                    max-width: 300px;
-                    animation: slideIn 0.5s ease-out;
-                `;
-                notification.innerHTML = `
-                    <strong>🎉 Demo-Modus</strong><br>
-                    <small style="opacity: 0.9;">In der echten Version würden Sie jetzt eine E-Mail erhalten und wir würden mit der Analyse beginnen!</small>
-                `;
-                document.body.appendChild(notification);
-                
+                localStorage.removeItem('futurecheck_order');
+                console.log('Order data cleared from localStorage');
+            }, 300000); // 5 minutes
+            
+            // Show success notification if coming from Stripe
+            if (stripeSuccess === 'true') {
                 setTimeout(() => {
-                    notification.style.animation = 'slideOut 0.5s ease-out';
-                    setTimeout(() => notification.remove(), 500);
-                }, 5000);
-            }, 2000);
-        } else {
-            // No order data, redirect to homepage
-            window.location.href = 'index.html';
+                    const notification = document.createElement('div');
+                    notification.style.cssText = `
+                        position: fixed;
+                        bottom: 20px;
+                        right: 20px;
+                        background: #28a745;
+                        color: white;
+                        padding: 20px;
+                        border-radius: 8px;
+                        box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+                        max-width: 300px;
+                        animation: slideIn 0.5s ease-out;
+                    `;
+                    notification.innerHTML = `
+                        <strong>✅ Zahlung erfolgreich!</strong><br>
+                        <small style="opacity: 0.9;">Ihre Zahlung wurde erfolgreich verarbeitet. Sie erhalten in Kürze eine Bestätigung per E-Mail.</small>
+                    `;
+                    document.body.appendChild(notification);
+                    
+                    setTimeout(() => {
+                        notification.style.animation = 'slideOut 0.5s ease-out';
+                        setTimeout(() => notification.remove(), 500);
+                    }, 7000);
+                }, 1000);
+            }
+        } else if (stripeSuccess === 'true' && !orderData) {
+            // Coming from Stripe but no order data (edge case)
+            console.log('Stripe success but no order data');
+            document.getElementById('confirmedWebsite').textContent = 'Wird geladen...';
+            document.getElementById('confirmedEmail').textContent = 'Wird geladen...';
         }
 
         // Add animation styles
