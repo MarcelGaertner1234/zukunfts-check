@@ -562,6 +562,127 @@ details[open] .faq-question::after {
     opacity: 0.8;
 }
 
+/* What is it Section */
+.what-is-it {
+    padding: 80px 0;
+    background: white;
+}
+
+.product-showcase {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 60px;
+    align-items: center;
+    margin: 50px 0;
+}
+
+.report-mockup {
+    width: 280px;
+    height: 380px;
+    margin: 0 auto;
+    perspective: 1000px;
+}
+
+.report-cover {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #097fe8, #0056b3);
+    border-radius: 8px;
+    padding: 40px 30px;
+    box-shadow: 
+        0 20px 40px rgba(0,0,0,0.15),
+        0 0 0 1px rgba(255,255,255,0.1) inset;
+    transform: rotateY(-5deg);
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: white;
+}
+
+.report-mockup:hover .report-cover {
+    transform: rotateY(0deg);
+}
+
+.report-header {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    opacity: 0.9;
+}
+
+.report-title {
+    font-size: 28px;
+    font-weight: bold;
+    margin: 20px 0 10px;
+}
+
+.report-subtitle {
+    font-size: 16px;
+    opacity: 0.9;
+    margin-bottom: auto;
+}
+
+.report-pages {
+    font-size: 36px;
+    font-weight: bold;
+    text-align: center;
+    margin: 20px 0;
+}
+
+.report-badge {
+    background: white;
+    color: #097fe8;
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-size: 10px;
+    font-weight: bold;
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+.product-details {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.product-item {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+.product-icon {
+    font-size: 32px;
+    flex-shrink: 0;
+}
+
+.product-text h3 {
+    font-size: 18px;
+    margin-bottom: 8px;
+    color: #1a1a1a;
+}
+
+.product-text p {
+    color: #666;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.example-note {
+    text-align: center;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    margin-top: 40px;
+}
+
+.example-note p {
+    margin: 0;
+    color: #333;
+}
+
 /* Trust Section */
 .trust-section {
     padding: 60px 0;
