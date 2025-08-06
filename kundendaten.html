@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kundendaten - FutureCheck Pro</title>
-    <link rel="stylesheet" href="styles-multi.css">
+    <link rel="stylesheet" href="styles-new.css">
     <style>
         .form-container {
             max-width: 600px;
@@ -387,7 +387,7 @@
         }
         
         // Formular verarbeiten
-        document.getElementById('customerForm').addEventListener('submit', function(e) {
+        document.getElementById('customerForm').addEventListener('submit', async function(e) {
             e.preventDefault();
             
             const product = productData[productId];
