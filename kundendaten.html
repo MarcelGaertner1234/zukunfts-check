@@ -355,16 +355,36 @@
         
         // Produktinformationen anzeigen
         function loadProduct() {
-            const product = productData[productId];
+            let product = productData[productId];
             
             console.log('Loading product:', productId, product);
             
-            if (!product) {
-                // Fallback wenn kein Produkt gefunden wird
-                console.error('Product not found:', productId);
-                document.getElementById('productName').textContent = 'Produkt nicht gefunden';
-                document.getElementById('productPrice').textContent = 'Fehler';
-                document.getElementById('productDescription').textContent = `Produkt-ID "${productId}" nicht gefunden. Verfügbare IDs: ${Object.keys(productData).join(', ')}`;
+            // Fallback: Wenn kein Produkt gefunden wird oder keine URL-Parameter
+            if (!product || !productId) {
+                console.warn('Product not found, showing product selector');
+                
+                // Zeige Produktauswahl an
+                document.getElementById('productName').textContent = 'Produkt auswählen';
+                document.getElementById('productPrice').textContent = '';
+                document.getElementById('productDescription').innerHTML = `
+                    <div style="margin: 20px 0;">
+                        <p style="margin-bottom: 15px;">Bitte wählen Sie ein Produkt aus:</p>
+                        <select id="productSelector" onchange="selectProduct()" style="width: 100%; padding: 10px; border: 2px solid #9DC900; border-radius: 8px; font-size: 16px;">
+                            <option value="">-- Produkt wählen --</option>
+                            <option value="website-analyse">Website-Analyse (197€)</option>
+                            <option value="website-quick">Quick-Start Website (497€)</option>
+                            <option value="website-business">Business Website (997€)</option>
+                            <option value="website-professional">Professional Website (1.797€)</option>
+                            <option value="seo-starter">SEO Starter (297€/Monat)</option>
+                            <option value="seo-business">SEO Business (497€/Monat)</option>
+                            <option value="seo-ads">SEO + Ads Komplett (797€/Monat)</option>
+                            <option value="google-setup">Google Basis-Setup (297€)</option>
+                            <option value="seo-setup">SEO Komplett-Setup (497€)</option>
+                            <option value="bundle">Website + Analyse Bundle (1.097€)</option>
+                            <option value="mega-bundle">MEGA-BUNDLE (1.997€)</option>
+                        </select>
+                    </div>
+                `;
                 document.getElementById('submitBtn').disabled = true;
                 return;
             }
@@ -386,13 +406,61 @@
             }
         }
         
+        // Produktauswahl-Funktion für direkten URL-Aufruf  
+        function selectProduct() {
+            const selector = document.getElementById('productSelector');
+            const selectedProductId = selector.value;
+            
+            if (selectedProductId) {
+                console.log('Product selected:', selectedProductId);
+                
+                // URL mit neuem Produkt-Parameter aktualisieren (ohne Reload)
+                const newUrl = window.location.pathname + '?product=' + selectedProductId;
+                window.history.pushState({}, '', newUrl);
+                
+                // Globale Variable aktualisieren
+                window.productId = selectedProductId;
+                
+                // Produkt neu laden ohne Page Reload
+                const product = productData[selectedProductId];
+                if (product) {
+                    document.getElementById('productName').textContent = product.name;
+                    document.getElementById('productPrice').textContent = product.price;
+                    document.getElementById('productDescription').textContent = product.description;
+                    
+                    // Submit-Button aktivieren
+                    document.getElementById('submitBtn').disabled = false;
+                    
+                    // Zusätzliche Felder anzeigen
+                    if (product.type === 'website') {
+                        document.getElementById('websiteFields').style.display = 'block';
+                        document.getElementById('seoFields').style.display = 'none';
+                    } else if (product.type === 'seo') {
+                        document.getElementById('seoFields').style.display = 'block';
+                        document.getElementById('websiteFields').style.display = 'none';
+                        // Website-URL als Pflichtfeld für SEO-Produkte
+                        const websiteUrl = document.getElementById('websiteUrl');
+                        if (websiteUrl) {
+                            websiteUrl.required = true;
+                        }
+                    } else {
+                        document.getElementById('websiteFields').style.display = 'none';
+                        document.getElementById('seoFields').style.display = 'none';
+                    }
+                }
+            }
+        }
+        
         // Formular verarbeiten
         document.getElementById('customerForm').addEventListener('submit', async function(e) {
             e.preventDefault();
             
-            const product = productData[productId];
+            // Aktuelles Produkt holen (könnte über URL oder Dropdown gewählt sein)
+            const currentProductId = window.productId || productId;
+            const product = productData[currentProductId];
+            
             if (!product) {
-                alert('Fehler: Kein Produkt ausgewählt. Bitte gehen Sie zurück zur Übersicht.');
+                alert('Fehler: Kein Produkt ausgewählt. Bitte wählen Sie ein Produkt aus der Liste oder gehen Sie zurück zur Übersicht.');
                 return;
             }
             
