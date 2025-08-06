@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kundendaten - FutureCheck Pro</title>
     <link rel="stylesheet" href="styles-new.css">
+    <!-- Stripe.js für Error Handling -->
+    <script src="https://js.stripe.com/v3/"></script>
     <style>
         .form-container {
             max-width: 600px;
@@ -572,8 +574,8 @@
                 
                 // Verwende Vercel API Route oder lokalen Server
                 const apiUrl = window.location.hostname === 'localhost' 
-                    ? '/api/stripe/create-checkout-session'
-                    : '/api/create-checkout-session';
+                    ? 'http://localhost:3001/api/stripe/create-checkout-session'
+                    : 'https://zukunfts-check.com/api/create-checkout-session';
                 
                 const response = await fetch(apiUrl, {
                     method: 'POST',
