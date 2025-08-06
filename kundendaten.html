@@ -349,11 +349,15 @@
         const urlParams = new URLSearchParams(window.location.search);
         const productId = urlParams.get('product');
         
-        // Debug: In Konsole ausgeben
+        // Extended Debug: In Konsole ausgeben
+        console.log('=== PAGE LOAD DEBUG ===');
         console.log('Current URL:', window.location.href);
         console.log('URL Search:', window.location.search);
+        console.log('URLSearchParams:', Array.from(urlParams.entries()));
         console.log('Product ID from URL:', productId);
+        console.log('Product ID type:', typeof productId);
         console.log('Available products:', Object.keys(productData));
+        console.log('ProductData sample:', productData['website-analyse'] ? 'website-analyse exists' : 'website-analyse missing');
         
         // Produktinformationen anzeigen
         function loadProduct() {
@@ -491,8 +495,22 @@
             const currentProductId = window.productId || productId;
             const product = productData[currentProductId];
             
+            // Extended Debug Info
+            console.log('=== FORM SUBMISSION DEBUG ===');
+            console.log('URL productId:', productId);
+            console.log('Window productId:', window.productId);
+            console.log('Current productId used:', currentProductId);
+            console.log('Product found:', product);
+            console.log('Available products:', Object.keys(productData));
+            
             if (!product) {
-                alert('Fehler: Kein Produkt ausgewählt. Bitte wählen Sie ein Produkt aus der Liste oder gehen Sie zurück zur Hauptseite.');
+                const errorMsg = `Fehler: Kein Produkt ausgewählt (ID: "${currentProductId}"). Verfügbare IDs: ${Object.keys(productData).join(', ')}. Bitte wählen Sie ein Produkt aus der Liste.`;
+                alert(errorMsg);
+                console.error('Product selection error:', errorMsg);
+                
+                // Button wieder aktivieren
+                document.getElementById('submitBtn').innerHTML = 'Weiter zur Bezahlung →';
+                document.getElementById('submitBtn').disabled = false;
                 return;
             }
             
@@ -554,12 +572,35 @@
             
             // Immer zur Stripe weiterleiten (auch ohne E-Mail-Backend)
             setTimeout(() => {
-                console.log('Redirecting to Stripe:', product.stripeLink);
+                console.log('=== STRIPE REDIRECT DEBUG ===');
+                console.log('Product for redirect:', product);
+                console.log('Stripe Link:', product.stripeLink);
+                console.log('Link type:', typeof product.stripeLink);
+                console.log('Link starts with stripe:', product.stripeLink ? product.stripeLink.startsWith('https://buy.stripe.com/') : 'No link');
+                
                 if (product.stripeLink && product.stripeLink.startsWith('https://buy.stripe.com/')) {
+                    console.log('✅ Redirecting to Stripe:', product.stripeLink);
+                    
+                    // Update button vor redirect
+                    document.getElementById('submitBtn').innerHTML = 'Stripe öffnet... 🚀';
+                    
+                    // Redirect durchführen
                     window.location.href = product.stripeLink;
                 } else {
-                    alert('Fehler: Ungültiger Stripe-Link. Bitte versuchen Sie es erneut oder kontaktieren Sie uns.');
-                    console.error('Invalid Stripe link:', product.stripeLink);
+                    const errorDetails = `
+                        Stripe-Link Problem:
+                        - Produkt: ${currentProductId}
+                        - Link vorhanden: ${!!product.stripeLink}
+                        - Link Wert: ${product.stripeLink}
+                        - Link valide: ${product.stripeLink ? product.stripeLink.startsWith('https://buy.stripe.com/') : false}
+                    `;
+                    
+                    console.error('❌ Stripe redirect failed:', errorDetails);
+                    alert('Fehler: Ungültiger Stripe-Link. Details in der Konsole (F12).');
+                    
+                    // Button wieder aktivieren
+                    document.getElementById('submitBtn').innerHTML = 'Weiter zur Bezahlung →';
+                    document.getElementById('submitBtn').disabled = false;
                 }
             }, 1500);
         });
