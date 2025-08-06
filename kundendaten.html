@@ -536,30 +536,20 @@
             }
         }
         
-        // Formular verarbeiten
+        // Formular verarbeiten - NEUE STRIPE API INTEGRATION
         document.getElementById('customerForm').addEventListener('submit', async function(e) {
             e.preventDefault();
             
-            // Aktuelles Produkt holen (könnte über URL oder Dropdown gewählt sein)
+            // Aktuelles Produkt holen
             const currentProductId = window.productId || productId;
             const product = productData[currentProductId];
             
-            // Extended Debug Info
-            console.log('=== FORM SUBMISSION DEBUG ===');
-            console.log('URL productId:', productId);
-            console.log('Window productId:', window.productId);
-            console.log('Current productId used:', currentProductId);
-            console.log('Product found:', product);
-            console.log('Available products:', Object.keys(productData));
+            console.log('=== NEUE STRIPE CHECKOUT INTEGRATION ===');
+            console.log('Produkt:', currentProductId);
+            console.log('Produktdaten:', product);
             
             if (!product) {
-                const errorMsg = `Fehler: Kein Produkt ausgewählt (ID: "${currentProductId}"). Verfügbare IDs: ${Object.keys(productData).join(', ')}. Bitte wählen Sie ein Produkt aus der Liste.`;
-                alert(errorMsg);
-                console.error('Product selection error:', errorMsg);
-                
-                // Button wieder aktivieren
-                document.getElementById('submitBtn').innerHTML = 'Weiter zur Bezahlung →';
-                document.getElementById('submitBtn').disabled = false;
+                alert('Fehler: Kein Produkt ausgewählt');
                 return;
             }
             
@@ -571,87 +561,79 @@
                 customerData[key] = value;
             }
             
-            // Produktdaten hinzufügen
-            customerData.product = productId;
-            customerData.productName = product.name;
-            customerData.productPrice = product.price;
-            
-            // Daten im LocalStorage speichern für die Danke-Seite
-            localStorage.setItem('customerData', JSON.stringify(customerData));
-            localStorage.setItem('orderData', JSON.stringify({
-                product: product.name,
-                price: product.price,
-                customer: customerData.firstName + ' ' + customerData.lastName,
-                email: customerData.email,
-                company: customerData.company
-            }));
-            
-            // Button während der Weiterleitung deaktivieren
-            document.getElementById('submitBtn').innerHTML = 'Daten werden übertragen... ⏳';
-            document.getElementById('submitBtn').disabled = true;
-            
-            // Debug: Prüfen ob Produkt und Link vorhanden sind
-            console.log('Product for submission:', product);
-            console.log('Stripe Link:', product.stripeLink);
+            // Button Status ändern
+            const submitBtn = document.getElementById('submitBtn');
+            submitBtn.innerHTML = 'Sichere Verbindung wird hergestellt... 🔒';
+            submitBtn.disabled = true;
             
             try {
-                // Versuche E-Mail zu senden (nur wenn Backend verfügbar ist)
-                document.getElementById('submitBtn').innerHTML = 'E-Mail wird gesendet... 📧';
+                // NEUE API: Checkout Session erstellen
+                console.log('Erstelle Stripe Checkout Session...');
                 
-                const emailResponse = await fetch('/api/send-customer-data', {
+                const response = await fetch('/api/stripe/create-checkout-session', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
                     },
-                    body: JSON.stringify(customerData)
+                    body: JSON.stringify({
+                        productId: currentProductId,
+                        customerData: customerData
+                    })
                 });
                 
-                if (emailResponse.ok) {
-                    console.log('E-Mail erfolgreich gesendet');
-                    document.getElementById('submitBtn').innerHTML = 'E-Mail gesendet! Weiterleitung... 💳';
+                const data = await response.json();
+                console.log('Server Response:', data);
+                
+                if (data.url) {
+                    // Erfolg! Zu Stripe Checkout weiterleiten
+                    submitBtn.innerHTML = 'Weiterleitung zu Stripe... ✅';
+                    console.log('✅ Weiterleitung zu Stripe Checkout:', data.url);
+                    
+                    // Daten für später speichern
+                    localStorage.setItem('customerData', JSON.stringify(customerData));
+                    localStorage.setItem('orderData', JSON.stringify({
+                        product: product.name,
+                        price: product.price,
+                        customer: customerData.firstName + ' ' + customerData.lastName,
+                        email: customerData.email,
+                        company: customerData.company
+                    }));
+                    
+                    // Zur Stripe Checkout Session weiterleiten
+                    window.location.href = data.url;
+                    
                 } else {
-                    console.warn('E-Mail-Server nicht verfügbar:', emailResponse.status);
-                    document.getElementById('submitBtn').innerHTML = 'Weiterleitung zur Bezahlung... 💳';
+                    // Fehler vom Server
+                    console.error('❌ Server Error:', data.error);
+                    
+                    // FALLBACK: Alte Payment Links verwenden
+                    if (product.stripeLink) {
+                        console.log('⚠️ Fallback zu altem Payment Link');
+                        submitBtn.innerHTML = 'Alternative Weiterleitung... 🔄';
+                        setTimeout(() => {
+                            window.location.href = product.stripeLink;
+                        }, 1000);
+                    } else {
+                        alert('Fehler bei der Zahlungsabwicklung. Bitte versuchen Sie es später erneut.');
+                        submitBtn.innerHTML = 'Weiter zur Bezahlung →';
+                        submitBtn.disabled = false;
+                    }
                 }
                 
             } catch (error) {
-                console.warn('E-Mail-Server nicht erreichbar (normal bei Static Hosting):', error.message);
-                document.getElementById('submitBtn').innerHTML = 'Weiterleitung zur Bezahlung... 💳';
-            }
-            
-            // Immer zur Stripe weiterleiten (auch ohne E-Mail-Backend)
-            setTimeout(() => {
-                console.log('=== STRIPE REDIRECT DEBUG ===');
-                console.log('Product for redirect:', product);
-                console.log('Stripe Link:', product.stripeLink);
-                console.log('Link type:', typeof product.stripeLink);
-                console.log('Link starts with stripe:', product.stripeLink ? product.stripeLink.startsWith('https://buy.stripe.com/') : 'No link');
+                console.error('❌ Netzwerk-Fehler:', error);
                 
-                if (product.stripeLink && product.stripeLink.startsWith('https://buy.stripe.com/')) {
-                    console.log('✅ Redirecting to Stripe:', product.stripeLink);
-                    
-                    // Update button vor redirect
-                    document.getElementById('submitBtn').innerHTML = 'Stripe öffnet... 🚀';
-                    
-                    // Redirect durchführen
+                // FALLBACK: Alte Payment Links verwenden wenn Server nicht erreichbar
+                if (product.stripeLink) {
+                    console.log('⚠️ Server nicht erreichbar - Fallback zu Payment Link');
+                    submitBtn.innerHTML = 'Alternative Weiterleitung... 🔄';
                     window.location.href = product.stripeLink;
                 } else {
-                    const errorDetails = `
-                        Stripe-Link Problem:
-                        - Produkt: ${currentProductId}
-                        - Link vorhanden: ${!!product.stripeLink}
-                        - Link Wert: ${product.stripeLink}
-                        - Link valide: ${product.stripeLink ? product.stripeLink.startsWith('https://buy.stripe.com/') : false}
-                    `;
-                    
-                    console.error('❌ Stripe redirect failed:', errorDetails);
-                    alert('Fehler: Ungültiger Stripe-Link. Details in der Konsole (F12).');
-                    
-                    // Button wieder aktivieren
-                    document.getElementById('submitBtn').innerHTML = 'Weiter zur Bezahlung →';
-                    document.getElementById('submitBtn').disabled = false;
+                    alert('Server nicht erreichbar. Bitte versuchen Sie es später erneut.');
+                    submitBtn.innerHTML = 'Weiter zur Bezahlung →';
+                    submitBtn.disabled = false;
                 }
-            }, 1500);
+            }
         });
         
         // Produkt beim Laden der Seite anzeigen

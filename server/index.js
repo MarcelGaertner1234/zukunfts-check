@@ -14,7 +14,7 @@ app.use(helmet({
 
 // CORS configuration
 app.use(cors({
-    origin: ['http://localhost:3000', 'http://localhost:3001', 'file://*'],
+    origin: ['http://localhost:3000', 'http://localhost:3001', 'https://zukunfts-check.com', 'file://*'],
     credentials: true
 }));
 
@@ -25,12 +25,24 @@ app.use(express.urlencoded({ extended: true }));
 // Serve static files
 app.use(express.static(path.join(__dirname, '..')));
 
-// Stripe API routes
-const stripeRoutes = require('./stripe-api');
-app.use('/api', stripeRoutes);
+// Stripe API routes - Alte Payment Links (backup)
+const stripeApiRoutes = require('./stripe-api');
+app.use('/api/old', stripeApiRoutes);
 
-// Email service
-const { sendCustomerDataEmail } = require('./email-service');
+// Neue Stripe Checkout Integration
+const stripeCheckoutRoutes = require('./stripe-checkout');
+app.use('/api/stripe', stripeCheckoutRoutes);
+
+// Email service - mit Fallback
+let sendCustomerDataEmail;
+try {
+    const emailService = require('./email-service');
+    sendCustomerDataEmail = emailService.sendCustomerDataEmail;
+} catch (error) {
+    console.warn('Email service not available, using mock');
+    const emailMock = require('./email-mock');
+    sendCustomerDataEmail = emailMock.sendCustomerDataEmail;
+}
 
 // Send customer data email
 app.post('/api/send-customer-data', async (req, res) => {

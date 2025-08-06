@@ -1,4 +1,14 @@
-const nodemailer = require('nodemailer');
+let nodemailer;
+try {
+    nodemailer = require('nodemailer');
+} catch (error) {
+    console.warn('Nodemailer not available - email functionality disabled');
+    nodemailer = {
+        createTransporter: () => ({
+            sendMail: async () => ({ messageId: 'mock-id', success: false })
+        })
+    };
+}
 
 // E-Mail Transporter Setup
 const transporter = nodemailer.createTransporter({

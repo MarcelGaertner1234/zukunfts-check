@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🧪 Stripe Direct Test - FutureCheck Pro</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            max-width: 800px; 
+            margin: 50px auto; 
+            padding: 20px;
+            background: #f8f9fa;
+        }
+        .test-card { 
+            background: white; 
+            padding: 30px; 
+            border-radius: 10px; 
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            margin: 20px 0;
+        }
+        .test-btn { 
+            background: #9DC900; 
+            color: white; 
+            padding: 15px 30px; 
+            border: none; 
+            border-radius: 5px; 
+            font-size: 16px; 
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            margin: 10px;
+        }
+        .test-btn:hover { background: #7BA000; }
+        .error { color: red; font-weight: bold; }
+        .success { color: green; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <h1>🧪 STRIPE DIRECT LINK TEST</h1>
+    <p><strong>Zweck:</strong> Testen ob die neuen Stripe Payment Links funktionieren</p>
+
+    <div class="test-card">
+        <h3>🔍 Website-Analyse (197€)</h3>
+        <p>Stripe Link: <code>cNi9AT0o20oC9KIeUQ</code></p>
+        <a href="https://buy.stripe.com/cNi9AT0o20oC9KIeUQ" class="test-btn" target="_blank">
+            DIREKT ZU STRIPE →
+        </a>
+        <p><small>Erwartung: Öffnet Stripe Checkout Page</small></p>
+    </div>
+
+    <div class="test-card">
+        <h3>💰 SEO Starter (297€/Monat)</h3>
+        <p>Stripe Link: <code>28E9AT3Ae5IW3mkaEA</code></p>
+        <a href="https://buy.stripe.com/28E9AT3Ae5IW3mkaEA" class="test-btn" target="_blank">
+            DIREKT ZU STRIPE →
+        </a>
+        <p><small>Erwartung: Öffnet Stripe Checkout Page</small></p>
+    </div>
+
+    <div class="test-card">
+        <h3>🚀 MEGA-BUNDLE (1.997€)</h3>
+        <p>Stripe Link: <code>dRmcN5c6K2wKaOMh2Y</code></p>
+        <a href="https://buy.stripe.com/dRmcN5c6K2wKaOMh2Y" class="test-btn" target="_blank">
+            DIREKT ZU STRIPE →
+        </a>
+        <p><small>Erwartung: Öffnet Stripe Checkout Page</small></p>
+    </div>
+
+    <div class="test-card">
+        <h3>📋 TESTERGEBNISSE</h3>
+        <p><strong>Wenn ALLE Links funktionieren:</strong></p>
+        <ul>
+            <li class="success">✅ Links sind korrekt → Problem liegt im Formular-JavaScript</li>
+        </ul>
+        
+        <p><strong>Wenn Links nicht funktionieren:</strong></p>
+        <ul>
+            <li class="error">❌ Stripe Account Problem</li>
+            <li class="error">❌ Browser/Region Block</li>
+            <li class="error">❌ Success/Cancel URLs fehlen noch</li>
+        </ul>
+    </div>
+
+    <div class="test-card">
+        <h3>🔧 Nächste Schritte nach Test:</h3>
+        <p><strong>Falls Links funktionieren:</strong> JavaScript im Formular debuggen</p>
+        <p><strong>Falls Links nicht funktionieren:</strong> Stripe Dashboard prüfen</p>
+    </div>
+
+    <script>
+        console.log('🧪 Stripe Direct Test Page loaded');
+        console.log('Test these 3 links manually:');
+        console.log('1. Website-Analyse: https://buy.stripe.com/cNi9AT0o20oC9KIeUQ');
+        console.log('2. SEO Starter: https://buy.stripe.com/28E9AT3Ae5IW3mkaEA'); 
+        console.log('3. MEGA-BUNDLE: https://buy.stripe.com/dRmcN5c6K2wKaOMh2Y');
+    </script>
+</body>
+</html>
