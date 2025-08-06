@@ -538,7 +538,7 @@
             }
         }
         
-        // Formular verarbeiten - NEUE STRIPE API INTEGRATION
+        // Formular verarbeiten - DIREKTE STRIPE PAYMENT LINKS
         document.getElementById('customerForm').addEventListener('submit', async function(e) {
             e.preventDefault();
             
@@ -546,16 +546,16 @@
             const currentProductId = window.productId || productId;
             const product = productData[currentProductId];
             
-            console.log('=== NEUE STRIPE CHECKOUT INTEGRATION ===');
+            console.log('=== STRIPE PAYMENT REDIRECT ===');
             console.log('Produkt:', currentProductId);
             console.log('Produktdaten:', product);
             
-            if (!product) {
+            if (!product || !product.stripeLink) {
                 alert('Fehler: Kein Produkt ausgewählt');
                 return;
             }
             
-            // Formulardaten sammeln
+            // Formulardaten sammeln und speichern
             const formData = new FormData(this);
             const customerData = {};
             
@@ -565,82 +565,26 @@
             
             // Button Status ändern
             const submitBtn = document.getElementById('submitBtn');
-            submitBtn.innerHTML = 'Sichere Verbindung wird hergestellt... 🔒';
+            submitBtn.innerHTML = 'Weiterleitung zu Stripe... 🔒';
             submitBtn.disabled = true;
             
-            try {
-                // NEUE API: Checkout Session erstellen
-                console.log('Erstelle Stripe Checkout Session...');
-                
-                // Verwende Vercel API Route oder lokalen Server
-                const apiUrl = window.location.hostname === 'localhost' 
-                    ? 'http://localhost:3001/api/stripe/create-checkout-session'
-                    : 'https://zukunfts-check.com/api/create-checkout-session';
-                
-                const response = await fetch(apiUrl, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({
-                        productId: currentProductId,
-                        customerData: customerData
-                    })
-                });
-                
-                const data = await response.json();
-                console.log('Server Response:', data);
-                
-                if (data.url) {
-                    // Erfolg! Zu Stripe Checkout weiterleiten
-                    submitBtn.innerHTML = 'Weiterleitung zu Stripe... ✅';
-                    console.log('✅ Weiterleitung zu Stripe Checkout:', data.url);
-                    
-                    // Daten für später speichern
-                    localStorage.setItem('customerData', JSON.stringify(customerData));
-                    localStorage.setItem('orderData', JSON.stringify({
-                        product: product.name,
-                        price: product.price,
-                        customer: customerData.firstName + ' ' + customerData.lastName,
-                        email: customerData.email,
-                        company: customerData.company
-                    }));
-                    
-                    // Zur Stripe Checkout Session weiterleiten
-                    window.location.href = data.url;
-                    
-                } else {
-                    // Fehler vom Server
-                    console.error('❌ Server Error:', data.error);
-                    
-                    // FALLBACK: Alte Payment Links verwenden
-                    if (product.stripeLink) {
-                        console.log('⚠️ Fallback zu altem Payment Link');
-                        submitBtn.innerHTML = 'Alternative Weiterleitung... 🔄';
-                        setTimeout(() => {
-                            window.location.href = product.stripeLink;
-                        }, 1000);
-                    } else {
-                        alert('Fehler bei der Zahlungsabwicklung. Bitte versuchen Sie es später erneut.');
-                        submitBtn.innerHTML = 'Weiter zur Bezahlung →';
-                        submitBtn.disabled = false;
-                    }
-                }
-                
-            } catch (error) {
-                console.error('❌ Netzwerk-Fehler:', error);
-                
-                // FALLBACK: Alte Payment Links verwenden wenn Server nicht erreichbar
-                if (product.stripeLink) {
-                    console.log('⚠️ Server nicht erreichbar - Fallback zu Payment Link');
-                    submitBtn.innerHTML = 'Alternative Weiterleitung... 🔄';
-                    window.location.href = product.stripeLink;
-                } else {
-                    alert('Server nicht erreichbar. Bitte versuchen Sie es später erneut.');
-                    submitBtn.innerHTML = 'Weiter zur Bezahlung →';
-                    submitBtn.disabled = false;
-                }
-            }
+            // Daten für später speichern
+            localStorage.setItem('customerData', JSON.stringify(customerData));
+            localStorage.setItem('orderData', JSON.stringify({
+                product: product.name,
+                price: product.price,
+                customer: customerData.firstName + ' ' + customerData.lastName,
+                email: customerData.email,
+                company: customerData.company,
+                timestamp: new Date().toISOString()
+            }));
+            
+            // Direkt zu Stripe Payment Link weiterleiten
+            console.log('✅ Weiterleitung zu Stripe Payment Link:', product.stripeLink);
+            
+            setTimeout(() => {
+                window.location.href = product.stripeLink;
+            }, 500);
         });
         
         // Produkt beim Laden der Seite anzeigen
