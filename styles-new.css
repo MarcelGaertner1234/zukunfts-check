@@ -278,8 +278,17 @@ section[id] {
     text-align: center;
 }
 
-.trust-stat {
-    animation: fadeIn 1s ease-in;
+/* Performance optimization for reduced motion */
+@media (prefers-reduced-motion: no-preference) {
+    .trust-stat {
+        animation: fadeIn 0.6s ease-out;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .trust-stat {
+        animation: none;
+    }
 }
 
 .trust-number {
@@ -1182,4 +1191,53 @@ section[id] {
         grid-template-columns: 1fr;
         text-align: center;
     }
+}
+
+/* ========================================
+   PERFORMANCE OPTIMIZATIONS
+   ======================================== */
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* GPU Acceleration for smoother animations */
+@media (prefers-reduced-motion: no-preference) {
+    .btn, .pricing-card, .portfolio-item {
+        will-change: transform;
+        backface-visibility: hidden;
+        perspective: 1000px;
+    }
+    
+    /* Optimize keyframes for 60fps */
+    @keyframes fadeIn {
+        from { 
+            opacity: 0; 
+            transform: translate3d(0, 20px, 0); 
+        }
+        to { 
+            opacity: 1; 
+            transform: translate3d(0, 0, 0); 
+        }
+    }
+}
+
+/* Lazy loading optimization */
+img[loading="lazy"] {
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+img[loading="lazy"].loaded {
+    opacity: 1;
+}
+
+/* Critical CSS optimization */
+.above-fold {
+    font-display: swap; /* Fast text rendering */
 }
