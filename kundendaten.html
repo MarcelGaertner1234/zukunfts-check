@@ -400,14 +400,39 @@
             document.getElementById('productDescription').textContent = product.description;
             
             // Zusätzliche Felder je nach Produkttyp anzeigen
+            console.log('Setting up fields for product type:', product.type, 'product:', productId);
+            
+            // Reset all fields first
+            document.getElementById('websiteFields').style.display = 'none';
+            document.getElementById('seoFields').style.display = 'none';
+            const websiteUrl = document.getElementById('websiteUrl');
+            if (websiteUrl) {
+                websiteUrl.required = false;
+            }
+            
             if (product.type === 'website') {
-                document.getElementById('websiteFields').style.display = 'block';
+                // Reine Website-Projekte (nicht Bundle) zeigen Website-Felder
+                if (!productId.includes('bundle')) {
+                    document.getElementById('websiteFields').style.display = 'block';
+                }
             } else if (product.type === 'seo') {
+                // SEO-Produkte zeigen SEO-Felder
                 document.getElementById('seoFields').style.display = 'block';
                 // Website-URL als Pflichtfeld für SEO-Produkte
-                const websiteUrl = document.getElementById('websiteUrl');
                 if (websiteUrl) {
                     websiteUrl.required = true;
+                }
+            }
+            
+            // Spezielle Bundle-Behandlung
+            if (productId && productId.includes('bundle')) {
+                // Bundle-Produkte zeigen beide Felder-Sets
+                document.getElementById('websiteFields').style.display = 'block';
+                document.getElementById('seoFields').style.display = 'block';
+                // Website-URL ist optional bei Bundles (wird ja erstellt)
+                if (websiteUrl) {
+                    websiteUrl.required = false;
+                    websiteUrl.placeholder = "Aktuelle Website (optional - falls vorhanden)";
                 }
             }
         }
@@ -437,21 +462,38 @@
                     // Submit-Button aktivieren
                     document.getElementById('submitBtn').disabled = false;
                     
-                    // Zusätzliche Felder anzeigen
+                    // Zusätzliche Felder anzeigen (gleiche Logik wie in loadProduct)
+                    console.log('SelectProduct: Setting up fields for product type:', product.type, 'product:', selectedProductId);
+                    
+                    // Reset all fields first
+                    document.getElementById('websiteFields').style.display = 'none';
+                    document.getElementById('seoFields').style.display = 'none';
+                    const websiteUrl = document.getElementById('websiteUrl');
+                    if (websiteUrl) {
+                        websiteUrl.required = false;
+                    }
+                    
                     if (product.type === 'website') {
-                        document.getElementById('websiteFields').style.display = 'block';
-                        document.getElementById('seoFields').style.display = 'none';
+                        // Reine Website-Projekte (nicht Bundle) zeigen Website-Felder
+                        if (!selectedProductId.includes('bundle')) {
+                            document.getElementById('websiteFields').style.display = 'block';
+                        }
                     } else if (product.type === 'seo') {
+                        // SEO-Produkte zeigen SEO-Felder
                         document.getElementById('seoFields').style.display = 'block';
-                        document.getElementById('websiteFields').style.display = 'none';
                         // Website-URL als Pflichtfeld für SEO-Produkte
-                        const websiteUrl = document.getElementById('websiteUrl');
                         if (websiteUrl) {
                             websiteUrl.required = true;
                         }
-                    } else {
-                        document.getElementById('websiteFields').style.display = 'none';
-                        document.getElementById('seoFields').style.display = 'none';
+                    } else if (selectedProductId.includes('bundle')) {
+                        // Bundle-Produkte zeigen beide Felder-Sets
+                        document.getElementById('websiteFields').style.display = 'block';
+                        document.getElementById('seoFields').style.display = 'block';
+                        // Website-URL ist optional bei Bundles (wird ja erstellt)
+                        if (websiteUrl) {
+                            websiteUrl.required = false;
+                            websiteUrl.placeholder = "Aktuelle Website (optional - falls vorhanden)";
+                        }
                     }
                 }
             }
