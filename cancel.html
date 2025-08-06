@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zahlung abgebrochen - FutureCheck Pro</title>
+    <link rel="stylesheet" href="styles-new.css">
+    <style>
+        .cancel-container {
+            max-width: 600px;
+            margin: 100px auto;
+            padding: 60px 40px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        
+        .cancel-icon {
+            font-size: 80px;
+            color: #FF6B6B;
+            margin-bottom: 30px;
+        }
+        
+        .cancel-title {
+            font-size: 32px;
+            color: #212529;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        
+        .cancel-text {
+            font-size: 18px;
+            color: #6C757D;
+            line-height: 1.6;
+            margin-bottom: 40px;
+        }
+        
+        .help-box {
+            background: #FFF3CD;
+            border: 2px solid #FFC107;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 30px 0;
+        }
+        
+        .help-box h3 {
+            color: #856404;
+            margin-bottom: 15px;
+        }
+        
+        .help-box p {
+            color: #856404;
+            margin: 0;
+        }
+        
+        .contact-info {
+            background: #F8F9FA;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="cancel-container">
+        <div class="cancel-icon">😔</div>
+        
+        <h1 class="cancel-title">Zahlung abgebrochen</h1>
+        
+        <p class="cancel-text">
+            Ihre Zahlung wurde abgebrochen. Das ist kein Problem - Ihre Daten sind weiterhin gespeichert und Sie können jederzeit fortfahren.
+        </p>
+        
+        <div class="help-box">
+            <h3>Brauchen Sie Hilfe?</h3>
+            <p>Falls Sie technische Probleme hatten oder Fragen haben, kontaktieren Sie uns gerne direkt!</p>
+        </div>
+        
+        <div class="contact-info">
+            <strong>📧 E-Mail:</strong> gaertner-marcel@web.de<br>
+            <strong>📞 Telefon:</strong> +41 76 801 53 30
+        </div>
+        
+        <div style="margin-top: 40px;">
+            <a href="/kundendaten" class="btn-green" style="text-decoration: none; margin-right: 15px;">
+                Zahlung fortsetzen
+            </a>
+            <a href="/" class="btn-green-outline" style="text-decoration: none;">
+                Zurück zur Startseite
+            </a>
+        </div>
+    </div>
+    
+    <script>
+        // Kundendaten wiederherstellen
+        const customerData = localStorage.getItem('customerData');
+        if (customerData) {
+            console.log('Kundendaten verfügbar für erneuten Versuch');
+        }
+    </script>
+</body>
+</html>

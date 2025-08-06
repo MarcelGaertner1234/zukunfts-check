@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zahlung erfolgreich - FutureCheck Pro</title>
+    <link rel="stylesheet" href="styles-new.css">
+    <style>
+        .success-container {
+            max-width: 600px;
+            margin: 100px auto;
+            padding: 60px 40px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        
+        .success-icon {
+            font-size: 80px;
+            color: #9DC900;
+            margin-bottom: 30px;
+        }
+        
+        .success-title {
+            font-size: 32px;
+            color: #212529;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        
+        .success-text {
+            font-size: 18px;
+            color: #6C757D;
+            line-height: 1.6;
+            margin-bottom: 40px;
+        }
+        
+        .next-steps {
+            background: #F8F9FA;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+            text-align: left;
+        }
+        
+        .next-steps h3 {
+            color: #212529;
+            margin-bottom: 15px;
+        }
+        
+        .step-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .step-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid #DEE2E6;
+            position: relative;
+            padding-left: 40px;
+        }
+        
+        .step-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .step-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 30px;
+            height: 30px;
+            background: #9DC900;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="success-container">
+        <div class="success-icon">🎉</div>
+        
+        <h1 class="success-title">Zahlung erfolgreich!</h1>
+        
+        <p class="success-text">
+            Vielen Dank für Ihr Vertrauen! Wir haben Ihre Bestellung erfolgreich erhalten und werden diese umgehend bearbeiten.
+        </p>
+        
+        <div class="next-steps">
+            <h3>Was passiert als Nächstes?</h3>
+            <ul class="step-list">
+                <li><strong>Sofort:</strong> Sie erhalten eine Bestätigungs-E-Mail mit allen Details</li>
+                <li><strong>Innerhalb 24h:</strong> Unser Team meldet sich telefonisch bei Ihnen</li>
+                <li><strong>Projektstart:</strong> Wir beginnen mit der Umsetzung Ihres Projekts</li>
+            </ul>
+        </div>
+        
+        <p style="color: #6C757D; font-size: 14px; margin-top: 30px;">
+            Fragen? Kontaktieren Sie uns: <strong>gaertner-marcel@web.de</strong> oder <strong>+41 76 801 53 30</strong>
+        </p>
+        
+        <a href="/" class="btn-green" style="margin-top: 30px; text-decoration: none;">
+            Zurück zur Startseite
+        </a>
+    </div>
+    
+    <script>
+        // E-Mail an Kunde senden (falls Backend verfügbar)
+        const orderData = localStorage.getItem('orderData');
+        if (orderData) {
+            const data = JSON.parse(orderData);
+            console.log('Bestellung erfolgreich abgeschlossen:', data);
+            
+            // Cleanup
+            localStorage.removeItem('orderData');
+            localStorage.removeItem('customerData');
+        }
+    </script>
+</body>
+</html>
