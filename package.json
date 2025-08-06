@@ -4,18 +4,29 @@
   "description": "FutureCheck Pro - Digital Services Platform",
   "main": "server/index.js",
   "scripts": {
-    "start": "node server/index.js",
-    "dev": "nodemon server/index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "NODE_ENV=production node server/index.js",
+    "dev": "NODE_ENV=development nodemon server/index.js",
+    "build": "echo 'Static files ready'",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "setup": "npm install && cp .env.example .env",
+    "lint": "echo 'No linting configured'",
+    "clean": "rm -rf node_modules package-lock.json && npm install"
   },
   "keywords": [
     "futurecheck",
     "digital",
     "services",
-    "stripe"
+    "stripe",
+    "seo",
+    "website",
+    "business"
   ],
-  "author": "Marcel Gärtner",
+  "author": "Marcel Gärtner <gaertner-marcel@web.de>",
   "license": "ISC",
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=8.0.0"
+  },
   "dependencies": {
     "body-parser": "^1.20.2",
     "cors": "^2.8.5",

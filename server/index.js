@@ -79,7 +79,7 @@ app.get('/api/health', (req, res) => {
 
 // Serve HTML files
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, '..', 'index-multi.html'));
+    res.sendFile(path.join(__dirname, '..', 'index.html'));
 });
 
 app.get('/checkout', (req, res) => {

@@ -40,3 +40,18 @@ coverage/
 
 # Netlify
 .netlify/
+
+# Email & LinkedIn Automation Data (Sensitive)
+email-automation/*.csv
+email-automation/email_config.json
+email-automation/email_contacts.csv
+email-automation/*.db
+linkedin-automation/*.csv
+linkedin-automation/config.json
+linkedin-automation/*.db
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
