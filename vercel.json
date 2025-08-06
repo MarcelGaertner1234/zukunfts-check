@@ -1,58 +1,25 @@
 {
   "version": 2,
-  "builds": [
+  "rewrites": [
     {
-      "src": "server/index.js",
-      "use": "@vercel/node"
+      "source": "/success",
+      "destination": "/success.html"
     },
     {
-      "src": "*.html",
-      "use": "@vercel/static"
+      "source": "/cancel",
+      "destination": "/cancel.html"
     },
     {
-      "src": "*.css",
-      "use": "@vercel/static"
+      "source": "/kundendaten",
+      "destination": "/kundendaten.html"
     },
     {
-      "src": "*.js",
-      "use": "@vercel/static"
+      "source": "/datenschutz",
+      "destination": "/datenschutz.html"
+    },
+    {
+      "source": "/impressum",
+      "destination": "/impressum.html"
     }
-  ],
-  "routes": [
-    {
-      "src": "/api/stripe/(.*)",
-      "dest": "/server/index.js"
-    },
-    {
-      "src": "/api/(.*)",
-      "dest": "/server/index.js"
-    },
-    {
-      "src": "/success",
-      "dest": "/success.html"
-    },
-    {
-      "src": "/cancel",
-      "dest": "/cancel.html"
-    },
-    {
-      "src": "/kundendaten",
-      "dest": "/kundendaten.html"
-    },
-    {
-      "src": "/datenschutz",
-      "dest": "/datenschutz.html"
-    },
-    {
-      "src": "/impressum",
-      "dest": "/impressum.html"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/$1"
-    }
-  ],
-  "env": {
-    "NODE_ENV": "production"
-  }
+  ]
 }
