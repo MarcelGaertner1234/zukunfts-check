@@ -1,0 +1,12 @@
+# Netlify Redirects für FutureCheck Pro
+
+# Kundendaten mit Parametern
+/kundendaten /kundendaten.html 200
+/kundendaten/* /kundendaten.html 200
+
+# Datenschutz & Impressum
+/datenschutz /datenschutz.html 200
+/impressum /impressum.html 200
+
+# Fallback für alle anderen Routen
+/* /index.html 200
