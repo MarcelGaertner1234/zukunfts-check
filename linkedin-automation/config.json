@@ -1,0 +1,72 @@
+{
+  "daily_limit": 50,
+  "follow_up_days": [3, 7, 14, 21],
+  "industries": [
+    "Handel",
+    "Produktion", 
+    "Handwerk",
+    "Dienstleistung",
+    "Logistik",
+    "Gastronomie",
+    "Gesundheit",
+    "Bildung",
+    "Beratung",
+    "IT"
+  ],
+  "company_sizes": [
+    "10-50",
+    "50-200",
+    "200-500"
+  ],
+  "target_positions": [
+    "Geschäftsführer",
+    "CEO",
+    "Inhaber",
+    "Vorstand",
+    "CDO",
+    "CTO",
+    "IT-Leiter",
+    "Digitalverantwortlicher",
+    "Head of Digital",
+    "Prokurist"
+  ],
+  "locations": [
+    "Deutschland",
+    "Österreich",
+    "Schweiz"
+  ],
+  "message_variants": {
+    "use_ab_testing": true,
+    "track_performance": true
+  },
+  "safety_settings": {
+    "min_delay_seconds": 30,
+    "max_delay_seconds": 120,
+    "max_messages_per_hour": 10,
+    "working_hours": {
+      "start": "09:00",
+      "end": "18:00"
+    },
+    "working_days": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
+  },
+  "campaign_settings": {
+    "early_bird_price": 197,
+    "regular_price": 497,
+    "early_bird_slots": 20,
+    "delivery_time_hours": 24,
+    "report_pages": 30,
+    "consultation_minutes": 30
+  },
+  "tracking": {
+    "track_opens": true,
+    "track_responses": true,
+    "track_meetings": true,
+    "track_conversions": true
+  },
+  "integrations": {
+    "webhook_url": "",
+    "slack_notifications": false,
+    "email_notifications": true,
+    "notification_email": "marcel@zukunfts-check.com"
+  }
+}

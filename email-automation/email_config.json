@@ -1,0 +1,116 @@
+{
+  "smtp": {
+    "server": "smtp.gmail.com",
+    "port": 587,
+    "use_tls": true,
+    "email": "gaertnerstoreangel@gmail.com",
+    "password": "nnuv qbrt lypk zupz",
+    "from_name": "Marcel von FutureCheck",
+    "reply_to": "gaertnerstoreangel@gmail.com"
+  },
+  "campaign": {
+    "daily_limit": 100,
+    "hourly_limit": 20,
+    "sequence_delays": [0, 2, 5, 7, 14, 21, 30],
+    "business_hours_only": true,
+    "working_hours": {
+      "start": "09:00",
+      "end": "17:00"
+    },
+    "working_days": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+    "timezone": "Europe/Berlin"
+  },
+  "tracking": {
+    "track_opens": true,
+    "track_clicks": true,
+    "tracking_domain": "track.zukunfts-check.com",
+    "utm_params": {
+      "utm_source": "email",
+      "utm_medium": "outreach",
+      "utm_campaign": "futurecheck_launch"
+    }
+  },
+  "targeting": {
+    "industries": [
+      "Handel",
+      "Produktion",
+      "Handwerk",
+      "Dienstleistung",
+      "Logistik",
+      "Gastronomie",
+      "Gesundheit",
+      "Bildung",
+      "Beratung",
+      "IT"
+    ],
+    "company_sizes": [
+      "10-50",
+      "50-200",
+      "200-500"
+    ],
+    "positions": [
+      "Geschäftsführer",
+      "CEO",
+      "Inhaber",
+      "Vorstand",
+      "CDO",
+      "CTO",
+      "IT-Leiter"
+    ],
+    "locations": [
+      "Deutschland",
+      "Österreich",
+      "Schweiz"
+    ]
+  },
+  "email_settings": {
+    "max_subject_length": 60,
+    "preheader_text": "In 24h wissen, wo Ihr Unternehmen digital steht",
+    "unsubscribe_link": "https://zukunfts-check.com/unsubscribe",
+    "privacy_link": "https://zukunfts-check.com/datenschutz",
+    "footer_address": "FutureCheck GmbH | Musterstraße 123 | 10115 Berlin",
+    "footer_text": "Diese Email wurde an {email} gesendet, weil Ihr Unternehmen für unseren Service relevant ist."
+  },
+  "bounce_handling": {
+    "max_bounce_rate": 5,
+    "hard_bounce_action": "remove",
+    "soft_bounce_retries": 3,
+    "complaint_action": "unsubscribe"
+  },
+  "ab_testing": {
+    "enabled": true,
+    "test_percentage": 20,
+    "winner_metric": "open_rate",
+    "min_sample_size": 100,
+    "test_duration_hours": 24
+  },
+  "warmup": {
+    "enabled": true,
+    "start_volume": 10,
+    "daily_increase": 10,
+    "max_volume": 100,
+    "warmup_days": 7
+  },
+  "compliance": {
+    "gdpr_compliant": true,
+    "can_spam_compliant": true,
+    "include_unsubscribe": true,
+    "include_physical_address": true,
+    "honor_optout": true,
+    "data_retention_days": 365
+  },
+  "notifications": {
+    "send_daily_report": true,
+    "report_email": "marcel@zukunfts-check.com",
+    "alert_on_high_bounce": true,
+    "alert_on_spam_complaint": true,
+    "slack_webhook": "",
+    "webhook_url": ""
+  },
+  "backup": {
+    "enabled": true,
+    "backup_interval_hours": 24,
+    "backup_location": "./backups/",
+    "keep_backups": 30
+  }
+}

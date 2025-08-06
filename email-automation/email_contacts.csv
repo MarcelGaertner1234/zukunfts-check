@@ -1,0 +1,31 @@
+email,first_name,last_name,company,position,industry,company_size,phone,website,source
+thomas.mueller@mueller-handel.de,Thomas,Müller,Müller Handel GmbH,Geschäftsführer,Handel,50-200,+49 30 1234567,www.mueller-handel.de,Apollo
+sabine.schmidt@schmidt-ag.com,Sabine,Schmidt,Schmidt Produktion AG,CEO,Produktion,200-500,+49 40 2345678,www.schmidt-ag.com,LinkedIn
+michael.wagner@wagner-handwerk.de,Michael,Wagner,Wagner Handwerk,Inhaber,Handwerk,10-50,+49 89 3456789,www.wagner-handwerk.de,Hunter
+julia.fischer@fischer-services.com,Julia,Fischer,Fischer Dienstleistungen,CDO,Dienstleistung,50-200,+49 711 4567890,www.fischer-services.com,Apollo
+klaus.weber@weber-logistik.de,Klaus,Weber,Weber Logistik GmbH,IT-Leiter,Logistik,200-500,+49 221 5678901,www.weber-logistik.de,Website
+anna.meyer@meyer-gastro.de,Anna,Meyer,Meyer Gastro Gruppe,Geschäftsführerin,Gastronomie,50-200,+49 69 6789012,www.meyer-gastro.de,LinkedIn
+peter.hofmann@hofmann-tech.com,Peter,Hofmann,Hofmann Tech Solutions,CTO,IT,10-50,+49 511 7890123,www.hofmann-tech.com,Referral
+sandra.richter@richter-beratung.de,Sandra,Richter,Richter Beratung,Head of Digital,Beratung,50-200,+49 351 8901234,www.richter-beratung.de,Apollo
+frank.klein@klein-produktion.de,Frank,Klein,Klein Produktion GmbH,Vorstand,Produktion,200-500,+49 201 9012345,www.klein-produktion.de,Hunter
+lisa.wolf@wolf-mode.de,Lisa,Wolf,Wolf Mode & Mehr,Inhaberin,Handel,10-50,+49 241 0123456,www.wolf-mode.de,Website
+markus.schroeder@schroeder-bau.de,Markus,Schröder,Schröder Bau,Geschäftsführer,Handwerk,50-200,+49 531 1234567,www.schroeder-bau.de,LinkedIn
+nicole.neumann@neumann-services.com,Nicole,Neumann,Neumann Services,CDO,Dienstleistung,200-500,+49 611 2345678,www.neumann-services.com,Apollo
+stefan.schwarz@schwarz-elektronik.de,Stefan,Schwarz,Schwarz Elektronik,CEO,Handel,50-200,+49 721 3456789,www.schwarz-elektronik.de,Hunter
+petra.braun@braun-industrie.de,Petra,Braun,Braun Industrie,Digitalverantwortliche,Produktion,200-500,+49 911 4567890,www.braun-industrie.de,Website
+andreas.zimmermann@zimmermann-partner.de,Andreas,Zimmermann,Zimmermann & Partner,Inhaber,Beratung,10-50,+49 361 5678901,www.zimmermann-partner.de,Referral
+claudia.krueger@krueger-logistik.com,Claudia,Krüger,Krüger Logistik,IT-Leiterin,Logistik,50-200,+49 381 6789012,www.krueger-logistik.com,LinkedIn
+robert.schulz@schulz-maschinenbau.de,Robert,Schulz,Schulz Maschinenbau,Geschäftsführer,Produktion,200-500,+49 421 7890123,www.schulz-maschinenbau.de,Apollo
+maria.hoffmann@hoffmann-textil.de,Maria,Hoffmann,Hoffmann Textil,CEO,Handel,50-200,+49 561 8901234,www.hoffmann-textil.de,Hunter
+christian.koehler@koehler-group.com,Christian,Köhler,Köhler Group,Head of Digital,Dienstleistung,200-500,+49 621 9012345,www.koehler-group.com,Website
+daniela.bauer@bauer-druck.de,Daniela,Bauer,Bauer Druck,Inhaberin,Handwerk,10-50,+49 681 0123456,www.bauer-druck.de,LinkedIn
+oliver.lange@lange-tech.de,Oliver,Lange,Lange Technologies,CTO,IT,50-200,+49 751 1234567,www.lange-tech.de,Apollo
+martina.koch@koch-pharma.com,Martina,Koch,Koch Pharma GmbH,Geschäftsführerin,Gesundheit,200-500,+49 821 2345678,www.koch-pharma.com,Hunter
+alexander.becker@becker-logistik.de,Alexander,Becker,Becker Spedition,CEO,Logistik,50-200,+49 871 3456789,www.becker-logistik.de,Website
+jessica.schmidt@schmidt-mode.de,Jessica,Schmidt,Schmidt Fashion,Inhaberin,Handel,10-50,+49 931 4567890,www.schmidt-mode.de,Referral
+tobias.wagner@wagner-software.com,Tobias,Wagner,Wagner Software AG,CDO,IT,200-500,+49 251 5678901,www.wagner-software.com,LinkedIn
+katharina.mueller@mueller-consulting.de,Katharina,Müller,Müller Consulting,Head of Digital,Beratung,50-200,+49 341 6789012,www.mueller-consulting.de,Apollo
+johannes.meyer@meyer-automotive.de,Johannes,Meyer,Meyer Automotive,Geschäftsführer,Produktion,200-500,+49 441 7890123,www.meyer-automotive.de,Hunter
+susanne.weber@weber-handel.com,Susanne,Weber,Weber Großhandel,CEO,Handel,50-200,+49 521 8901234,www.weber-handel.com,Website
+michael.fischer@fischer-bau.de,Michael,Fischer,Fischer Bauunternehmen,Inhaber,Handwerk,50-200,+49 641 9012345,www.fischer-bau.de,LinkedIn
+christina.klein@klein-services.de,Christina,Klein,Klein Business Services,CDO,Dienstleistung,10-50,+49 731 0123456,www.klein-services.de,Apollo

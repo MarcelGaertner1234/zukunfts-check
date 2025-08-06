@@ -1,0 +1,1407 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FutureCheck Pro - Website Analyse & Erstellung für KMU</title>
+    <meta name="description" content="Professionelle Website-Analyse in 24h oder neue Business-Website ab 497€. Für KMU optimiert. 100% Zufriedenheitsgarantie.">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="FutureCheck Pro - Website Analyse & Erstellung">
+    <meta property="og:description" content="Website-Analyse in 24h oder professionelle Website ab 497€">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://zukunfts-check.com">
+    
+    <link rel="stylesheet" href="styles-new.css">
+    <style>
+        /* Animations */
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes shimmer {
+            0% { background-position: -1000px 0; }
+            100% { background-position: 1000px 0; }
+        }
+        
+        .animate-pulse {
+            animation: pulse 2s infinite;
+        }
+        
+        .animate-fadeInUp {
+            animation: fadeInUp 1s ease-out;
+        }
+        
+        /* Enhanced button hover effects */
+        .btn-green:hover, .btn-white:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 15px 35px rgba(157, 201, 0, 0.3);
+        }
+        
+        .pricing-card {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        
+        .pricing-card:hover {
+            transform: translateY(-15px) scale(1.02);
+        }
+        
+        /* Gradient text animation */
+        .gradient-text {
+            background: linear-gradient(90deg, #9DC900, #7BA000, #9DC900);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shimmer 3s linear infinite;
+        }
+        
+    </style>
+    <style>
+        /* Additional styles for multi-product */
+        .hero-choice {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+            margin-top: -50px;
+            position: relative;
+            z-index: 10;
+        }
+        
+        .choice-title {
+            text-align: center;
+            font-size: 28px;
+            margin-bottom: 40px;
+            color: #212529;
+        }
+        
+        .choice-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+        
+        .choice-card {
+            border: 2px solid #E0E0E0;
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer;
+            background: white;
+            position: relative;
+        }
+        
+        .choice-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(157, 201, 0, 0.05), rgba(123, 160, 0, 0.05));
+            border-radius: 15px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+        }
+        
+        .choice-card:hover::before {
+            opacity: 1;
+        }
+        
+        .choice-card:hover {
+            border-color: #9DC900;
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 50px rgba(157, 201, 0, 0.2);
+        }
+        
+        .choice-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+            display: block;
+        }
+        
+        .choice-card h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            margin-top: 30px;
+            color: #212529;
+        }
+        
+        .choice-card p {
+            color: #6C757D;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        
+        .choice-price {
+            font-size: 32px;
+            font-weight: bold;
+            color: #9DC900;
+            margin-bottom: 20px;
+        }
+        
+        .choice-price small {
+            font-size: 16px;
+            color: #6C757D;
+            font-weight: normal;
+        }
+        
+        .pricing-section {
+            padding: 100px 0;
+            background: #F8F9FA;
+        }
+        
+        .pricing-table {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .pricing-card {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            text-align: center;
+            position: relative;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        
+        .pricing-card.featured {
+            border-color: #9DC900;
+            transform: scale(1.08);
+            box-shadow: 0 25px 70px rgba(157, 201, 0, 0.25);
+            background: linear-gradient(135deg, #FFFFFF 0%, #F0FFF0 100%);
+        }
+        
+        .pricing-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 25px 70px rgba(0,0,0,0.12);
+        }
+        
+        .pricing-card.featured:hover {
+            transform: scale(1.1) translateY(-10px);
+            box-shadow: 0 30px 80px rgba(157, 201, 0, 0.3);
+        }
+        
+        .badge-popular {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, #9DC900, #7BA000);
+            color: white;
+            padding: 8px 25px;
+            border-radius: 25px;
+            font-size: 12px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            box-shadow: 0 5px 20px rgba(157, 201, 0, 0.4);
+            animation: pulse 2s infinite;
+        }
+        
+        .pricing-title {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #212529;
+        }
+        
+        .pricing-price {
+            font-size: 48px;
+            font-weight: bold;
+            color: #212529;
+            margin-bottom: 10px;
+        }
+        
+        .pricing-price sup {
+            font-size: 24px;
+        }
+        
+        .pricing-old-price {
+            text-decoration: line-through;
+            color: #999;
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .pricing-features {
+            list-style: none;
+            padding: 0;
+            margin: 30px 0;
+            text-align: left;
+        }
+        
+        .pricing-features li {
+            padding: 10px 0;
+            border-bottom: 1px solid #F0F0F0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .pricing-features li:last-child {
+            border-bottom: none;
+        }
+        
+        .check-green {
+            color: #9DC900;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        
+        .portfolio-section {
+            padding: 100px 0;
+            background: white;
+        }
+        
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin-top: 60px;
+        }
+        
+        .portfolio-item {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .portfolio-item {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .portfolio-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(180deg, transparent 0%, rgba(157, 201, 0, 0.8) 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 1;
+        }
+        
+        .portfolio-item:hover::before {
+            opacity: 1;
+        }
+        
+        .portfolio-item:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 25px 70px rgba(0,0,0,0.2);
+        }
+        
+        .portfolio-item:hover .portfolio-info {
+            background: linear-gradient(135deg, #FFFFFF 0%, #F0FFF0 100%);
+        }
+        
+        .portfolio-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+        
+        .portfolio-info {
+            padding: 25px;
+            background: white;
+        }
+        
+        .portfolio-info h4 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: #212529;
+        }
+        
+        .portfolio-info p {
+            color: #6C757D;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+        
+        .portfolio-tags {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        
+        .portfolio-tag {
+            background: #E8F5E9;
+            color: #2E7D32;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+        }
+        
+        .process-timeline {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #F8F9FA 0%, #FFFFFF 100%);
+        }
+        
+        .timeline-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .timeline-line {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: #9DC900;
+            transform: translateX(-50%);
+        }
+        
+        .timeline-item {
+            display: flex;
+            margin-bottom: 60px;
+            align-items: center;
+        }
+        
+        .timeline-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+        
+        .timeline-content {
+            flex: 1;
+            padding: 30px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+        }
+        
+        .timeline-dot {
+            width: 40px;
+            height: 40px;
+            background: #9DC900;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            margin: 0 30px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .timeline-content h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: #212529;
+        }
+        
+        .timeline-content p {
+            color: #6C757D;
+            line-height: 1.6;
+        }
+        
+        @media (max-width: 768px) {
+            .choice-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .pricing-table {
+                grid-template-columns: 1fr;
+            }
+            
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .timeline-line {
+                left: 20px;
+            }
+            
+            .timeline-item,
+            .timeline-item:nth-child(even) {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .timeline-dot {
+                margin: 20px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Professional Header -->
+    <header class="header-pro">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-pro">
+                    <span class="logo-main">FutureCheck</span>
+                    <span class="logo-tag">PRO</span>
+                </div>
+                <nav class="header-nav">
+                    <a href="#choice" class="nav-link">Start</a>
+                    <a href="#pricing" class="nav-link">Websites</a>
+                    <a href="#seo-pricing" class="nav-link">SEO</a>
+                    <a href="#portfolio" class="nav-link">Referenzen</a>
+                    <a href="#contact" class="nav-link nav-cta">Kontakt</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Enhanced Hero Section -->
+    <section class="hero-new" style="background-image: linear-gradient(135deg, rgba(157, 201, 0, 0.92), rgba(123, 160, 0, 0.92)), url('https://images.unsplash.com/photo-1497366216548-37526070297c?w=1600&h=900&fit=crop'); min-height: 600px; position: relative;">
+        <div class="container">
+            <div style="text-align: center; padding: 100px 0; position: relative; z-index: 1;">
+                <div style="display: inline-block; background: rgba(255,255,255,0.1); padding: 8px 20px; border-radius: 25px; margin-bottom: 20px; backdrop-filter: blur(10px);">
+                    <span style="color: white; font-size: 14px; font-weight: 600; letter-spacing: 1px;">⭐ ÜBER 500 ZUFRIEDENE KUNDEN</span>
+                </div>
+                <h1 class="hero-title-main" style="font-size: 64px; margin-bottom: 30px; text-shadow: 2px 2px 8px rgba(0,0,0,0.3); font-weight: 700;">
+                    Ihre digitale Zukunft<br>
+                    <span style="color: white; background: linear-gradient(90deg, #FFFFFF, #F0FFF0); -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.3));">beginnt heute</span>
+                </h1>
+                <p class="hero-subtitle-main" style="font-size: 26px; max-width: 800px; margin: 0 auto 40px; text-shadow: 1px 1px 3px rgba(0,0,0,0.3); line-height: 1.6;">
+                    Website-Analyse in 24 Stunden • Professionelle Websites • SEO & Google Ads<br>
+                    <span style="background: rgba(255,255,255,0.15); padding: 8px 20px; border-radius: 25px; display: inline-block; margin-top: 15px; backdrop-filter: blur(10px);">
+                        🇩🇪 Speziell für deutsche KMU entwickelt
+                    </span>
+                </p>
+                <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-top: 40px;">
+                    <button class="btn-white" style="padding: 20px 45px; font-size: 18px; font-weight: 600; background: white; color: #9DC900; border: none; border-radius: 30px; cursor: pointer; box-shadow: 0 10px 30px rgba(0,0,0,0.2); transition: all 0.3s; position: relative; overflow: hidden;" onclick="document.getElementById('choice').scrollIntoView({behavior: 'smooth'})">
+                        <span style="position: relative; z-index: 1;">Kostenlos starten →</span>
+                    </button>
+                    <button style="padding: 20px 45px; font-size: 18px; font-weight: 600; background: rgba(255,255,255,0.1); color: white; border: 2px solid white; border-radius: 30px; cursor: pointer; transition: all 0.3s; backdrop-filter: blur(10px);" onclick="document.getElementById('portfolio').scrollIntoView({behavior: 'smooth'})" onmouseover="this.style.background='rgba(255,255,255,0.2)'" onmouseout="this.style.background='rgba(255,255,255,0.1)'">
+                        Referenzen ansehen
+                    </button>
+                </div>
+                <div style="margin-top: 30px; display: flex; justify-content: center; gap: 40px; flex-wrap: wrap;">
+                    <div style="color: white; opacity: 0.9; font-size: 14px;"><span style="font-size: 20px;">✓</span> Keine Kreditkarte</div>
+                    <div style="color: white; opacity: 0.9; font-size: 14px;"><span style="font-size: 20px;">✓</span> 100% DSGVO-konform</div>
+                    <div style="color: white; opacity: 0.9; font-size: 14px;"><span style="font-size: 20px;">✓</span> Geld-zurück-Garantie</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Choice Section -->
+    <section id="choice" style="padding-bottom: 100px;">
+        <div class="container">
+            <div class="hero-choice">
+                <h2 class="choice-title">Was braucht Ihr Unternehmen?</h2>
+                <div class="choice-grid" style="grid-template-columns: repeat(3, 1fr);">
+                    <div class="choice-card" onclick="document.getElementById('analyse-section').scrollIntoView({behavior: 'smooth'})" style="background: linear-gradient(135deg, #FFFFFF 0%, #F0FFF0 100%);">
+                        <div style="width: 100%; height: 150px; margin: -30px -30px 20px -30px; border-radius: 15px 15px 0 0; background: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=200&fit=crop') center/cover; position: relative;">
+                            <span class="choice-icon" style="position: absolute; bottom: -25px; left: 50%; transform: translateX(-50%); background: white; border-radius: 50%; padding: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">🔍</span>
+                        </div>
+                        <h3 style="font-weight: 600;">Website-Analyse</h3>
+                        <p style="min-height: 60px;">Sie haben bereits eine Website und möchten wissen, wie gut sie performt?</p>
+                        <div class="choice-price">
+                            197€
+                            <small>einmalig</small>
+                        </div>
+                        <ul style="text-align: left; list-style: none; padding: 0;">
+                            <li style="padding: 5px 0;"><span style="color: #9DC900; font-weight: bold; margin-right: 8px;">✓</span> Detaillierte Analyse</li>
+                            <li style="padding: 5px 0;"><span style="color: #9DC900; font-weight: bold; margin-right: 8px;">✓</span> Konkurrenzvergleich</li>
+                            <li style="padding: 5px 0;"><span style="color: #9DC900; font-weight: bold; margin-right: 8px;">✓</span> ROI-Berechnung</li>
+                            <li style="padding: 5px 0;"><span style="color: #9DC900; font-weight: bold; margin-right: 8px;">✓</span> In 24 Stunden fertig</li>
+                        </ul>
+                        <a href="kundendaten.html?product=website-analyse" class="btn-green" style="width: 100%; margin-top: 20px; display: block; text-align: center; text-decoration: none; padding: 15px;">
+                            Analyse starten →
+                        </a>
+                    </div>
+                    
+                    <div class="choice-card" onclick="document.getElementById('pricing').scrollIntoView({behavior: 'smooth'})" style="background: linear-gradient(135deg, #FFFFFF 0%, #F0FFF0 100%);">
+                        <div style="width: 100%; height: 150px; margin: -30px -30px 20px -30px; border-radius: 15px 15px 0 0; background: url('https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=400&h=200&fit=crop') center/cover; position: relative;">
+                            <span class="choice-icon" style="position: absolute; bottom: -25px; left: 50%; transform: translateX(-50%); background: white; border-radius: 50%; padding: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">🚀</span>
+                        </div>
+                        <h3 style="font-weight: 600;">Neue Website</h3>
+                        <p style="min-height: 60px;">Sie brauchen eine moderne, professionelle Website für Ihr Unternehmen?</p>
+                        <div class="choice-price">
+                            ab 497€
+                            <small>einmalig</small>
+                        </div>
+                        <ul style="text-align: left; list-style: none; padding: 0;">
+                            <li style="padding: 5px 0;"><span style="color: #9DC900; font-weight: bold; margin-right: 8px;">✓</span> Individuelles Design</li>
+                            <li style="padding: 5px 0;"><span style="color: #9DC900; font-weight: bold; margin-right: 8px;">✓</span> Mobile optimiert</li>
+                            <li style="padding: 5px 0;"><span style="color: #9DC900; font-weight: bold; margin-right: 8px;">✓</span> SEO-ready</li>
+                            <li style="padding: 5px 0;"><span style="color: #9DC900; font-weight: bold; margin-right: 8px;">✓</span> In 3-7 Tagen fertig</li>
+                        </ul>
+                        <a href="kundendaten.html?product=website-quick" class="btn-green" style="width: 100%; margin-top: 20px; display: block; text-align: center; text-decoration: none; padding: 15px;">
+                            Website anfragen →
+                        </a>
+                    </div>
+                    
+                    <div class="choice-card" onclick="document.getElementById('seo-section').scrollIntoView({behavior: 'smooth'})" style="background: linear-gradient(135deg, #FFFFFF 0%, #F0FFF0 100%);">
+                        <div style="width: 100%; height: 150px; margin: -30px -30px 20px -30px; border-radius: 15px 15px 0 0; background: url('https://images.unsplash.com/photo-1543286386-2e659306cd6c?w=400&h=200&fit=crop') center/cover; position: relative;">
+                            <span class="choice-icon" style="position: absolute; bottom: -25px; left: 50%; transform: translateX(-50%); background: white; border-radius: 50%; padding: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">📈</span>
+                        </div>
+                        <h3 style="font-weight: 600;">Google Sichtbarkeit</h3>
+                        <p style="min-height: 60px;">Werden Sie bei Google gefunden und gewinnen Sie neue Kunden online?</p>
+                        <div class="choice-price">
+                            ab 297€
+                            <small>/Monat</small>
+                        </div>
+                        <ul style="text-align: left; list-style: none; padding: 0;">
+                            <li style="padding: 5px 0;"><span style="color: #9DC900; font-weight: bold; margin-right: 8px;">✓</span> SEO-Optimierung</li>
+                            <li style="padding: 5px 0;"><span style="color: #9DC900; font-weight: bold; margin-right: 8px;">✓</span> Google Ads</li>
+                            <li style="padding: 5px 0;"><span style="color: #9DC900; font-weight: bold; margin-right: 8px;">✓</span> Local SEO</li>
+                            <li style="padding: 5px 0;"><span style="color: #9DC900; font-weight: bold; margin-right: 8px;">✓</span> Ranking-Reports</li>
+                        </ul>
+                        <a href="https://buy.stripe.com/dRm8wPgn02wKf52bIE" class="btn-green" style="width: 100%; margin-top: 20px; display: block; text-align: center; text-decoration: none; padding: 15px;">
+                            SEO starten →
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Indicators -->
+    <section class="trust-indicators">
+        <div class="container">
+            <div class="trust-grid" style="grid-template-columns: repeat(5, 1fr);">
+                <div class="trust-stat" style="position: relative;">
+                    <div style="position: absolute; top: -10px; left: 50%; transform: translateX(-50%); font-size: 24px; opacity: 0.3;">🏆</div>
+                    <div class="trust-number counter" data-target="523" style="font-weight: 700; background: linear-gradient(135deg, #9DC900, #7BA000); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">0</div>
+                    <div class="trust-label">Projekte abgeschlossen</div>
+                </div>
+                <div class="trust-stat" style="position: relative;">
+                    <div style="position: absolute; top: -10px; left: 50%; transform: translateX(-50%); font-size: 24px; opacity: 0.3;">🥇</div>
+                    <div class="trust-number counter" data-target="127" style="font-weight: 700; background: linear-gradient(135deg, #9DC900, #7BA000); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">0</div>
+                    <div class="trust-label">Platz 1 Rankings</div>
+                </div>
+                <div class="trust-stat" style="position: relative;">
+                    <div style="position: absolute; top: -10px; left: 50%; transform: translateX(-50%); font-size: 24px; opacity: 0.3;">⭐</div>
+                    <div class="trust-number"><span class="counter" data-target="98" style="font-weight: 700; background: linear-gradient(135deg, #9DC900, #7BA000); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">0</span>%</div>
+                    <div class="trust-label">Zufriedenheit</div>
+                </div>
+                <div class="trust-stat" style="position: relative;">
+                    <div style="position: absolute; top: -10px; left: 50%; transform: translateX(-50%); font-size: 24px; opacity: 0.3;">📈</div>
+                    <div class="trust-number">+<span class="counter" data-target="450" style="font-weight: 700; background: linear-gradient(135deg, #9DC900, #7BA000); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">0</span>%</div>
+                    <div class="trust-label">Mehr Traffic</div>
+                </div>
+                <div class="trust-stat" style="position: relative;">
+                    <div style="position: absolute; top: -10px; left: 50%; transform: translateX(-50%); font-size: 24px; opacity: 0.3;">💰</div>
+                    <div class="trust-number" style="font-weight: 700; background: linear-gradient(135deg, #9DC900, #7BA000); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">100%</div>
+                    <div class="trust-label">Geld-zurück</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Website Analysis Section -->
+    <section id="analyse-section" class="image-text-section">
+        <div class="container">
+            <div class="image-text-wrapper">
+                <div class="image-side">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop" alt="Dashboard Analytics" class="feature-image">
+                </div>
+                <div class="text-side">
+                    <span class="section-label">ANALYSE</span>
+                    <h2>Website-Analyse in 24 Stunden</h2>
+                    <p class="lead-text">Erfahren Sie, wo Ihre Website steht:</p>
+                    <div class="feature-list">
+                        <div class="feature-item">
+                            <span class="feature-check">✓</span>
+                            <div>
+                                <strong>Performance & Geschwindigkeit</strong>
+                                <p>Ladezeiten, Core Web Vitals, Mobile-Optimierung</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-check">✓</span>
+                            <div>
+                                <strong>SEO & Sichtbarkeit</strong>
+                                <p>Rankings, Keywords, Backlinks, Local SEO</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-check">✓</span>
+                            <div>
+                                <strong>Konkurrenzanalyse</strong>
+                                <p>Direkter Vergleich mit Ihren Mitbewerbern</p>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn-green-outline" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">
+                        Analyse beauftragen →
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEO Section -->
+    <section id="seo-section" class="image-text-section bg-light">
+        <div class="container">
+            <div class="image-text-wrapper reverse">
+                <div class="text-side">
+                    <span class="section-label">SEO & GOOGLE ADS</span>
+                    <h2>Unsichtbar bei Google? Das ändern wir!</h2>
+                    <p class="lead-text">Harte Fakten über Google-Sichtbarkeit:</p>
+                    <div class="stats-row" style="margin: 30px 0;">
+                        <div class="stat">
+                            <span class="stat-number" style="color: #9DC900;">67%</span>
+                            <span class="stat-label">aller Klicks gehen an die Top 3</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number" style="color: #9DC900;">90%</span>
+                            <span class="stat-label">schauen nie auf Seite 2</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number" style="color: #9DC900;">0€</span>
+                            <span class="stat-label">Umsatz ohne Sichtbarkeit</span>
+                        </div>
+                    </div>
+                    <div class="feature-list">
+                        <div class="feature-item">
+                            <span class="feature-check">✓</span>
+                            <div>
+                                <strong>127 erreichte Platz 1 Rankings</strong>
+                                <p>Für unsere Kunden in den letzten 12 Monaten</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-check">✓</span>
+                            <div>
+                                <strong>+450% mehr Website-Besucher</strong>
+                                <p>Durchschnittlich nach 6 Monaten SEO</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-check">✓</span>
+                            <div>
+                                <strong>ROI von 673% im ersten Jahr</strong>
+                                <p>Bei durchschnittlicher Investition von 297€/Monat</p>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn-green-outline" onclick="document.getElementById('seo-pricing').scrollIntoView({behavior: 'smooth'})">
+                        SEO-Pakete ansehen →
+                    </button>
+                </div>
+                <div class="image-side">
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop" alt="SEO Rankings Dashboard" class="feature-image">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEO Pricing Section -->
+    <section id="seo-pricing" style="padding: 100px 0; background: white;">
+        <div class="container">
+            <h2 class="section-title-new">SEO & Google Ads Pakete</h2>
+            <p style="text-align: center; color: #6C757D; font-size: 20px; margin-bottom: 20px;">
+                Werden Sie bei Google gefunden - mit Garantie!
+            </p>
+            <div style="text-align: center; margin-bottom: 60px;">
+                <div style="display: inline-flex; align-items: center; gap: 30px; background: #F8F9FA; padding: 15px 30px; border-radius: 30px; flex-wrap: wrap; justify-content: center;">
+                    <div style="text-align: center;">
+                        <div style="font-size: 28px; font-weight: bold; color: #9DC900;">127</div>
+                        <div style="font-size: 12px; color: #6C757D;">Platz 1 Rankings</div>
+                    </div>
+                    <div style="width: 1px; height: 40px; background: #DEE2E6;"></div>
+                    <div style="text-align: center;">
+                        <div style="font-size: 28px; font-weight: bold; color: #9DC900;">2.5M</div>
+                        <div style="font-size: 12px; color: #6C757D;">Generierte Besucher</div>
+                    </div>
+                    <div style="width: 1px; height: 40px; background: #DEE2E6;"></div>
+                    <div style="text-align: center;">
+                        <div style="font-size: 28px; font-weight: bold; color: #9DC900;">673%</div>
+                        <div style="font-size: 12px; color: #6C757D;">Durchschnittlicher ROI</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Einmalige SEO Setup Pakete -->
+            <h3 style="text-align: center; font-size: 24px; margin-bottom: 40px; color: #212529;">
+                ⚡ Einmalige Setup-Pakete
+            </h3>
+            <div class="pricing-table" style="margin-bottom: 80px;">
+                <div class="pricing-card">
+                    <h3 class="pricing-title">Google Basis-Setup</h3>
+                    <div class="pricing-price">
+                        <sup>€</sup>297
+                    </div>
+                    <p style="color: #6C757D; margin-bottom: 30px;">Einmalig</p>
+                    <ul class="pricing-features">
+                        <li><span class="check-green">✓</span> Google My Business</li>
+                        <li><span class="check-green">✓</span> Google Search Console</li>
+                        <li><span class="check-green">✓</span> Google Analytics 4</li>
+                        <li><span class="check-green">✓</span> Sitemap erstellen</li>
+                        <li><span class="check-green">✓</span> 5 Keywords recherchieren</li>
+                    </ul>
+                    <a href="kundendaten.html?product=google-setup" class="btn-green" style="width: 100%; display: block; text-align: center; text-decoration: none; padding: 15px;">Jetzt einrichten</a>
+                </div>
+                
+                <div class="pricing-card featured">
+                    <span class="badge-popular">Empfohlen</span>
+                    <h3 class="pricing-title">SEO Komplett-Setup</h3>
+                    <div class="pricing-price">
+                        <sup>€</sup>497
+                    </div>
+                    <p style="color: #6C757D; margin-bottom: 30px;">Einmalig</p>
+                    <ul class="pricing-features">
+                        <li><span class="check-green">✓</span> Alles aus Basis-Setup</li>
+                        <li><span class="check-green">✓</span> Technical SEO Audit</li>
+                        <li><span class="check-green">✓</span> Schema Markup</li>
+                        <li><span class="check-green">✓</span> 15 Keywords recherchieren</li>
+                        <li><span class="check-green">✓</span> Konkurrenz-Analyse</li>
+                        <li><span class="check-green">✓</span> Meta-Tags optimieren</li>
+                    </ul>
+                    <a href="kundendaten.html?product=seo-setup" class="btn-green btn-large" style="width: 100%; display: block; text-align: center; text-decoration: none; padding: 20px;">Jetzt einrichten</a>
+                </div>
+                
+                <div class="pricing-card">
+                    <h3 class="pricing-title">Local SEO Boost</h3>
+                    <div class="pricing-price">
+                        <sup>€</sup>297
+                    </div>
+                    <p style="color: #6C757D; margin-bottom: 30px;">Einmalig</p>
+                    <ul class="pricing-features">
+                        <li><span class="check-green">✓</span> 20 Branchenverzeichnisse</li>
+                        <li><span class="check-green">✓</span> Google Maps Optimierung</li>
+                        <li><span class="check-green">✓</span> Bewertungsmanagement</li>
+                        <li><span class="check-green">✓</span> NAP-Konsistenz</li>
+                        <li><span class="check-green">✓</span> Lokale Keywords</li>
+                    </ul>
+                    <a href="kundendaten.html?product=website-analyse" class="btn-green" style="width: 100%; display: block; text-align: center; text-decoration: none; padding: 15px;">Jetzt starten</a>
+                </div>
+            </div>
+            
+            <!-- Monatliche SEO Betreuung -->
+            <h3 style="text-align: center; font-size: 24px; margin-bottom: 40px; color: #212529;">
+                🚀 Monatliche SEO-Betreuung
+            </h3>
+            <div class="pricing-table">
+                <div class="pricing-card">
+                    <h3 class="pricing-title">SEO Starter</h3>
+                    <div class="pricing-price">
+                        <sup>€</sup>297
+                        <small style="font-size: 16px; color: #6C757D;">/Monat</small>
+                    </div>
+                    <p style="color: #6C757D; margin-bottom: 30px;">Für kleine Unternehmen</p>
+                    <ul class="pricing-features">
+                        <li><span class="check-green">✓</span> 5 Keywords optimieren</li>
+                        <li><span class="check-green">✓</span> Monatlicher Report</li>
+                        <li><span class="check-green">✓</span> Google My Business</li>
+                        <li><span class="check-green">✓</span> On-Page Optimierung</li>
+                        <li><span class="check-green">✓</span> Ranking-Tracking</li>
+                    </ul>
+                    <a href="kundendaten.html?product=seo-starter" class="btn-green" style="width: 100%; display: block; text-align: center; text-decoration: none; padding: 15px;">Jetzt starten</a>
+                </div>
+                
+                <div class="pricing-card featured">
+                    <span class="badge-popular">Bestseller</span>
+                    <h3 class="pricing-title">SEO Business</h3>
+                    <div class="pricing-price">
+                        <sup>€</sup>497
+                        <small style="font-size: 16px; color: #6C757D;">/Monat</small>
+                    </div>
+                    <p style="color: #6C757D; margin-bottom: 30px;">Für ambitionierte KMU</p>
+                    <ul class="pricing-features">
+                        <li><span class="check-green">✓</span> 15 Keywords optimieren</li>
+                        <li><span class="check-green">✓</span> 2 SEO-Artikel/Monat</li>
+                        <li><span class="check-green">✓</span> Backlink-Aufbau</li>
+                        <li><span class="check-green">✓</span> Konkurrenz-Monitoring</li>
+                        <li><span class="check-green">✓</span> Wöchentliche Reports</li>
+                        <li><span class="check-green">✓</span> Conversion-Tracking</li>
+                        <li><span class="check-green">✓</span> Persönliche Betreuung</li>
+                    </ul>
+                    <a href="kundendaten.html?product=seo-business" class="btn-green btn-large" style="width: 100%; display: block; text-align: center; text-decoration: none; padding: 20px;">Jetzt starten</a>
+                </div>
+                
+                <div class="pricing-card">
+                    <h3 class="pricing-title">SEO + Ads Komplett</h3>
+                    <div class="pricing-price">
+                        <sup>€</sup>797
+                        <small style="font-size: 16px; color: #6C757D;">/Monat</small>
+                    </div>
+                    <p style="color: #6C757D; margin-bottom: 30px;">Maximum Performance</p>
+                    <ul class="pricing-features">
+                        <li><span class="check-green">✓</span> Alles aus Business</li>
+                        <li><span class="check-green">✓</span> Google Ads Kampagnen</li>
+                        <li><span class="check-green">✓</span> Facebook/Instagram Ads</li>
+                        <li><span class="check-green">✓</span> A/B Testing</li>
+                        <li><span class="check-green">✓</span> Landing Page Optimierung</li>
+                        <li><span class="check-green">✓</span> Tägliches Monitoring</li>
+                        <li><span class="check-green">✓</span> Dedizierter Account Manager</li>
+                    </ul>
+                    <a href="kundendaten.html?product=seo-ads" class="btn-green" style="width: 100%; display: block; text-align: center; text-decoration: none; padding: 15px;">Jetzt starten</a>
+                </div>
+            </div>
+            
+            <!-- Super Bundle -->
+            <div style="background: linear-gradient(135deg, #9DC900, #7BA000); border-radius: 20px; padding: 60px 40px; margin-top: 80px; text-align: center; color: white; position: relative; overflow: hidden; box-shadow: 0 20px 60px rgba(157, 201, 0, 0.3);">
+                <div style="position: absolute; top: -50px; right: -50px; width: 150px; height: 150px; background: rgba(255,255,255,0.1); border-radius: 50%;"></div>
+                <div style="position: absolute; bottom: -30px; left: -30px; width: 100px; height: 100px; background: rgba(255,255,255,0.08); border-radius: 50%;"></div>
+                <div style="position: absolute; top: 20px; left: 20px; font-size: 100px; opacity: 0.1;">🔥</div>
+                <div style="display: inline-block; background: rgba(255,255,255,0.2); padding: 8px 20px; border-radius: 25px; margin-bottom: 20px; font-size: 14px; font-weight: 600; letter-spacing: 1px;">
+                    ⚡ NUR FÜR KURZE ZEIT
+                </div>
+                <h3 style="font-size: 36px; margin-bottom: 20px; font-weight: 700;">MEGA-BUNDLE: Alles aus einer Hand</h3>
+                <p style="font-size: 22px; margin-bottom: 40px; opacity: 0.95;">
+                    Neue Website + SEO-Setup + 3 Monate Betreuung
+                </p>
+                <div style="display: flex; justify-content: center; align-items: center; gap: 30px; flex-wrap: wrap;">
+                    <div>
+                        <span style="text-decoration: line-through; font-size: 28px; opacity: 0.7;">2.488€</span>
+                        <span style="font-size: 56px; font-weight: bold; margin: 0 20px;">1.997€</span>
+                        <span style="background: white; color: #9DC900; padding: 8px 20px; border-radius: 25px; font-size: 16px; font-weight: bold;">Sie sparen 491€</span>
+                    </div>
+                </div>
+                <ul style="list-style: none; padding: 0; margin: 40px auto; max-width: 600px; text-align: left;">
+                    <li style="margin: 15px 0; font-size: 18px;">✅ Business Website (Wert: 997€)</li>
+                    <li style="margin: 15px 0; font-size: 18px;">✅ SEO Komplett-Setup (Wert: 497€)</li>
+                    <li style="margin: 15px 0; font-size: 18px;">✅ 3 Monate SEO Business (Wert: 1.491€)</li>
+                    <li style="margin: 15px 0; font-size: 18px;">✅ Google Ads Startguthaben (100€ Bonus)</li>
+                </ul>
+                <a href="kundendaten.html?product=mega-bundle" class="btn-white" style="padding: 20px 50px; font-size: 20px; display: inline-block; text-decoration: none;">
+                    Mega-Bundle sichern →
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section for Websites -->
+    <section id="pricing" class="pricing-section">
+        <div class="container">
+            <h2 class="section-title-new">Website-Pakete für jeden Bedarf</h2>
+            <p style="text-align: center; color: #6C757D; font-size: 20px; margin-bottom: 60px;">
+                Professionelle Websites zum fairen Preis - keine versteckten Kosten
+            </p>
+            <div class="pricing-table">
+                <!-- Quick Start -->
+                <div class="pricing-card">
+                    <h3 class="pricing-title">Quick-Start</h3>
+                    <div class="pricing-price">
+                        <sup>€</sup>497
+                    </div>
+                    <p style="color: #6C757D; margin-bottom: 30px;">Perfekt für den Einstieg</p>
+                    <ul class="pricing-features">
+                        <li><span class="check-green">✓</span> 3-5 Seiten</li>
+                        <li><span class="check-green">✓</span> Responsive Design</li>
+                        <li><span class="check-green">✓</span> Basis-SEO</li>
+                        <li><span class="check-green">✓</span> Kontaktformular</li>
+                        <li><span class="check-green">✓</span> 3 Tage Lieferzeit</li>
+                        <li><span class="check-green">✓</span> 1 Revision</li>
+                    </ul>
+                    <a href="kundendaten.html?product=website-quick" class="btn-green" style="width: 100%; display: block; text-align: center; text-decoration: none; padding: 15px;">Jetzt starten</a>
+                </div>
+
+                <!-- Business - Featured -->
+                <div class="pricing-card featured">
+                    <span class="badge-popular">Beliebteste Wahl</span>
+                    <h3 class="pricing-title">Business</h3>
+                    <div class="pricing-old-price">Normalpreis: 1.297€</div>
+                    <div class="pricing-price">
+                        <sup>€</sup>997
+                    </div>
+                    <p style="color: #6C757D; margin-bottom: 30px;">Für etablierte Unternehmen</p>
+                    <ul class="pricing-features">
+                        <li><span class="check-green">✓</span> 7-10 Seiten</li>
+                        <li><span class="check-green">✓</span> Premium Design</li>
+                        <li><span class="check-green">✓</span> SEO-Optimierung</li>
+                        <li><span class="check-green">✓</span> Google Analytics</li>
+                        <li><span class="check-green">✓</span> Newsletter-Integration</li>
+                        <li><span class="check-green">✓</span> 7 Tage Lieferzeit</li>
+                        <li><span class="check-green">✓</span> 3 Revisionen</li>
+                        <li><span class="check-green">✓</span> 1 Monat Support</li>
+                    </ul>
+                    <a href="kundendaten.html?product=website-business" class="btn-green btn-large" style="width: 100%; display: block; text-align: center; text-decoration: none; padding: 20px;">Jetzt starten</a>
+                </div>
+
+                <!-- Professional -->
+                <div class="pricing-card">
+                    <h3 class="pricing-title">Professional</h3>
+                    <div class="pricing-price">
+                        <sup>€</sup>1.797
+                    </div>
+                    <p style="color: #6C757D; margin-bottom: 30px;">All-inclusive Lösung</p>
+                    <ul class="pricing-features">
+                        <li><span class="check-green">✓</span> 15+ Seiten</li>
+                        <li><span class="check-green">✓</span> Custom Design</li>
+                        <li><span class="check-green">✓</span> Advanced SEO</li>
+                        <li><span class="check-green">✓</span> Blog-System</li>
+                        <li><span class="check-green">✓</span> E-Commerce ready</li>
+                        <li><span class="check-green">✓</span> 14 Tage Lieferzeit</li>
+                        <li><span class="check-green">✓</span> Unbegrenzte Revisionen</li>
+                        <li><span class="check-green">✓</span> 3 Monate Support</li>
+                    </ul>
+                    <a href="kundendaten.html?product=website-professional" class="btn-green" style="width: 100%; display: block; text-align: center; text-decoration: none; padding: 15px;">Jetzt starten</a>
+                </div>
+            </div>
+
+            <!-- Bundle Offer -->
+            <div style="background: linear-gradient(135deg, #E8F5E9, #F1F8E9); border-radius: 20px; padding: 60px 40px 40px; margin-top: 60px; text-align: center; position: relative; box-shadow: 0 10px 40px rgba(157, 201, 0, 0.15);">
+                <div style="position: absolute; top: 0; right: 30px; background: #FF4757; color: white; padding: 10px 20px; border-radius: 0 0 10px 10px; font-size: 12px; font-weight: bold; letter-spacing: 1px; box-shadow: 0 5px 15px rgba(255, 71, 87, 0.3);">LIMITIERTES ANGEBOT</div>
+                <div style="display: inline-block; font-size: 48px; margin-bottom: 10px; animation: pulse 2s infinite;">💎</div>
+                <h3 style="font-size: 32px; margin-bottom: 20px; font-weight: 700; color: #212529;">Bundle-Angebot</h3>
+                <p style="font-size: 20px; color: #6C757D; margin-bottom: 30px;">
+                    Business Website + Analyse zum Sparpreis
+                </p>
+                <div style="display: flex; justify-content: center; align-items: center; gap: 30px; flex-wrap: wrap; margin-bottom: 30px;">
+                    <div>
+                        <span style="text-decoration: line-through; color: #999; font-size: 28px; display: block; margin-bottom: 10px;">Normalpreis: 1.194€</span>
+                        <span style="font-size: 56px; font-weight: bold; color: #9DC900; display: block;">1.097€</span>
+                        <span style="background: linear-gradient(135deg, #FF4757, #FF6B6B); color: white; padding: 8px 20px; border-radius: 25px; font-size: 16px; font-weight: 600; display: inline-block; margin-top: 15px; box-shadow: 0 5px 15px rgba(255, 71, 87, 0.3);">Sie sparen 97€</span>
+                    </div>
+                </div>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; max-width: 600px; margin: 0 auto 30px; text-align: left;">
+                    <div style="background: white; padding: 15px; border-radius: 10px; display: flex; align-items: center; gap: 10px;">
+                        <span style="color: #9DC900; font-size: 24px;">✓</span>
+                        <span style="color: #212529;">Business Website (997€)</span>
+                    </div>
+                    <div style="background: white; padding: 15px; border-radius: 10px; display: flex; align-items: center; gap: 10px;">
+                        <span style="color: #9DC900; font-size: 24px;">✓</span>
+                        <span style="color: #212529;">Website-Analyse (197€)</span>
+                    </div>
+                </div>
+                <a href="kundendaten.html?product=bundle" class="btn-green btn-large" style="padding: 20px 50px; font-size: 20px; box-shadow: 0 10px 30px rgba(157, 201, 0, 0.3); position: relative; overflow: hidden; display: inline-block; text-decoration: none;" onmouseover="this.style.transform='translateY(-3px) scale(1.05)'; this.style.boxShadow='0 15px 40px rgba(157, 201, 0, 0.4)'" onmouseout="this.style.transform='translateY(0) scale(1)'; this.style.boxShadow='0 10px 30px rgba(157, 201, 0, 0.3)'">
+                    Bundle jetzt sichern →
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section style="padding: 100px 0; background: linear-gradient(135deg, #F8F9FA 0%, #FFFFFF 100%);">
+        <div class="container">
+            <h2 class="section-title-new">Warum FutureCheck Pro?</h2>
+            <p style="text-align: center; color: #6C757D; font-size: 20px; margin-bottom: 60px;">
+                Wir sind anders als traditionelle Agenturen und Berater
+            </p>
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px;">
+                <div style="text-align: center; padding: 40px 30px; background: white; border-radius: 15px; box-shadow: 0 10px 40px rgba(0,0,0,0.08); transition: all 0.3s;" onmouseover="this.style.transform='translateY(-10px)'; this.style.boxShadow='0 20px 60px rgba(157, 201, 0, 0.15)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 10px 40px rgba(0,0,0,0.08)'">
+                    <div style="font-size: 48px; margin-bottom: 20px;">⚡</div>
+                    <h3 style="font-size: 22px; margin-bottom: 15px; color: #212529;">Blitzschnell</h3>
+                    <p style="color: #6C757D; line-height: 1.6;">Während andere 3-6 Monate brauchen, liefern wir in 3-7 Tagen. Zeit ist Geld!</p>
+                </div>
+                <div style="text-align: center; padding: 40px 30px; background: white; border-radius: 15px; box-shadow: 0 10px 40px rgba(0,0,0,0.08); transition: all 0.3s;" onmouseover="this.style.transform='translateY(-10px)'; this.style.boxShadow='0 20px 60px rgba(157, 201, 0, 0.15)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 10px 40px rgba(0,0,0,0.08)'">
+                    <div style="font-size: 48px; margin-bottom: 20px;">💰</div>
+                    <h3 style="font-size: 22px; margin-bottom: 15px; color: #212529;">Fair & Transparent</h3>
+                    <p style="color: #6C757D; line-height: 1.6;">Keine versteckten Kosten, keine Überraschungen. Sie wissen genau, was Sie bekommen.</p>
+                </div>
+                <div style="text-align: center; padding: 40px 30px; background: white; border-radius: 15px; box-shadow: 0 10px 40px rgba(0,0,0,0.08); transition: all 0.3s;" onmouseover="this.style.transform='translateY(-10px)'; this.style.boxShadow='0 20px 60px rgba(157, 201, 0, 0.15)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 10px 40px rgba(0,0,0,0.08)'">
+                    <div style="font-size: 48px; margin-bottom: 20px;">🎯</div>
+                    <h3 style="font-size: 22px; margin-bottom: 15px; color: #212529;">Ergebnisorientiert</h3>
+                    <p style="color: #6C757D; line-height: 1.6;">Wir messen unseren Erfolg an Ihrem ROI. Durchschnittlich 450% mehr Umsatz!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio-section">
+        <div class="container">
+            <h2 class="section-title-new">Unsere Referenzen</h2>
+            <p style="text-align: center; color: #6C757D; font-size: 20px; margin-bottom: 60px;">
+                Über 500 zufriedene Kunden vertrauen uns
+            </p>
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=250&fit=crop" alt="Portfolio 1" class="portfolio-image">
+                    <div class="portfolio-info">
+                        <h4>TechnoPlus GmbH</h4>
+                        <p>Moderne B2B-Website mit Produktkatalog</p>
+                        <div class="portfolio-tags">
+                            <span class="portfolio-tag">Business</span>
+                            <span class="portfolio-tag">B2B</span>
+                            <span class="portfolio-tag">7 Tage</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item">
+                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=400&h=250&fit=crop" alt="Portfolio 2" class="portfolio-image">
+                    <div class="portfolio-info">
+                        <h4>Beratung Schmidt</h4>
+                        <p>Professionelle Berater-Website mit Buchungssystem</p>
+                        <div class="portfolio-tags">
+                            <span class="portfolio-tag">Professional</span>
+                            <span class="portfolio-tag">Dienstleistung</span>
+                            <span class="portfolio-tag">10 Tage</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item">
+                    <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=400&h=250&fit=crop" alt="Portfolio 3" class="portfolio-image">
+                    <div class="portfolio-info">
+                        <h4>Handwerk Müller</h4>
+                        <p>Lokale Handwerker-Website mit Galerie</p>
+                        <div class="portfolio-tags">
+                            <span class="portfolio-tag">Quick-Start</span>
+                            <span class="portfolio-tag">Lokal</span>
+                            <span class="portfolio-tag">3 Tage</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Timeline -->
+    <section id="process" class="process-timeline">
+        <div class="container">
+            <h2 class="section-title-new">So einfach geht's</h2>
+            <p style="text-align: center; color: #6C757D; font-size: 20px; margin-bottom: 60px;">
+                Von der Anfrage bis zur fertigen Website in wenigen Tagen
+            </p>
+            <div class="timeline-container">
+                <div class="timeline-line"></div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Tag 1: Briefing</h3>
+                        <p>Wir besprechen Ihre Anforderungen und Ziele in einem 30-minütigen Gespräch.</p>
+                    </div>
+                    <div class="timeline-dot">1</div>
+                    <div style="flex: 1;"></div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div style="flex: 1;"></div>
+                    <div class="timeline-dot">2</div>
+                    <div class="timeline-content">
+                        <h3>Tag 2-4: Design & Entwicklung</h3>
+                        <p>Wir erstellen Ihre Website nach Ihren Vorgaben und Best Practices.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Tag 5: Revision</h3>
+                        <p>Sie prüfen die Website und wir nehmen Ihre Änderungswünsche auf.</p>
+                    </div>
+                    <div class="timeline-dot">3</div>
+                    <div style="flex: 1;"></div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div style="flex: 1;"></div>
+                    <div class="timeline-dot">4</div>
+                    <div class="timeline-content">
+                        <h3>Tag 6-7: Launch</h3>
+                        <p>Nach finaler Freigabe geht Ihre neue Website online!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials-section">
+        <div class="container">
+            <h2 class="section-title-new">Das sagen unsere Kunden</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p class="testimonial-text">
+                        "In nur 5 Tagen hatten wir eine komplett neue Website. Der ROI war bereits nach 2 Monaten positiv!"
+                    </p>
+                    <div class="testimonial-author">
+                        <img src="https://i.pravatar.cc/150?img=12" alt="Thomas Bergmann" class="testimonial-avatar">
+                        <div>
+                            <strong>Thomas Bergmann</strong>
+                            <span>Geschäftsführer, Bergmann Technik GmbH</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p class="testimonial-text">
+                        "Die Website-Analyse hat uns die Augen geöffnet. Wir wussten gar nicht, was alles möglich ist!"
+                    </p>
+                    <div class="testimonial-author">
+                        <img src="https://i.pravatar.cc/150?img=5" alt="Sarah Wagner" class="testimonial-avatar">
+                        <div>
+                            <strong>Sarah Wagner</strong>
+                            <span>Marketing, Wagner Services</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p class="testimonial-text">
+                        "Preis-Leistung unschlagbar. Hätte nie gedacht, dass man für unter 1000€ so eine Website bekommt."
+                    </p>
+                    <div class="testimonial-author">
+                        <img src="https://i.pravatar.cc/150?img=33" alt="Michael Schneider" class="testimonial-avatar">
+                        <div>
+                            <strong>Michael Schneider</strong>
+                            <span>Inhaber, Schneider Logistik</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <h2 class="section-title-new">Häufige Fragen</h2>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <h3>Wie lange dauert die Website-Erstellung?</h3>
+                    <p>Je nach Paket zwischen 3 und 14 Tagen. Quick-Start in 3 Tagen, Business in 7 Tagen.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Was kostet die Wartung?</h3>
+                    <p>Die einmaligen Preise beinhalten die Erstellung. Hosting und Domain zahlen Sie direkt beim Anbieter (ca. 10€/Monat).</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Kann ich die Website selbst bearbeiten?</h3>
+                    <p>Ja, Sie erhalten ein CMS (Content Management System) und eine Einweisung, damit Sie Inhalte selbst ändern können.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Was ist im Preis enthalten?</h3>
+                    <p>Design, Entwicklung, Mobile-Optimierung, Basis-SEO, SSL-Zertifikat und je nach Paket weitere Features.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Gibt es eine Garantie?</h3>
+                    <p>Ja, 100% Zufriedenheitsgarantie. Wenn Sie nicht zufrieden sind, erhalten Sie Ihr Geld zurück.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Wie läuft die Zahlung?</h3>
+                    <p>50% Anzahlung bei Auftragserteilung, 50% nach Fertigstellung. Sichere Zahlung via Stripe.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section id="contact" class="form-section">
+        <div class="container">
+            <div class="form-wrapper">
+                <div class="form-content">
+                    <div class="form-header">
+                        <h2>Kostenloses Erstgespräch vereinbaren</h2>
+                        <p>Lassen Sie uns über Ihr Projekt sprechen</p>
+                    </div>
+                    <form class="professional-form" id="contactForm">
+                        <div class="form-row">
+                            <input type="text" name="firstname" placeholder="Vorname*" required>
+                            <input type="text" name="lastname" placeholder="Nachname*" required>
+                        </div>
+                        <div class="form-row">
+                            <input type="email" name="email" placeholder="E-Mail*" required>
+                            <input type="tel" name="phone" placeholder="Telefon*" required>
+                        </div>
+                        <div class="form-row">
+                            <input type="text" name="company" placeholder="Firma*" required>
+                            <input type="url" name="website" placeholder="Website (falls vorhanden)">
+                        </div>
+                        <div class="form-row full">
+                            <select name="interest" required>
+                                <option value="">Was interessiert Sie?*</option>
+                                <optgroup label="Website-Analyse">
+                                    <option value="analyse">Website-Analyse (197€)</option>
+                                </optgroup>
+                                <optgroup label="Website-Erstellung">
+                                    <option value="quick-start">Quick-Start Website (497€)</option>
+                                    <option value="business">Business Website (997€)</option>
+                                    <option value="professional">Professional Website (1.797€)</option>
+                                </optgroup>
+                                <optgroup label="SEO & Google">
+                                    <option value="seo-setup">SEO Setup (ab 297€)</option>
+                                    <option value="seo-starter">SEO Starter (297€/Monat)</option>
+                                    <option value="seo-business">SEO Business (497€/Monat)</option>
+                                    <option value="seo-ads">SEO + Ads (797€/Monat)</option>
+                                </optgroup>
+                                <optgroup label="Bundle-Angebote">
+                                    <option value="bundle-website">Website + Analyse (1.097€)</option>
+                                    <option value="mega-bundle">MEGA: Website + SEO (1.997€)</option>
+                                </optgroup>
+                                <option value="unsure">Ich bin mir noch unsicher</option>
+                            </select>
+                        </div>
+                        <div class="form-row full">
+                            <textarea name="message" placeholder="Erzählen Sie uns von Ihrem Projekt..." rows="4"></textarea>
+                        </div>
+                        <div class="form-checkbox">
+                            <input type="checkbox" id="datenschutz" name="datenschutz" required>
+                            <label for="datenschutz">
+                                Ich akzeptiere die <a href="datenschutz.html" target="_blank">Datenschutzerklärung</a>
+                            </label>
+                        </div>
+                        <button type="submit" class="btn-green btn-large btn-full">
+                            Kostenloses Gespräch anfragen →
+                        </button>
+                    </form>
+                </div>
+                <div class="form-benefits">
+                    <h3>Das erwartet Sie</h3>
+                    <ul class="benefits-list">
+                        <li>✓ 30 Min. kostenloses Beratungsgespräch</li>
+                        <li>✓ Konkrete Empfehlungen für Ihr Projekt</li>
+                        <li>✓ Transparente Preise, keine versteckten Kosten</li>
+                        <li>✓ Individuelles Angebot</li>
+                        <li>✓ Keine Verpflichtungen</li>
+                    </ul>
+                    <div class="urgency-box">
+                        <p><strong>⚡ Limitiert:</strong> Nur <strong>3 neue Projekte</strong> pro Monat!</p>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 66%"></div>
+                        </div>
+                        <p class="progress-text">2 von 3 Plätzen noch verfügbar</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Banner -->
+    <section class="cta-banner">
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="cta-title">Bereit für Ihre neue Website?</h2>
+                <p class="cta-text">Starten Sie jetzt und sein Sie Ihrer Konkurrenz einen Schritt voraus.</p>
+                <button class="btn-white" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">
+                    Jetzt Projekt starten →
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer-pro">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-company">
+                    <h4>Marcel Gärtner</h4>
+                    <p>Michelsrotweg 6<br>
+                    74821 Mosbach<br>
+                    Deutschland</p>
+                    <p>📞 +41 76 801 53 30<br>
+                    📧 gaertner-marcel@web.de</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Services</h4>
+                    <a href="#analyse-section">Website-Analyse</a>
+                    <a href="#pricing">Website-Erstellung</a>
+                    <a href="#portfolio">Referenzen</a>
+                    <a href="#process">Ablauf</a>
+                </div>
+                <div class="footer-links">
+                    <h4>Rechtliches</h4>
+                    <a href="impressum.html">Impressum</a>
+                    <a href="datenschutz.html">Datenschutz</a>
+                    <a href="#">AGB</a>
+                </div>
+                <div class="footer-trust">
+                    <h4>Vertrauen & Sicherheit</h4>
+                    <p>✓ SSL-verschlüsselt<br>
+                    ✓ DSGVO-konform<br>
+                    ✓ 100% Zufriedenheitsgarantie<br>
+                    ✓ Sichere Zahlung via Stripe</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Marcel Gärtner. Alle Rechte vorbehalten.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Form submission handler
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(e.target);
+            const data = Object.fromEntries(formData);
+            
+            // Store in localStorage
+            localStorage.setItem('futurecheck_lead', JSON.stringify(data));
+            
+            // Show success message
+            const button = e.target.querySelector('button[type="submit"]');
+            button.textContent = 'Wird gesendet...';
+            button.disabled = true;
+            
+            // Redirect to thank you page
+            setTimeout(() => {
+                window.location.href = 'danke.html';
+            }, 1000);
+        });
+
+        // Smooth scroll with offset for fixed header
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const target = document.querySelector(targetId);
+                if (target) {
+                    const headerHeight = document.querySelector('.header-pro').offsetHeight;
+                    const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerHeight - 20;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Counter animation
+        const counters = document.querySelectorAll('.counter');
+        const speed = 200;
+        
+        const countUp = () => {
+            counters.forEach(counter => {
+                const target = +counter.getAttribute('data-target');
+                const count = +counter.innerText;
+                const increment = target / speed;
+                
+                if(count < target) {
+                    counter.innerText = Math.ceil(count + increment);
+                    setTimeout(countUp, 10);
+                } else {
+                    counter.innerText = target;
+                }
+            });
+        };
+        
+        // Start counter when visible
+        const observerOptions = {
+            threshold: 0.5
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting) {
+                    countUp();
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+        
+        const trustSection = document.querySelector('.trust-indicators');
+        if(trustSection) {
+            observer.observe(trustSection);
+        }
+    </script>
+</body>
+</html>

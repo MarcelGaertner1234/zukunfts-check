@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FutureCheck - Vielen Dank!</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Vielen Dank - FutureCheck Pro</title>
+    <link rel="stylesheet" href="styles-new.css">
     <style>
         .thank-you-container {
             min-height: 80vh;
@@ -26,7 +26,7 @@
         .success-icon {
             width: 80px;
             height: 80px;
-            background: linear-gradient(135deg, #4ade80, #22c55e);
+            background: linear-gradient(135deg, #9DC900, #7BA000);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -159,12 +159,12 @@
         }
         
         .timeline-step.active .timeline-icon {
-            background: #097fe8;
+            background: #9DC900;
             color: white;
         }
         
         .timeline-step.completed .timeline-icon {
-            background: #4ade80;
+            background: #9DC900;
             color: white;
         }
         
@@ -189,8 +189,8 @@
         .btn-secondary {
             padding: 12px 24px;
             font-size: 16px;
-            border: 2px solid #097fe8;
-            color: #097fe8;
+            border: 2px solid #9DC900;
+            color: #9DC900;
             background: white;
             border-radius: 8px;
             text-decoration: none;
@@ -198,7 +198,7 @@
         }
         
         .btn-secondary:hover {
-            background: #097fe8;
+            background: #9DC900;
             color: white;
         }
         
@@ -211,7 +211,7 @@
         }
         
         .contact-info a {
-            color: #097fe8;
+            color: #9DC900;
             text-decoration: none;
         }
         
@@ -222,11 +222,13 @@
 </head>
 <body>
     <!-- Header -->
-    <header class="header">
+    <header class="header-pro">
         <div class="container">
-            <div class="logo">
-                <span class="logo-text">FutureCheck</span>
-                <span class="logo-badge">MVP</span>
+            <div class="header-content">
+                <div class="logo-pro">
+                    <span class="logo-main">FutureCheck</span>
+                    <span class="logo-tag">PRO</span>
+                </div>
             </div>
         </div>
     </header>
@@ -237,9 +239,9 @@
                 <span class="checkmark">✓</span>
             </div>
             
-            <h1 class="thank-you-title">Vielen Dank für Ihre Bestellung!</h1>
+            <h1 class="thank-you-title">Vielen Dank für Ihre Anfrage!</h1>
             <p class="thank-you-subtitle">
-                Wir haben Ihre Bestellung erhalten und beginnen sofort mit der Analyse Ihrer Website.
+                Wir haben Ihre Anfrage erhalten und werden uns innerhalb von 24 Stunden bei Ihnen melden.
             </p>
 
             <div class="order-details">
@@ -256,8 +258,8 @@
                     <span class="order-detail-value" id="confirmedEmail">-</span>
                 </div>
                 <div class="order-detail-row">
-                    <span class="order-detail-label">Betrag:</span>
-                    <span class="order-detail-value">197€ (bezahlt)</span>
+                    <span class="order-detail-label">Status:</span>
+                    <span class="order-detail-value">Anfrage eingegangen</span>
                 </div>
             </div>
 
@@ -266,7 +268,7 @@
                 <div class="timeline-steps">
                     <div class="timeline-step completed">
                         <div class="timeline-icon">✓</div>
-                        <div class="timeline-label">Bestellung</div>
+                        <div class="timeline-label">Anfrage</div>
                         <div class="timeline-time">Erledigt</div>
                     </div>
                     <div class="timeline-step active">
@@ -287,16 +289,16 @@
                 </div>
             </div>
 
-            <div style="background: #fef3c7; border-left: 4px solid #f59e0b; padding: 20px; border-radius: 8px; text-align: left; margin: 30px 0;">
-                <strong style="color: #92400e;">📬 Wichtig:</strong>
-                <p style="margin-top: 10px; color: #92400e; font-size: 14px;">
-                    Sie erhalten in wenigen Minuten eine Bestätigungs-E-Mail mit allen Details Ihrer Bestellung. 
+            <div style="background: #E8F5E9; border-left: 4px solid #9DC900; padding: 20px; border-radius: 8px; text-align: left; margin: 30px 0;">
+                <strong style="color: #2E7D32;">📬 Wichtig:</strong>
+                <p style="margin-top: 10px; color: #2E7D32; font-size: 14px;">
+                    Sie erhalten in wenigen Minuten eine Bestätigungs-E-Mail mit allen Details Ihrer Anfrage. 
                     Bitte prüfen Sie auch Ihren Spam-Ordner.
                 </p>
             </div>
 
             <div class="action-buttons">
-                <a href="index.html" class="btn-secondary">Zur Startseite</a>
+                <a href="index-new.html" class="btn-secondary">Zur Startseite</a>
                 <a href="#" onclick="window.print(); return false;" class="btn-secondary">Seite drucken</a>
             </div>
 
@@ -317,12 +319,12 @@
         const sessionId = urlParams.get('session_id');
         
         // Get order data from localStorage
-        const orderData = localStorage.getItem('futurecheck_order');
+        const orderData = localStorage.getItem('futurecheck_lead');
         
         if (!orderData && !stripeSuccess) {
             // No order data and not coming from Stripe - redirect to homepage
             console.log('No order data found, redirecting to homepage');
-            window.location.href = 'index.html';
+            window.location.href = 'index-new.html';
         } else if (orderData) {
             const order = JSON.parse(orderData);
             
@@ -331,12 +333,12 @@
             document.getElementById('confirmedEmail').textContent = order.email || '-';
             
             // Display more details if available
-            if (order.name) {
+            if (order.firstname && order.lastname) {
                 const nameRow = document.createElement('div');
                 nameRow.className = 'order-detail-row';
                 nameRow.innerHTML = `
                     <span class="order-detail-label">Name:</span>
-                    <span class="order-detail-value">${order.name}</span>
+                    <span class="order-detail-value">${order.firstname} ${order.lastname}</span>
                 `;
                 document.querySelector('.order-details').insertBefore(nameRow, document.querySelector('.order-details').children[1]);
             }
@@ -354,7 +356,7 @@
             // Clear localStorage after successful display (prevent reuse)
             // But keep for 5 minutes in case of page refresh
             setTimeout(() => {
-                localStorage.removeItem('futurecheck_order');
+                localStorage.removeItem('futurecheck_lead');
                 console.log('Order data cleared from localStorage');
             }, 300000); // 5 minutes
             

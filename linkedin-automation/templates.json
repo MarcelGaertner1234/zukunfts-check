@@ -1,0 +1,58 @@
+{
+  "initial": {
+    "Handel": [
+      "Hallo {first_name},\n\nich habe gesehen, dass Sie bei {company} als {position} tätig sind.\n\nViele Handelsunternehmen verlieren aktuell Kunden an Online-Konkurrenten - ohne es rechtzeitig zu merken.\n\nWir analysieren in 24h, wo {company} digital steht und welche 3 Schritte den größten Impact hätten.\n\nHaben Sie 2 Min für ein kurzes Video, das zeigt, was wir genau analysieren?\n\nBeste Grüße\nMarcel",
+      "Guten Tag {first_name},\n\nals {position} bei {company} kennen Sie sicher die Herausforderung: Die Digitalisierung voranzutreiben, ohne dabei das Tagesgeschäft zu vernachlässigen.\n\nUnser FutureCheck zeigt in 24h:\n• Wo Sie im Branchenvergleich stehen\n• Welche Quick-Wins sofort umsetzbar sind\n• Was wirklich ROI bringt\n\nInteresse an einer kostenlosen 5-Min Demo?\n\nViele Grüße\nMarcel",
+      "Hallo {first_name},\n\nich arbeite mit Handelsunternehmen wie {company} zusammen, um versteckte Digitalisierungslücken aufzudecken.\n\nLetzte Woche haben wir einem ähnlichen Unternehmen geholfen, 40% ihrer manuellen Prozesse zu automatisieren.\n\nUnser 24h-Check zeigt:\n✓ Ihre digitale Position vs. Wettbewerber\n✓ 3 sofort umsetzbare Verbesserungen\n✓ Erwarteter ROI für jede Maßnahme\n\nSollen wir mal 5 Minuten sprechen?\n\nBeste Grüße\nMarcel"
+    ],
+    "Produktion": [
+      "Hallo {first_name},\n\nIhre Erfahrung als {position} bei {company} ist sicher wertvoll in Zeiten von Industrie 4.0.\n\nViele Produktionsunternehmen investieren in die falschen Digital-Tools und verlieren dadurch Geld.\n\nUnser FutureCheck analysiert in 24h:\n✓ Digitale Prozesslücken\n✓ Automatisierungspotenziale\n✓ ROI der nächsten Schritte\n\nLust auf eine kurze Demo? Dauert nur 5 Minuten.\n\nBeste Grüße\nMarcel",
+      "Guten Tag {first_name},\n\nProduktionsunternehmen wie {company} stehen vor der Herausforderung: Digitalisierung ja, aber wo anfangen?\n\nWir haben eine Methode entwickelt, die in 24h zeigt:\n• Wo Sie im Industrie 4.0 Reifegrad stehen\n• Welche Investitionen sich wirklich lohnen\n• Wie Sie Schritt für Schritt vorgehen sollten\n\nAktuell bieten wir das für 197€ statt 497€ an (Early Bird).\n\nInteresse?\n\nViele Grüße\nMarcel"
+    ],
+    "Handwerk": [
+      "Hallo {first_name},\n\nals {position} bei {company} kennen Sie die täglichen Herausforderungen im Handwerk.\n\nViele Handwerksbetriebe verschenken Potenzial durch veraltete Prozesse - von der Kundenakquise bis zur Abrechnung.\n\nUnser FutureCheck zeigt in 24h:\n✓ Digitale Schwachstellen\n✓ Einfache Lösungen mit großer Wirkung\n✓ Was Ihre Konkurrenz bereits nutzt\n\nKurzes Gespräch diese Woche?\n\nBeste Grüße\nMarcel",
+      "Guten Tag {first_name},\n\nich helfe Handwerksbetrieben wie {company}, digital effizienter zu werden.\n\nBeispiel: Ein Elektriker-Betrieb spart jetzt 10h/Woche durch digitale Auftragsplanung.\n\nUnser 24h-Check analysiert:\n• Ihre digitalen Prozesse\n• Verbesserungspotenziale\n• ROI jeder Maßnahme\n\nNur 197€ für Early Birds (statt 497€).\n\nSollen wir telefonieren?\n\nViele Grüße\nMarcel"
+    ],
+    "Dienstleistung": [
+      "Hallo {first_name},\n\nDienstleistungsunternehmen wie {company} müssen heute digital exzellent sein, um wettbewerbsfähig zu bleiben.\n\nUnser FutureCheck analysiert in 24h:\n• Ihren digitalen Reifegrad (Score 0-100)\n• Konkurrenzposition\n• 3 priorisierte Handlungsempfehlungen\n\nInkl. 30-seitigem Report + 30 Min Beratung.\n\nHaben Sie 2 Minuten für Details?\n\nBeste Grüße\nMarcel",
+      "Guten Tag {first_name},\n\nals {position} wissen Sie: Kundenerwartungen steigen, besonders bei der digitalen Experience.\n\nWir zeigen Dienstleistern wie {company} in 24h:\n✓ Digitale Stärken und Schwächen\n✓ Quick Wins für bessere Kundenerfahrung\n✓ Investitionen mit bestem ROI\n\nAktuell zum Early Bird Preis: 197€.\n\nInteresse an mehr Infos?\n\nViele Grüße\nMarcel"
+    ],
+    "default": [
+      "Hallo {first_name},\n\nich habe gesehen, dass Sie bei {company} als {position} tätig sind.\n\nViele Unternehmen Ihrer Größe verlieren aktuell den Anschluss bei der Digitalisierung - oft ohne es zu merken.\n\nWir haben ein Tool entwickelt, das in 24h analysiert, wo Sie stehen und was die wichtigsten nächsten Schritte sind.\n\nHaben Sie 2 Min für ein kurzes Video?\n\nBeste Grüße\nMarcel",
+      "Guten Tag {first_name},\n\ndie Digitalisierung wartet nicht - aber wo anfangen?\n\nGenau das zeigt unser FutureCheck für {company}:\n• Digitaler Reifegrad (0-100 Score)\n• Vergleich mit Ihrer Branche\n• 3 konkrete nächste Schritte\n• ROI-Berechnung\n\nAlles in 24h für nur 197€ (Early Bird).\n\nSollen wir kurz sprechen?\n\nViele Grüße\nMarcel"
+    ]
+  },
+  "follow_up_1": {
+    "default": [
+      "Hallo {first_name},\n\nich wollte nochmal nachfassen zu meiner Nachricht von letzter Woche.\n\nGerade haben wir einem {industry}-Unternehmen geholfen, 30% ihrer Prozesskosten zu sparen.\n\nDie Analyse dauert nur 24h und kostet einmalig 197€ (Early Bird Preis).\n\nSollen wir kurz telefonieren?\n\nBeste Grüße\nMarcel",
+      "Hi {first_name},\n\nhatten Sie Gelegenheit, über meinen Vorschlag nachzudenken?\n\nIch verstehe, dass Sie viel um die Ohren haben. Genau deshalb ist unser 24h-Check so wertvoll:\n\n✓ Keine lange Beraterprojekte\n✓ Klare, priorisierte Empfehlungen\n✓ ROI-Fokus\n\nNur noch 5 Plätze zum Early Bird Preis diese Woche.\n\nViele Grüße\nMarcel"
+    ],
+    "Handel": [
+      "Hallo {first_name},\n\nkurzes Update: Diese Woche haben 3 Handelsunternehmen unseren FutureCheck gebucht.\n\nDas Feedback: 'Endlich wissen wir, wo wir anfangen sollen!'\n\nFür {company} wäre das auch interessant, oder?\n\nBeste Grüße\nMarcel"
+    ],
+    "Produktion": [
+      "Hi {first_name},\n\nein Produktionsunternehmen aus Bayern hat nach unserem Check 25% Effizienzsteigerung erreicht.\n\nWie? Durch 3 einfache Digitalisierungsschritte, die wir identifiziert haben.\n\nSoll ich Ihnen die Case Study schicken?\n\nViele Grüße\nMarcel"
+    ]
+  },
+  "follow_up_2": {
+    "default": [
+      "Hallo {first_name},\n\nletzte Chance für unseren Early Bird Preis!\n\nNur noch diese Woche: Digitale Reifegradanalyse für 197€ statt 497€.\n\n✓ 30-seitiger Report\n✓ 3 konkrete Handlungsempfehlungen\n✓ ROI-Berechnungen\n✓ 30 Min Beratungsgespräch\n\nHier direkt buchen: zukunfts-check.com\n\nBeste Grüße\nMarcel",
+      "Hi {first_name},\n\nich will nicht nerven, aber unser Early Bird Angebot endet bald.\n\nFalls {company} doch Interesse hat:\n\n🎯 Was Sie bekommen:\n- Komplette Digitalanalyse in 24h\n- Klare Roadmap für 2025\n- Garantiert umsetzbare Empfehlungen\n\n💰 Investition: 197€ (einmalig)\n\nDirektlink: zukunfts-check.com/early-bird\n\nViele Grüße und viel Erfolg!\nMarcel"
+    ]
+  },
+  "follow_up_3": {
+    "default": [
+      "Hallo {first_name},\n\nkeine Sorge, das ist meine letzte Nachricht.\n\nFalls sich bei {company} doch noch Bedarf ergibt: Wir sind da.\n\nEinen kleinen Tipp habe ich noch:\n\nSchauen Sie mal auf zukunfts-check.com/free-guide\n\nDort gibt's unseren kostenlosen Digital-Quick-Check zum Download.\n\nAlles Gute und viel Erfolg!\n\nBeste Grüße\nMarcel\n\nP.S.: Falls Sie uns weiterempfehlen - es gibt 20% Provision 😉"
+    ]
+  },
+  "meeting_booked": {
+    "default": [
+      "Hallo {first_name},\n\nvielen Dank für Ihre Zeit gestern!\n\nWie besprochen hier die nächsten Schritte:\n\n1. Sie füllen den Fragebogen aus (Link folgt)\n2. Wir analysieren {company} (24h)\n3. Sie erhalten den Report + Besprechung\n\nBei Fragen jederzeit melden!\n\nBeste Grüße\nMarcel"
+    ]
+  },
+  "customer_success": {
+    "default": [
+      "Hallo {first_name},\n\nwie läuft die Umsetzung der Empfehlungen?\n\nViele Kunden fragen nach Unterstützung bei der Implementierung.\n\nDeshalb bieten wir jetzt auch Umsetzungspakete an:\n• Tool-Einrichtung\n• Prozess-Digitalisierung\n• Mitarbeiter-Schulungen\n\nBedarf?\n\nBeste Grüße\nMarcel"
+    ]
+  }
+}

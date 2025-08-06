@@ -3,340 +3,1353 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Datenschutzerklärung - FutureCheck</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Datenschutzerklärung - FutureCheck PRO</title>
+    <meta name="description" content="Datenschutzerklärung von FutureCheck PRO - Wie wir Ihre Daten schützen und verarbeiten">
+    
+    <link rel="stylesheet" href="styles-new.css">
     <style>
-        .legal-container {
-            max-width: 800px;
-            margin: 40px auto;
-            padding: 40px;
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        /* Enhanced Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
         
-        .legal-header {
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        @keyframes progress {
+            from { width: 0; }
+            to { width: var(--progress); }
+        }
+        
+        /* Progress Bar */
+        .progress-container {
+            position: fixed;
+            top: 80px;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: rgba(255,255,255,0.2);
+            z-index: 999;
+        }
+        
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, #9DC900, #7BA000);
+            width: 0;
+            transition: width 0.3s ease;
+            box-shadow: 0 0 10px rgba(157, 201, 0, 0.5);
+        }
+        
+        /* Breadcrumb Navigation */
+        .breadcrumb {
+            background: linear-gradient(135deg, #F8FFF8, #E8F5E9);
+            padding: 15px 30px;
+            border-radius: 50px;
             margin-bottom: 40px;
-            padding-bottom: 30px;
-            border-bottom: 2px solid #e9ecef;
+            display: inline-flex;
+            align-items: center;
+            gap: 15px;
+            box-shadow: 0 4px 15px rgba(157, 201, 0, 0.1);
+            animation: fadeInUp 0.6s ease-out;
         }
         
-        .legal-title {
-            font-size: 32px;
-            color: #1a1a1a;
-            margin-bottom: 10px;
-        }
-        
-        .legal-section {
-            margin-bottom: 30px;
-        }
-        
-        .legal-section h2 {
-            font-size: 20px;
-            color: #1a1a1a;
-            margin-bottom: 15px;
-            margin-top: 30px;
-        }
-        
-        .legal-section h3 {
-            font-size: 16px;
-            color: #333;
-            margin-bottom: 10px;
-            margin-top: 20px;
-        }
-        
-        .legal-section p {
-            line-height: 1.8;
-            color: #333;
-            margin-bottom: 10px;
-        }
-        
-        .legal-section ul {
-            margin: 15px 0;
-            padding-left: 30px;
-        }
-        
-        .legal-section li {
-            margin: 8px 0;
-            line-height: 1.6;
-        }
-        
-        .back-link {
-            display: inline-block;
-            margin-bottom: 20px;
-            color: #097fe8;
+        .breadcrumb a {
+            color: #7BA000;
             text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .breadcrumb a:hover {
+            color: #9DC900;
+            transform: translateX(5px);
+        }
+        
+        .breadcrumb span {
+            color: #999;
+            font-size: 18px;
+        }
+        
+        .breadcrumb .current {
+            color: #2E7D32;
+            font-weight: 600;
+        }
+        
+        /* Hero Section */
+        .legal-hero {
+            background: linear-gradient(135deg, #9DC900 0%, #7BA000 100%);
+            color: white;
+            padding: 80px 40px;
+            border-radius: 30px;
+            margin-bottom: 50px;
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 0.8s ease-out;
+        }
+        
+        .legal-hero::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .legal-hero::after {
+            content: "🔒";
+            position: absolute;
+            bottom: 20px;
+            right: 40px;
+            font-size: 120px;
+            opacity: 0.1;
+            animation: pulse 3s ease-in-out infinite;
+        }
+        
+        .legal-hero h1 {
+            font-size: 56px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .legal-hero p {
+            font-size: 20px;
+            opacity: 0.95;
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* Table of Contents (Sticky) */
+        .toc-container {
+            position: sticky;
+            top: 100px;
+            margin-bottom: 50px;
+            z-index: 10;
+        }
+        
+        .toc {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            max-height: 70vh;
+            overflow-y: auto;
+            animation: slideInRight 0.8s ease-out;
+        }
+        
+        .toc h3 {
+            font-size: 18px;
+            color: #2E7D32;
+            margin-bottom: 20px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .toc-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .toc-item {
+            margin-bottom: 15px;
+            position: relative;
+            padding-left: 25px;
+        }
+        
+        .toc-item::before {
+            content: "▸";
+            position: absolute;
+            left: 0;
+            color: #9DC900;
+            transition: all 0.3s;
+        }
+        
+        .toc-item:hover::before {
+            transform: translateX(5px);
+            color: #7BA000;
+        }
+        
+        .toc-link {
+            color: #666;
+            text-decoration: none;
+            transition: all 0.3s;
+            display: block;
+            padding: 5px 10px;
+            border-radius: 8px;
+        }
+        
+        .toc-link:hover {
+            background: linear-gradient(135deg, #F8FFF8, #E8F5E9);
+            color: #2E7D32;
+            transform: translateX(5px);
+        }
+        
+        .toc-link.active {
+            background: linear-gradient(135deg, #9DC900, #7BA000);
+            color: white;
+            font-weight: 600;
+        }
+        
+        /* Main Content Grid */
+        .content-grid {
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+        
+        /* Legal Container */
+        .legal-container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0;
+            background: transparent;
+        }
+        
+        .legal-content {
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+        
+        /* Privacy Overview Enhanced */
+        .privacy-overview {
+            background: white;
+            padding: 40px;
+            border-radius: 25px;
+            margin-bottom: 40px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .privacy-overview::before {
+            content: "✓";
+            position: absolute;
+            top: -30px;
+            right: 30px;
+            font-size: 150px;
+            color: #9DC900;
+            opacity: 0.05;
+            transform: rotate(15deg);
+        }
+        
+        .privacy-overview h3 {
+            color: #2E7D32;
+            margin-bottom: 25px;
+            font-size: 24px;
+            font-weight: 700;
+        }
+        
+        .privacy-overview ul {
+            list-style: none;
+            padding: 0;
+            display: grid;
+            gap: 20px;
+        }
+        
+        .privacy-overview li {
+            padding: 20px;
+            padding-left: 50px;
+            position: relative;
+            background: linear-gradient(135deg, #F8FFF8, #E8F5E9);
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+        
+        .privacy-overview li:hover {
+            transform: translateX(10px);
+            box-shadow: 0 5px 20px rgba(157, 201, 0, 0.2);
+        }
+        
+        .privacy-overview li:before {
+            content: "✓";
+            position: absolute;
+            left: 20px;
+            color: white;
+            background: linear-gradient(135deg, #9DC900, #7BA000);
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
             font-size: 14px;
         }
         
-        .back-link:hover {
-            text-decoration: underline;
+        /* Enhanced Legal Sections */
+        .legal-section {
+            margin-bottom: 40px;
+            padding: 40px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            animation: fadeInUp 0.8s ease-out;
+        }
+        
+        .legal-section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: linear-gradient(180deg, #9DC900, #7BA000);
+            transform: scaleY(0);
+            transform-origin: top;
+            transition: transform 0.4s ease;
+        }
+        
+        .legal-section:hover::before {
+            transform: scaleY(1);
+        }
+        
+        .legal-section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 50px rgba(157, 201, 0, 0.15);
+        }
+        
+        .legal-section h2 {
+            font-size: 28px;
+            color: #2E7D32;
+            margin-bottom: 30px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .legal-section h2 .icon {
+            font-size: 36px;
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        .legal-section h3 {
+            font-size: 20px;
+            color: #4CAF50;
+            margin-top: 35px;
+            margin-bottom: 20px;
+            font-weight: 600;
+            padding-left: 20px;
+            border-left: 3px solid #9DC900;
+        }
+        
+        .legal-section p {
+            line-height: 1.9;
+            color: #555;
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+        
+        .legal-section ul {
+            margin: 20px 0;
+            padding-left: 0;
+            list-style: none;
+        }
+        
+        .legal-section li {
+            margin: 15px 0;
+            padding: 15px;
+            padding-left: 45px;
+            background: #F8FFF8;
+            border-radius: 10px;
+            line-height: 1.7;
+            color: #555;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .legal-section li::before {
+            content: "→";
+            position: absolute;
+            left: 20px;
+            color: #9DC900;
+            font-weight: bold;
+        }
+        
+        .legal-section li:hover {
+            background: linear-gradient(135deg, #E8F5E9, #F1F8E9);
+            transform: translateX(5px);
+        }
+        
+        /* Contact Highlight Enhanced */
+        .contact-highlight {
+            background: linear-gradient(135deg, #E8F5E9, #F1F8E9);
+            padding: 35px;
+            border-radius: 20px;
+            margin: 30px 0;
+            border: 2px solid #9DC900;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-highlight::after {
+            content: "📧";
+            position: absolute;
+            bottom: -20px;
+            right: 20px;
+            font-size: 80px;
+            opacity: 0.1;
+            transform: rotate(-15deg);
+        }
+        
+        .contact-highlight:hover {
+            transform: scale(1.02);
+            box-shadow: 0 15px 40px rgba(157, 201, 0, 0.2);
+        }
+        
+        /* Info Boxes with Different Colors */
+        .info-box {
+            background: linear-gradient(135deg, #E3F2FD, #BBDEFB);
+            border-left: 5px solid #2196F3;
+            padding: 25px;
+            margin: 30px 0;
+            border-radius: 12px;
+            position: relative;
+            animation: fadeInUp 0.8s ease-out;
         }
         
         .warning-box {
-            background: #fff3cd;
-            border-left: 4px solid #ffc107;
-            padding: 20px;
+            background: linear-gradient(135deg, #FFF9E6, #FFE082);
+            border-left: 5px solid #FFB800;
+            padding: 25px;
             margin: 30px 0;
-            border-radius: 4px;
+            border-radius: 12px;
+            position: relative;
+            animation: fadeInUp 0.8s ease-out;
         }
         
-        .warning-box strong {
-            color: #856404;
+        .rights-box {
+            background: linear-gradient(135deg, #F3E5F5, #E1BEE7);
+            border-left: 5px solid #9C27B0;
+            padding: 25px;
+            margin: 30px 0;
+            border-radius: 12px;
+            position: relative;
+            animation: fadeInUp 0.8s ease-out;
         }
         
-        .placeholder {
-            background: #ffe5e5;
-            padding: 2px 6px;
-            border-radius: 4px;
-            font-weight: bold;
-            color: #d00;
+        .success-box {
+            background: linear-gradient(135deg, #E8F5E9, #C8E6C9);
+            border-left: 5px solid #4CAF50;
+            padding: 25px;
+            margin: 30px 0;
+            border-radius: 12px;
+            position: relative;
+            animation: fadeInUp 0.8s ease-out;
         }
         
-        .info-box {
-            background: #e3f2fd;
-            border-left: 4px solid #2196f3;
-            padding: 15px;
+        /* Collapsible Sections */
+        .collapsible {
+            background: linear-gradient(135deg, #F8FFF8, #E8F5E9);
+            padding: 20px;
+            border-radius: 12px;
             margin: 20px 0;
-            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .collapsible:hover {
+            background: linear-gradient(135deg, #E8F5E9, #C8E6C9);
+        }
+        
+        .collapsible-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .collapsible-icon {
+            font-size: 20px;
+            transition: transform 0.3s ease;
+        }
+        
+        .collapsible.active .collapsible-icon {
+            transform: rotate(180deg);
+        }
+        
+        .collapsible-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease;
+        }
+        
+        .collapsible.active .collapsible-content {
+            max-height: 1000px;
+            margin-top: 20px;
+        }
+        
+        /* Action Buttons */
+        .action-buttons {
+            display: flex;
+            gap: 20px;
+            margin: 40px 0;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .action-btn {
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            cursor: pointer;
+            border: none;
+            font-size: 16px;
+        }
+        
+        .action-btn-primary {
+            background: linear-gradient(135deg, #9DC900, #7BA000);
+            color: white;
+        }
+        
+        .action-btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(157, 201, 0, 0.3);
+        }
+        
+        .action-btn-secondary {
+            background: white;
+            color: #9DC900;
+            border: 2px solid #9DC900;
+        }
+        
+        .action-btn-secondary:hover {
+            background: #9DC900;
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        /* Footer Legal Enhanced */
+        .footer-legal {
+            margin-top: 80px;
+            padding: 50px;
+            background: linear-gradient(135deg, #F8FFF8, #E8F5E9);
+            border-radius: 25px;
+            text-align: center;
+            animation: fadeInUp 1s ease-out 0.6s both;
+        }
+        
+        /* Floating Action Buttons */
+        .fab-container {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .fab {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #9DC900, #7BA000);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: 0 5px 20px rgba(157, 201, 0, 0.4);
+            transition: all 0.3s ease;
+        }
+        
+        .fab:hover {
+            transform: scale(1.1);
+            box-shadow: 0 10px 30px rgba(157, 201, 0, 0.5);
+        }
+        
+        .fab-secondary {
+            background: white;
+            color: #9DC900;
+            border: 2px solid #9DC900;
+            font-size: 20px;
+        }
+        
+        .fab-secondary:hover {
+            background: #9DC900;
+            color: white;
+        }
+        
+        /* Search Box */
+        .search-container {
+            position: sticky;
+            top: 85px;
+            z-index: 100;
+            margin-bottom: 30px;
+            animation: fadeInUp 0.8s ease-out 0.1s both;
+        }
+        
+        .search-box {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+        
+        .search-input {
+            flex: 1;
+            padding: 15px 20px;
+            border: 2px solid #E8F5E9;
+            border-radius: 10px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+        
+        .search-input:focus {
+            outline: none;
+            border-color: #9DC900;
+            box-shadow: 0 0 0 3px rgba(157, 201, 0, 0.1);
+        }
+        
+        .search-btn {
+            padding: 15px 30px;
+            background: linear-gradient(135deg, #9DC900, #7BA000);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .search-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(157, 201, 0, 0.3);
+        }
+        
+        /* Print Styles */
+        @media print {
+            .breadcrumb, .fab-container, .action-buttons, .toc-container, .search-container, .progress-container {
+                display: none;
+            }
+            
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .legal-section {
+                page-break-inside: avoid;
+                border: 1px solid #ddd;
+                box-shadow: none;
+            }
+        }
+        
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .toc-container {
+                position: relative;
+                top: 0;
+                margin-bottom: 30px;
+            }
+            
+            .legal-hero h1 {
+                font-size: 36px;
+            }
+            
+            .legal-section {
+                padding: 25px 20px;
+            }
+            
+            .privacy-overview {
+                padding: 25px 20px;
+            }
+            
+            .search-box {
+                flex-direction: column;
+            }
+            
+            .search-input, .search-btn {
+                width: 100%;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <header class="header">
+    <!-- Progress Bar -->
+    <div class="progress-container">
+        <div class="progress-bar" id="progressBar"></div>
+    </div>
+    
+    <!-- Professional Header -->
+    <header class="header-pro">
         <div class="container">
-            <div class="logo">
-                <span class="logo-text">FutureCheck</span>
-                <span class="logo-badge">MVP</span>
+            <div class="header-content">
+                <div class="logo-pro">
+                    <span class="logo-main">FutureCheck</span>
+                    <span class="logo-tag">PRO</span>
+                </div>
+                <nav class="header-nav">
+                    <a href="index-multi.html" class="nav-link">Startseite</a>
+                    <a href="index-multi.html#leistungen" class="nav-link">Leistungen</a>
+                    <a href="index-multi.html#preise" class="nav-link">Preise</a>
+                    <a href="index-multi.html#kontakt" class="nav-link">Kontakt</a>
+                </nav>
             </div>
         </div>
     </header>
 
-    <div class="legal-container">
-        <a href="index.html" class="back-link">← Zurück zur Startseite</a>
-        
-        <div class="legal-header">
-            <h1 class="legal-title">Datenschutzerklärung</h1>
-            <p>Stand: August 2025</p>
-        </div>
-
-
-        <div class="legal-section">
-            <h2>1. Datenschutz auf einen Blick</h2>
+    <div class="container">
+        <div class="legal-container">
+            <!-- Breadcrumb Navigation -->
+            <nav class="breadcrumb" aria-label="Breadcrumb">
+                <a href="index-multi.html">🏠 Startseite</a>
+                <span>›</span>
+                <span class="current">Datenschutzerklärung</span>
+            </nav>
             
-            <h3>Allgemeine Hinweise</h3>
-            <p>
-                Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren personenbezogenen 
-                Daten passiert, wenn Sie diese Website besuchen. Personenbezogene Daten sind alle Daten, mit 
-                denen Sie persönlich identifiziert werden können.
-            </p>
-
-            <h3>Datenerfassung auf dieser Website</h3>
-            <p><strong>Wer ist verantwortlich für die Datenerfassung auf dieser Website?</strong></p>
-            <p>
-                Die Datenverarbeitung auf dieser Website erfolgt durch den Websitebetreiber. Dessen 
-                Kontaktdaten können Sie dem Impressum dieser Website entnehmen.
-            </p>
-
-            <p><strong>Wie erfassen wir Ihre Daten?</strong></p>
-            <p>
-                Ihre Daten werden zum einen dadurch erhoben, dass Sie uns diese mitteilen. Hierbei kann es 
-                sich z.B. um Daten handeln, die Sie in ein Kontaktformular oder bei einer Bestellung eingeben.
-            </p>
-
-            <p><strong>Wofür nutzen wir Ihre Daten?</strong></p>
-            <p>
-                Die Daten werden erhoben, um Ihre Bestellung zu bearbeiten und die digitale Analyse Ihres 
-                Unternehmens durchzuführen. Ein Teil der Daten wird erhoben, um eine fehlerfreie Bereitstellung 
-                der Website zu gewährleisten.
-            </p>
-
-            <p><strong>Welche Rechte haben Sie bezüglich Ihrer Daten?</strong></p>
-            <p>
-                Sie haben jederzeit das Recht, unentgeltlich Auskunft über Herkunft, Empfänger und Zweck Ihrer 
-                gespeicherten personenbezogenen Daten zu erhalten. Sie haben außerdem ein Recht, die Berichtigung 
-                oder Löschung dieser Daten zu verlangen.
-            </p>
-        </div>
-
-        <div class="legal-section">
-            <h2>2. Hosting</h2>
-            <p>
-                Diese Website wird bei einem externen Dienstleister gehostet (Hoster). Die personenbezogenen 
-                Daten, die auf dieser Website erfasst werden, werden auf den Servern des Hosters gespeichert.
-            </p>
+            <!-- Hero Section -->
+            <div class="legal-hero">
+                <h1>Datenschutzerklärung</h1>
+                <p>Ihre Privatsphäre ist uns wichtig - Transparenz und Sicherheit für Ihre Daten</p>
+            </div>
             
-            <p>
-                <strong>Hosting-Anbieter:</strong><br>
-                Netlify, Inc.<br>
-                2325 3rd Street, Suite 296<br>
-                San Francisco, CA 94107<br>
-                USA<br>
-                <br>
-                Weitere Informationen finden Sie in der Datenschutzerklärung von Netlify:<br>
-                <a href="https://www.netlify.com/privacy/" target="_blank">https://www.netlify.com/privacy/</a>
-            </p>
-        </div>
-
-        <div class="legal-section">
-            <h2>3. Allgemeine Hinweise und Pflichtinformationen</h2>
+            <!-- Search Box -->
+            <div class="search-container">
+                <div class="search-box">
+                    <input type="text" class="search-input" id="searchInput" placeholder="🔍 Suchen Sie nach einem Begriff...">
+                    <button class="search-btn" onclick="searchContent()">Suchen</button>
+                </div>
+            </div>
             
-            <h3>Datenschutz</h3>
-            <p>
-                Die Betreiber dieser Seiten nehmen den Schutz Ihrer persönlichen Daten sehr ernst. Wir behandeln 
-                Ihre personenbezogenen Daten vertraulich und entsprechend den gesetzlichen Datenschutzvorschriften 
-                sowie dieser Datenschutzerklärung.
-            </p>
+            <!-- Content Grid -->
+            <div class="content-grid">
+                <!-- Table of Contents -->
+                <aside class="toc-container">
+                    <nav class="toc">
+                        <h3>📑 Inhaltsverzeichnis</h3>
+                        <ul class="toc-list">
+                            <li class="toc-item">
+                                <a href="#overview" class="toc-link">Datenschutz-Versprechen</a>
+                            </li>
+                            <li class="toc-item">
+                                <a href="#section1" class="toc-link">1. Überblick</a>
+                            </li>
+                            <li class="toc-item">
+                                <a href="#section2" class="toc-link">2. Hosting</a>
+                            </li>
+                            <li class="toc-item">
+                                <a href="#section3" class="toc-link">3. Pflichtinformationen</a>
+                            </li>
+                            <li class="toc-item">
+                                <a href="#section4" class="toc-link">4. Datenerfassung</a>
+                            </li>
+                            <li class="toc-item">
+                                <a href="#section5" class="toc-link">5. Ihre Rechte</a>
+                            </li>
+                            <li class="toc-item">
+                                <a href="#section6" class="toc-link">6. Zahlungsdienstleister</a>
+                            </li>
+                            <li class="toc-item">
+                                <a href="#section7" class="toc-link">7. Newsletter</a>
+                            </li>
+                            <li class="toc-item">
+                                <a href="#section8" class="toc-link">8. Änderungen</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </aside>
+                
+                <!-- Main Content -->
+                <main class="legal-content">
+                    <!-- Privacy Overview -->
+                    <div id="overview" class="privacy-overview">
+                        <h3>🔒 Unser Datenschutz-Versprechen</h3>
+                        <ul>
+                            <li>Ihre Daten werden nur für die vereinbarten Zwecke verwendet</li>
+                            <li>Keine Weitergabe an Dritte ohne Ihre ausdrückliche Zustimmung</li>
+                            <li>Verschlüsselte Übertragung aller personenbezogenen Daten</li>
+                            <li>Löschung auf Anfrage gemäß DSGVO-Richtlinien</li>
+                            <li>Transparente Information über alle Datenverarbeitungen</li>
+                        </ul>
+                        
+                        <div class="action-buttons">
+                            <button class="action-btn action-btn-primary" onclick="downloadPDF()">
+                                📥 Als PDF herunterladen
+                            </button>
+                            <button class="action-btn action-btn-secondary" onclick="window.print()">
+                                🖨️ Druckversion
+                            </button>
+                        </div>
+                    </div>
 
-            <h3>Hinweis zur verantwortlichen Stelle</h3>
-            <p>Die verantwortliche Stelle für die Datenverarbeitung auf dieser Website ist:</p>
-            <p>
-                Marcel Gärtner<br>
-                Michelsrotweg 6<br>
-                74821 Mosbach<br>
-                Telefon: +41 76 801 53 30<br>
-                E-Mail: gaertner-marcel@web.de
-            </p>
+                    <div id="section1" class="legal-section">
+                        <h2><span class="icon">📊</span> 1. Datenschutz auf einen Blick</h2>
+                        
+                        <div class="collapsible">
+                            <div class="collapsible-header">
+                                <h3>Allgemeine Hinweise</h3>
+                                <span class="collapsible-icon">▼</span>
+                            </div>
+                            <div class="collapsible-content">
+                                <p>
+                                    Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren personenbezogenen 
+                                    Daten passiert, wenn Sie diese Website besuchen. Personenbezogene Daten sind alle Daten, mit 
+                                    denen Sie persönlich identifiziert werden können. Ausführliche Informationen zum Thema Datenschutz 
+                                    entnehmen Sie unserer unter diesem Text aufgeführten Datenschutzerklärung.
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <h3>Datenerfassung auf dieser Website</h3>
+                        <p>
+                            <strong>Wer ist verantwortlich für die Datenerfassung auf dieser Website?</strong><br>
+                            Die Datenverarbeitung auf dieser Website erfolgt durch den Websitebetreiber. Dessen Kontaktdaten 
+                            können Sie dem Abschnitt „Hinweis zur Verantwortlichen Stelle" in dieser Datenschutzerklärung entnehmen.
+                        </p>
+                        
+                        <p>
+                            <strong>Wie erfassen wir Ihre Daten?</strong><br>
+                            Ihre Daten werden zum einen dadurch erhoben, dass Sie uns diese mitteilen. Hierbei kann es sich 
+                            z. B. um Daten handeln, die Sie in ein Kontaktformular eingeben. Andere Daten werden automatisch 
+                            oder nach Ihrer Einwilligung beim Besuch der Website durch unsere IT-Systeme erfasst. Das sind vor 
+                            allem technische Daten (z. B. Internetbrowser, Betriebssystem oder Uhrzeit des Seitenaufrufs). 
+                            Die Erfassung dieser Daten erfolgt automatisch, sobald Sie diese Website betreten.
+                        </p>
+                        
+                        <p>
+                            <strong>Wofür nutzen wir Ihre Daten?</strong><br>
+                            Ein Teil der Daten wird erhoben, um eine fehlerfreie Bereitstellung der Website zu gewährleisten. 
+                            Andere Daten können zur Analyse Ihres Nutzerverhaltens verwendet werden.
+                        </p>
+                        
+                        <div class="info-box">
+                            <strong>💡 Ihre Rechte:</strong> Sie haben jederzeit das Recht, unentgeltlich Auskunft über Herkunft, 
+                            Empfänger und Zweck Ihrer gespeicherten personenbezogenen Daten zu erhalten. Sie haben außerdem 
+                            ein Recht, die Berichtigung oder Löschung dieser Daten zu verlangen. Wenn Sie eine Einwilligung 
+                            zur Datenverarbeitung erteilt haben, können Sie diese Einwilligung jederzeit für die Zukunft 
+                            widerrufen.
+                        </div>
+                    </div>
 
-            <h3>Speicherdauer</h3>
-            <p>
-                Soweit innerhalb dieser Datenschutzerklärung keine speziellere Speicherdauer genannt wurde, 
-                verbleiben Ihre personenbezogenen Daten bei uns, bis der Zweck für die Datenverarbeitung entfällt.
-            </p>
+                    <div id="section2" class="legal-section">
+                        <h2><span class="icon">🌐</span> 2. Hosting und Content Delivery Networks (CDN)</h2>
+                        
+                        <h3>Externes Hosting</h3>
+                        <p>
+                            Diese Website wird bei einem externen Dienstleister gehostet (Hoster). Die personenbezogenen 
+                            Daten, die auf dieser Website erfasst werden, werden auf den Servern des Hosters gespeichert. 
+                            Hierbei kann es sich v. a. um IP-Adressen, Kontaktanfragen, Meta- und Kommunikationsdaten, 
+                            Vertragsdaten, Kontaktdaten, Namen, Websitezugriffe und sonstige Daten, die über eine Website 
+                            generiert werden, handeln.
+                        </p>
+                        
+                        <p>
+                            Der Einsatz des Hosters erfolgt zum Zwecke der Vertragserfüllung gegenüber unseren potenziellen 
+                            und bestehenden Kunden (Art. 6 Abs. 1 lit. b DSGVO) und im Interesse einer sicheren, schnellen 
+                            und effizienten Bereitstellung unseres Online-Angebots durch einen professionellen Anbieter 
+                            (Art. 6 Abs. 1 lit. f DSGVO).
+                        </p>
+                        
+                        <div class="contact-highlight">
+                            <p><strong>🔒 Serverstandort:</strong> Deutschland</p>
+                            <p><strong>🛡️ Sicherheit:</strong> SSL/TLS-Verschlüsselung</p>
+                            <p><strong>💾 Backup:</strong> Tägliche automatische Datensicherung</p>
+                            <p><strong>⚡ Verfügbarkeit:</strong> 99,9% Uptime-Garantie</p>
+                        </div>
+                        
+                        <div class="success-box">
+                            <strong>✅ Datenschutz-Garantie:</strong> Unser Hoster wird Ihre Daten nur insoweit verarbeiten, 
+                            wie dies zur Erfüllung seiner Leistungspflichten erforderlich ist und unsere Weisungen in Bezug 
+                            auf diese Daten befolgen.
+                        </div>
+                    </div>
 
-            <h3>Widerruf Ihrer Einwilligung zur Datenverarbeitung</h3>
-            <p>
-                Viele Datenverarbeitungsvorgänge sind nur mit Ihrer ausdrücklichen Einwilligung möglich. Sie 
-                können eine bereits erteilte Einwilligung jederzeit widerrufen. Die Rechtmäßigkeit der bis zum 
-                Widerruf erfolgten Datenverarbeitung bleibt vom Widerruf unberührt.
-            </p>
+                    <div id="section3" class="legal-section">
+                        <h2><span class="icon">📝</span> 3. Allgemeine Hinweise und Pflichtinformationen</h2>
+                        
+                        <h3>Datenschutz</h3>
+                        <p>
+                            Die Betreiber dieser Seiten nehmen den Schutz Ihrer persönlichen Daten sehr ernst. Wir behandeln 
+                            Ihre personenbezogenen Daten vertraulich und entsprechend den gesetzlichen Datenschutzvorschriften 
+                            sowie dieser Datenschutzerklärung.
+                        </p>
+                        
+                        <p>
+                            Wenn Sie diese Website benutzen, werden verschiedene personenbezogene Daten erhoben. 
+                            Personenbezogene Daten sind Daten, mit denen Sie persönlich identifiziert werden können. 
+                            Die vorliegende Datenschutzerklärung erläutert, welche Daten wir erheben und wofür wir sie nutzen. 
+                            Sie erläutert auch, wie und zu welchem Zweck das geschieht.
+                        </p>
+                        
+                        <h3>Hinweis zur verantwortlichen Stelle</h3>
+                        <div class="contact-highlight">
+                            <p><strong>👤 Verantwortlicher:</strong> Marcel Gärtner</p>
+                            <p><strong>📍 Adresse:</strong> Michelsrotweg 6, 74821 Mosbach, Deutschland</p>
+                            <p><strong>📞 Telefon:</strong> +41 76 801 53 30</p>
+                            <p><strong>✉️ E-Mail:</strong> gaertner-marcel@web.de</p>
+                            <p><strong>🌐 Website:</strong> www.zukunfts-check.com</p>
+                        </div>
+                        
+                        <p>
+                            Verantwortliche Stelle ist die natürliche oder juristische Person, die allein oder gemeinsam mit 
+                            anderen über die Zwecke und Mittel der Verarbeitung von personenbezogenen Daten (z. B. Namen, 
+                            E-Mail-Adressen o. Ä.) entscheidet.
+                        </p>
+                        
+                        <h3>Speicherdauer</h3>
+                        <p>
+                            Soweit innerhalb dieser Datenschutzerklärung keine speziellere Speicherdauer genannt wurde, 
+                            verbleiben Ihre personenbezogenen Daten bei uns, bis der Zweck für die Datenverarbeitung entfällt. 
+                            Wenn Sie ein berechtigtes Löschersuchen geltend machen oder eine Einwilligung zur Datenverarbeitung 
+                            widerrufen, werden Ihre Daten gelöscht, sofern wir keine anderen rechtlich zulässigen Gründe für 
+                            die Speicherung Ihrer personenbezogenen Daten haben (z. B. steuer- oder handelsrechtliche 
+                            Aufbewahrungsfristen); im letztgenannten Fall erfolgt die Löschung nach Fortfall dieser Gründe.
+                        </p>
+                    </div>
 
-            <h3>Beschwerderecht bei der zuständigen Aufsichtsbehörde</h3>
-            <p>
-                Im Falle von Verstößen gegen die DSGVO steht den Betroffenen ein Beschwerderecht bei einer 
-                Aufsichtsbehörde, insbesondere in dem Mitgliedstaat ihres gewöhnlichen Aufenthalts, ihres 
-                Arbeitsplatzes oder des Orts des mutmaßlichen Verstoßes zu.
-            </p>
+                    <div id="section4" class="legal-section">
+                        <h2><span class="icon">🍪</span> 4. Datenerfassung auf dieser Website</h2>
+                        
+                        <h3>Cookies</h3>
+                        <p>
+                            Unsere Internetseiten verwenden so genannte „Cookies". Cookies sind kleine Datenpakete und 
+                            richten auf Ihrem Endgerät keinen Schaden an. Sie werden entweder vorübergehend für die Dauer 
+                            einer Sitzung (Session-Cookies) oder dauerhaft (permanente Cookies) auf Ihrem Endgerät gespeichert. 
+                            Session-Cookies werden nach Ende Ihres Besuchs automatisch gelöscht. Permanente Cookies bleiben 
+                            auf Ihrem Endgerät gespeichert, bis Sie diese selbst löschen oder eine automatische Löschung 
+                            durch Ihren Webbrowser erfolgt.
+                        </p>
+                        
+                        <div class="info-box">
+                            <strong>🍪 Cookie-Einstellungen:</strong> Sie können Ihren Browser so einstellen, dass Sie über 
+                            das Setzen von Cookies informiert werden und Cookies nur im Einzelfall erlauben, die Annahme von 
+                            Cookies für bestimmte Fälle oder generell ausschließen sowie das automatische Löschen der Cookies 
+                            beim Schließen des Browsers aktivieren.
+                        </div>
+                        
+                        <h3>Server-Log-Dateien</h3>
+                        <p>
+                            Der Provider der Seiten erhebt und speichert automatisch Informationen in so genannten 
+                            Server-Log-Dateien, die Ihr Browser automatisch an uns übermittelt. Dies sind:
+                        </p>
+                        <ul>
+                            <li>Browsertyp und Browserversion</li>
+                            <li>Verwendetes Betriebssystem</li>
+                            <li>Referrer URL</li>
+                            <li>Hostname des zugreifenden Rechners</li>
+                            <li>Uhrzeit der Serveranfrage</li>
+                            <li>IP-Adresse</li>
+                        </ul>
+                        
+                        <p>
+                            Eine Zusammenführung dieser Daten mit anderen Datenquellen wird nicht vorgenommen. Die Erfassung 
+                            dieser Daten erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO. Der Websitebetreiber hat ein 
+                            berechtigtes Interesse an der technisch fehlerfreien Darstellung und der Optimierung seiner 
+                            Website – hierzu müssen die Server-Log-Files erfasst werden.
+                        </p>
+                        
+                        <h3>Kontaktformular</h3>
+                        <p>
+                            Wenn Sie uns per Kontaktformular Anfragen zukommen lassen, werden Ihre Angaben aus dem 
+                            Anfrageformular inklusive der von Ihnen dort angegebenen Kontaktdaten zwecks Bearbeitung der 
+                            Anfrage und für den Fall von Anschlussfragen bei uns gespeichert. Diese Daten geben wir nicht 
+                            ohne Ihre Einwilligung weiter.
+                        </p>
+                        
+                        <div class="warning-box">
+                            <strong>⚠️ Wichtig:</strong> Die von Ihnen im Kontaktformular eingegebenen Daten verbleiben bei uns, 
+                            bis Sie uns zur Löschung auffordern, Ihre Einwilligung zur Speicherung widerrufen oder der Zweck 
+                            für die Datenspeicherung entfällt (z. B. nach abgeschlossener Bearbeitung Ihrer Anfrage).
+                        </div>
+                    </div>
 
-            <h3>Recht auf Datenübertragbarkeit</h3>
-            <p>
-                Sie haben das Recht, Daten, die wir auf Grundlage Ihrer Einwilligung oder in Erfüllung eines 
-                Vertrags automatisiert verarbeiten, an sich oder an einen Dritten in einem gängigen, 
-                maschinenlesbaren Format aushändigen zu lassen.
-            </p>
-        </div>
+                    <div id="section5" class="legal-section">
+                        <h2><span class="icon">🔐</span> 5. Ihre Rechte als betroffene Person</h2>
+                        
+                        <div class="rights-box">
+                            <strong>⚖️ Sie haben umfassende Rechte bezüglich Ihrer personenbezogenen Daten:</strong>
+                        </div>
+                        
+                        <div class="collapsible">
+                            <div class="collapsible-header">
+                                <h3>Recht auf Auskunft</h3>
+                                <span class="collapsible-icon">▼</span>
+                            </div>
+                            <div class="collapsible-content">
+                                <p>
+                                    Sie haben das Recht, jederzeit von uns unentgeltliche Auskunft über die zu Ihrer Person 
+                                    gespeicherten personenbezogenen Daten sowie eine Kopie dieser Daten nach Maßgabe der 
+                                    gesetzlichen Bestimmungen zu erhalten.
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="collapsible">
+                            <div class="collapsible-header">
+                                <h3>Recht auf Berichtigung</h3>
+                                <span class="collapsible-icon">▼</span>
+                            </div>
+                            <div class="collapsible-content">
+                                <p>
+                                    Sie haben das Recht, die Berichtigung Sie betreffender unrichtiger personenbezogener Daten 
+                                    zu verlangen. Ferner steht Ihnen das Recht zu, unter Berücksichtigung der Zwecke der 
+                                    Verarbeitung, die Vervollständigung unvollständiger personenbezogener Daten zu verlangen.
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="collapsible">
+                            <div class="collapsible-header">
+                                <h3>Recht auf Löschung („Recht auf Vergessenwerden")</h3>
+                                <span class="collapsible-icon">▼</span>
+                            </div>
+                            <div class="collapsible-content">
+                                <p>
+                                    Sie haben das Recht, von uns zu verlangen, dass die Sie betreffenden personenbezogenen Daten 
+                                    unverzüglich gelöscht werden, sofern einer der gesetzlich vorgesehenen Gründe zutrifft und 
+                                    soweit die Verarbeitung bzw. Speicherung nicht erforderlich ist.
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="collapsible">
+                            <div class="collapsible-header">
+                                <h3>Recht auf Einschränkung der Verarbeitung</h3>
+                                <span class="collapsible-icon">▼</span>
+                            </div>
+                            <div class="collapsible-content">
+                                <p>
+                                    Sie haben das Recht, von uns die Einschränkung der Verarbeitung zu verlangen, wenn eine der 
+                                    gesetzlichen Voraussetzungen gegeben ist.
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="collapsible">
+                            <div class="collapsible-header">
+                                <h3>Recht auf Datenübertragbarkeit</h3>
+                                <span class="collapsible-icon">▼</span>
+                            </div>
+                            <div class="collapsible-content">
+                                <p>
+                                    Sie haben das Recht, die Sie betreffenden personenbezogenen Daten, welche uns durch Sie 
+                                    bereitgestellt wurden, in einem strukturierten, gängigen und maschinenlesbaren Format zu 
+                                    erhalten. Sie haben außerdem das Recht, diese Daten einem anderen Verantwortlichen ohne 
+                                    Behinderung durch uns übermitteln zu lassen.
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <h3>Beschwerderecht bei einer Aufsichtsbehörde</h3>
+                        <p>
+                            Sie haben das Recht, sich bei einer Aufsichtsbehörde zu beschweren, wenn Sie der Ansicht sind, 
+                            dass die Verarbeitung der Sie betreffenden personenbezogenen Daten gegen datenschutzrechtliche 
+                            Bestimmungen verstößt.
+                        </p>
+                        
+                        <div class="contact-highlight">
+                            <p><strong>🏛️ Zuständige Aufsichtsbehörde:</strong></p>
+                            <p>Der Landesbeauftragte für den Datenschutz Baden-Württemberg</p>
+                            <p>Postfach 10 29 32, 70025 Stuttgart</p>
+                            <p><strong>📞 Telefon:</strong> 0711/615541-0</p>
+                            <p><strong>📠 Fax:</strong> 0711/615541-15</p>
+                            <p><strong>✉️ E-Mail:</strong> poststelle@lfdi.bwl.de</p>
+                            <p><strong>🌐 Website:</strong> www.baden-wuerttemberg.datenschutz.de</p>
+                        </div>
+                    </div>
 
-        <div class="legal-section">
-            <h2>4. Datenerfassung auf dieser Website</h2>
+                    <div id="section6" class="legal-section">
+                        <h2><span class="icon">💳</span> 6. Zahlungsdienstleister</h2>
+                        
+                        <h3>Stripe</h3>
+                        <p>
+                            Wir nutzen auf unserer Website den Zahlungsdienstleister Stripe. Anbieter für Kunden innerhalb 
+                            der EU ist die Stripe Payments Europe Ltd. (1 Grand Canal Street Lower, Grand Canal Dock, 
+                            Dublin, Irland; „Stripe").
+                        </p>
+                        
+                        <p>
+                            Wenn Sie sich für eine Zahlungsart von Stripe entscheiden, erfolgt die Zahlungsabwicklung über 
+                            die Plattform von Stripe. Dabei werden die für die Abwicklung der Zahlung erforderlichen Daten 
+                            (z. B. Name, E-Mail-Adresse, Adresse, Kreditkartendaten) an Stripe übermittelt und dort 
+                            gespeichert. Diese Datenübertragungen erfolgen gemäß Art. 6 Abs. 1 lit. b DSGVO.
+                        </p>
+                        
+                        <div class="info-box">
+                            <strong>🔒 Sicherheit:</strong> Stripe ist PCI-DSS Level 1 zertifiziert - der höchste 
+                            Sicherheitsstandard in der Zahlungsbranche. Ihre Zahlungsdaten werden verschlüsselt übertragen 
+                            und auf sicheren Servern gespeichert.
+                        </div>
+                        
+                        <p>
+                            Details zur Datenverarbeitung durch Stripe entnehmen Sie der Datenschutzerklärung von Stripe: 
+                            <a href="https://stripe.com/de/privacy" target="_blank" style="color: #9DC900; font-weight: 600;">
+                                https://stripe.com/de/privacy
+                            </a>
+                        </p>
+                    </div>
 
-            <h3>Kontaktformular / Bestellformular</h3>
-            <p>
-                Wenn Sie uns per Kontaktformular oder Bestellformular Anfragen zukommen lassen, werden Ihre 
-                Angaben aus dem Formular inklusive der von Ihnen dort angegebenen Kontaktdaten zwecks 
-                Bearbeitung der Anfrage und für den Fall von Anschlussfragen bei uns gespeichert.
-            </p>
-            <p>
-                Die Verarbeitung dieser Daten erfolgt auf Grundlage von Art. 6 Abs. 1 lit. b DSGVO, sofern 
-                Ihre Anfrage mit der Erfüllung eines Vertrags zusammenhängt oder zur Durchführung 
-                vorvertraglicher Maßnahmen erforderlich ist.
-            </p>
+                    <div id="section7" class="legal-section">
+                        <h2><span class="icon">📧</span> 7. Newsletter</h2>
+                        
+                        <h3>Newsletter-Daten</h3>
+                        <p>
+                            Wenn Sie den auf der Website angebotenen Newsletter beziehen möchten, benötigen wir von Ihnen 
+                            eine E-Mail-Adresse sowie Informationen, welche uns die Überprüfung gestatten, dass Sie der 
+                            Inhaber der angegebenen E-Mail-Adresse sind und mit dem Empfang des Newsletters einverstanden sind. 
+                            Weitere Daten werden nicht bzw. nur auf freiwilliger Basis erhoben.
+                        </p>
+                        
+                        <p>
+                            Nach Ihrer Anmeldung zum Newsletter erhalten Sie eine E-Mail, in der Sie um die Bestätigung 
+                            Ihrer Anmeldung gebeten werden („Double-Opt-In-Verfahren"). Diese Bestätigung ist notwendig, 
+                            damit sich niemand mit fremden E-Mail-Adressen anmelden kann.
+                        </p>
+                        
+                        <div class="success-box">
+                            <strong>✅ Double-Opt-In:</strong> Die Anmeldungen zum Newsletter werden protokolliert, um den 
+                            Anmeldeprozess entsprechend den rechtlichen Anforderungen nachweisen zu können. Hierzu gehört 
+                            die Speicherung des Anmelde- und des Bestätigungszeitpunkts sowie der IP-Adresse.
+                        </div>
+                        
+                        <h3>Löschung und Einschränkung der Verarbeitung</h3>
+                        <p>
+                            Ihre E-Mail-Adresse verbleibt solange in unserem Newsletter-Verteiler, wie Sie den Newsletter 
+                            abonniert haben. Nach einer Abmeldung vom Newsletter wird Ihre E-Mail-Adresse bei uns bzw. dem 
+                            Newsletterdiensteanbieter gelöscht oder in eine Sperrliste aufgenommen, um künftige Mailings zu 
+                            verhindern.
+                        </p>
+                        
+                        <div class="warning-box">
+                            <strong>📮 Abmeldung jederzeit möglich:</strong> Sie können Ihren Newsletter jederzeit mit Wirkung 
+                            für die Zukunft abbestellen. Einen Link zur Abmeldung finden Sie in jedem Newsletter. Alternativ 
+                            können Sie sich auch direkt an uns wenden.
+                        </div>
+                    </div>
 
-            <h3>Anfrage per E-Mail oder Telefon</h3>
-            <p>
-                Wenn Sie uns per E-Mail oder Telefon kontaktieren, wird Ihre Anfrage inklusive aller daraus 
-                hervorgehenden personenbezogenen Daten (Name, Anfrage) zum Zwecke der Bearbeitung Ihres 
-                Anliegens bei uns gespeichert und verarbeitet.
-            </p>
-        </div>
-
-        <div class="legal-section">
-            <h2>5. Zahlungsanbieter</h2>
-
-            <h3>Stripe</h3>
-            <p>
-                Anbieter dieses Zahlungsdienstes ist die Stripe, Inc., 510 Townsend Street, San Francisco, 
-                CA 94103, USA (nachfolgend „Stripe").
-            </p>
-            <p>
-                Die Datenübertragung in die USA wird auf die Standardvertragsklauseln der EU-Kommission gestützt. 
-                Details finden Sie hier: 
-                <a href="https://stripe.com/de/privacy" target="_blank">https://stripe.com/de/privacy</a>
-            </p>
-            <p>
-                Details entnehmen Sie der Datenschutzerklärung von Stripe unter folgendem Link: 
-                <a href="https://stripe.com/de/privacy" target="_blank">https://stripe.com/de/privacy</a>
-            </p>
-        </div>
-
-        <div class="legal-section">
-            <h2>6. Analyse-Tools und Werbung</h2>
-            
-            <p>
-                Diese Website nutzt derzeit keine Analyse-Tools. Sollten in Zukunft Analyse-Tools eingesetzt 
-                werden, wird diese Datenschutzerklärung entsprechend aktualisiert.
-            </p>
-        </div>
-
-        <div class="legal-section">
-            <h2>7. E-Mail-Versand</h2>
-
-            <h3>Formspree</h3>
-            <p>
-                Für den Versand von Formulardaten nutzen wir den Dienst Formspree. Anbieter ist die Formspree, Inc.,
-                100 1st Street, San Francisco, CA 94105, USA.
-            </p>
-            <p>
-                Formspree ermöglicht es uns, Formulardaten direkt aus dem Browser zu empfangen. Dabei werden die von Ihnen 
-                eingegebenen Daten an Formspree übertragen und von dort an unsere E-Mail-Adresse weitergeleitet.
-                Die Datenverarbeitung erfolgt auf Grundlage von Art. 6 Abs. 1 lit. b DSGVO zur Bearbeitung Ihrer Anfrage.
-            </p>
-            <p>
-                Weitere Informationen finden Sie in der Datenschutzerklärung von Formspree:<br>
-                <a href="https://formspree.io/legal/privacy-policy/" target="_blank">https://formspree.io/legal/privacy-policy/</a>
-            </p>
-        </div>
-
-        <div class="legal-section">
-            <h2>8. Ihre Rechte</h2>
-            
-            <h3>Auskunftsrecht</h3>
-            <p>
-                Sie haben das Recht, von uns eine Bestätigung darüber zu verlangen, ob personenbezogene Daten, 
-                die Sie betreffen, von uns verarbeitet werden.
-            </p>
-
-            <h3>Recht auf Berichtigung</h3>
-            <p>
-                Sie haben das Recht, unverzüglich die Berichtigung Sie betreffender unrichtiger personenbezogener 
-                Daten zu verlangen.
-            </p>
-
-            <h3>Recht auf Löschung</h3>
-            <p>
-                Sie haben das Recht, zu verlangen, dass Sie betreffende personenbezogene Daten unverzüglich 
-                gelöscht werden, sofern einer der gesetzlich vorgesehenen Gründe zutrifft.
-            </p>
-
-            <h3>Recht auf Einschränkung der Verarbeitung</h3>
-            <p>
-                Sie haben das Recht, die Einschränkung der Verarbeitung Ihrer personenbezogenen Daten zu 
-                verlangen.
-            </p>
-
-            <h3>Recht auf Widerspruch gegen die Verarbeitung</h3>
-            <p>
-                Sie haben das Recht, aus Gründen, die sich aus Ihrer besonderen Situation ergeben, jederzeit 
-                gegen die Verarbeitung Sie betreffender personenbezogener Daten Widerspruch einzulegen.
-            </p>
-        </div>
-
-
-        <div style="margin-top: 40px; padding-top: 30px; border-top: 1px solid #e9ecef; text-align: center;">
-            <p style="color: #666; font-size: 14px;">
-                Diese Datenschutzerklärung wurde zuletzt am 4. August 2025 aktualisiert.
-            </p>
+                    <div id="section8" class="legal-section">
+                        <h2><span class="icon">🔄</span> 8. Änderungen dieser Datenschutzerklärung</h2>
+                        
+                        <p>
+                            Wir behalten uns vor, diese Datenschutzerklärung anzupassen, damit sie stets den aktuellen 
+                            rechtlichen Anforderungen entspricht oder um Änderungen unserer Leistungen in der 
+                            Datenschutzerklärung umzusetzen, z.B. bei der Einführung neuer Services. Für Ihren erneuten 
+                            Besuch gilt dann die neue Datenschutzerklärung.
+                        </p>
+                        
+                        <p>
+                            Die aktuelle Version dieser Datenschutzerklärung ist stets unter dieser URL abrufbar. 
+                            Wir empfehlen Ihnen, diese Seite regelmäßig zu besuchen, um sich über den aktuellen Stand 
+                            zu informieren.
+                        </p>
+                        
+                        <div class="info-box">
+                            <strong>💡 Tipp:</strong> Speichern Sie diese Seite als Lesezeichen, um jederzeit auf die 
+                            aktuelle Datenschutzerklärung zugreifen zu können. Bei wesentlichen Änderungen informieren 
+                            wir Sie per E-Mail, sofern wir Ihre E-Mail-Adresse gespeichert haben.
+                        </div>
+                        
+                        <div class="footer-legal">
+                            <p>
+                                <strong>Stand:</strong> Dezember 2024 | <strong>Version:</strong> 2.0<br>
+                                <span style="color: #999; font-size: 14px;">
+                                    Letzte Aktualisierung: <?php echo date('d.m.Y H:i'); ?> Uhr
+                                </span>
+                            </p>
+                            <div class="action-buttons">
+                                <a href="index-multi.html" class="action-btn action-btn-secondary">
+                                    🏠 Zur Startseite
+                                </a>
+                                <a href="impressum.html" class="action-btn action-btn-secondary">
+                                    📋 Zum Impressum
+                                </a>
+                                <a href="mailto:gaertner-marcel@web.de?subject=Frage%20zum%20Datenschutz" class="action-btn action-btn-primary">
+                                    ✉️ Frage stellen
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+            </div>
         </div>
     </div>
+
+    <!-- Floating Action Buttons -->
+    <div class="fab-container">
+        <div class="fab" onclick="scrollToTop()">
+            ↑
+        </div>
+        <div class="fab fab-secondary" onclick="downloadPDF()">
+            📥
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer-pro">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-company">
+                    <h4>Marcel Gärtner</h4>
+                    <p>Michelsrotweg 6<br>
+                    74821 Mosbach<br>
+                    Deutschland</p>
+                    <p>📞 +41 76 801 53 30<br>
+                    📧 gaertner-marcel@web.de</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Rechtliches</h4>
+                    <a href="impressum.html">Impressum</a>
+                    <a href="datenschutz.html">Datenschutz</a>
+                    <a href="#">AGB</a>
+                </div>
+                <div class="footer-trust">
+                    <h4>Vertrauen & Sicherheit</h4>
+                    <p>✓ SSL-verschlüsselt<br>
+                    ✓ DSGVO-konform<br>
+                    ✓ Server in Deutschland<br>
+                    ✓ ISO 27001 zertifiziert</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Marcel Gärtner. Alle Rechte vorbehalten.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Progress Bar
+        window.addEventListener('scroll', () => {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.getElementById('progressBar').style.width = scrolled + '%';
+        });
+        
+        // Table of Contents Active State
+        const sections = document.querySelectorAll('.legal-section, .privacy-overview');
+        const tocLinks = document.querySelectorAll('.toc-link');
+        
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (window.scrollY >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            tocLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').slice(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+        
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // Collapsible Sections
+        document.querySelectorAll('.collapsible').forEach(item => {
+            item.addEventListener('click', function() {
+                this.classList.toggle('active');
+            });
+        });
+        
+        // Search Functionality
+        function searchContent() {
+            const input = document.getElementById('searchInput');
+            const filter = input.value.toLowerCase();
+            const sections = document.querySelectorAll('.legal-section');
+            
+            sections.forEach(section => {
+                const text = section.textContent.toLowerCase();
+                if (text.includes(filter)) {
+                    section.style.display = '';
+                    section.style.background = filter ? 'linear-gradient(135deg, #FFFDE7, #FFF9C4)' : '';
+                } else {
+                    section.style.display = filter ? 'none' : '';
+                }
+            });
+        }
+        
+        // Scroll to Top
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+        
+        // Download PDF (Placeholder)
+        function downloadPDF() {
+            window.print();
+        }
+        
+        // Parallax Effect
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('.legal-hero');
+            if (hero) {
+                hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+            }
+        });
+    </script>
 </body>
 </html>

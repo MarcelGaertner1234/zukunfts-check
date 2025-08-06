@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kundendaten - FutureCheck Pro</title>
+    <link rel="stylesheet" href="styles-multi.css">
+    <style>
+        .form-container {
+            max-width: 600px;
+            margin: 100px auto;
+            padding: 40px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #212529;
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #E9ECEF;
+            border-radius: 10px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            box-sizing: border-box;
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #9DC900;
+            box-shadow: 0 0 0 3px rgba(157, 201, 0, 0.1);
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        
+        .product-info {
+            background: linear-gradient(135deg, #9DC900, #7BA000);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .product-price {
+            font-size: 32px;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+        
+        .required {
+            color: #FF4757;
+        }
+        
+        .btn-weiter {
+            background: linear-gradient(135deg, #9DC900, #7BA000);
+            color: white;
+            padding: 18px 40px;
+            border: none;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            margin-top: 20px;
+        }
+        
+        .btn-weiter:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(157, 201, 0, 0.3);
+        }
+        
+        .btn-weiter:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .back-link {
+            color: #6C757D;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 20px;
+            transition: color 0.3s ease;
+        }
+        
+        .back-link:hover {
+            color: #9DC900;
+        }
+        
+        @media (max-width: 768px) {
+            .form-container {
+                margin: 20px;
+                padding: 30px 20px;
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <a href="index-multi.html" class="back-link">
+            ← Zurück zur Übersicht
+        </a>
+        
+        <div class="product-info" id="productInfo">
+            <h3 id="productName">Produkt wird geladen...</h3>
+            <div class="product-price" id="productPrice">€0</div>
+            <p id="productDescription">Beschreibung wird geladen...</p>
+        </div>
+        
+        <h2 style="text-align: center; margin-bottom: 30px; color: #212529;">Ihre Kontaktdaten</h2>
+        
+        <form id="customerForm">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="firstName">Vorname <span class="required">*</span></label>
+                    <input type="text" id="firstName" name="firstName" required>
+                </div>
+                <div class="form-group">
+                    <label for="lastName">Nachname <span class="required">*</span></label>
+                    <input type="text" id="lastName" name="lastName" required>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="email">E-Mail-Adresse <span class="required">*</span></label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="phone">Telefonnummer <span class="required">*</span></label>
+                <input type="tel" id="phone" name="phone" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="company">Firmenname <span class="required">*</span></label>
+                <input type="text" id="company" name="company" required>
+            </div>
+            
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="street">Straße & Hausnummer</label>
+                    <input type="text" id="street" name="street">
+                </div>
+                <div class="form-group">
+                    <label for="zip">PLZ</label>
+                    <input type="text" id="zip" name="zip">
+                </div>
+            </div>
+            
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="city">Stadt</label>
+                    <input type="text" id="city" name="city">
+                </div>
+                <div class="form-group">
+                    <label for="country">Land</label>
+                    <select id="country" name="country">
+                        <option value="DE">Deutschland</option>
+                        <option value="AT">Österreich</option>
+                        <option value="CH">Schweiz</option>
+                        <option value="other">Anderes Land</option>
+                    </select>
+                </div>
+            </div>
+            
+            <!-- Zusätzliche Felder für Website-Projekte -->
+            <div id="websiteFields" style="display: none;">
+                <div class="form-group">
+                    <label for="currentWebsite">Aktuelle Website (falls vorhanden)</label>
+                    <input type="url" id="currentWebsite" name="currentWebsite" placeholder="https://ihre-website.de">
+                </div>
+                
+                <div class="form-group">
+                    <label for="industry">Branche</label>
+                    <select id="industry" name="industry">
+                        <option value="">Bitte wählen</option>
+                        <option value="handwerk">Handwerk</option>
+                        <option value="handel">Handel</option>
+                        <option value="dienstleistung">Dienstleistung</option>
+                        <option value="gastronomie">Gastronomie</option>
+                        <option value="immobilien">Immobilien</option>
+                        <option value="gesundheit">Gesundheitswesen</option>
+                        <option value="beratung">Beratung</option>
+                        <option value="andere">Andere</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="goals">Ihre Ziele mit der neuen Website</label>
+                    <textarea id="goals" name="goals" rows="4" placeholder="Was möchten Sie mit Ihrer Website erreichen?"></textarea>
+                </div>
+            </div>
+            
+            <!-- Zusätzliche Felder für SEO/Analyse -->
+            <div id="seoFields" style="display: none;">
+                <div class="form-group">
+                    <label for="websiteUrl">Website-URL <span class="required">*</span></label>
+                    <input type="url" id="websiteUrl" name="websiteUrl" placeholder="https://ihre-website.de" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="mainKeywords">Wichtigste Suchbegriffe (3-5 Begriffe)</label>
+                    <input type="text" id="mainKeywords" name="mainKeywords" placeholder="z.B. Zahnarzt München, Implantate, Prophylaxe">
+                </div>
+                
+                <div class="form-group">
+                    <label for="competitors">Hauptkonkurrenten (URLs)</label>
+                    <textarea id="competitors" name="competitors" rows="3" placeholder="https://konkurrent1.de, https://konkurrent2.de"></textarea>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="notes">Besondere Wünsche oder Anmerkungen</label>
+                <textarea id="notes" name="notes" rows="3" placeholder="Gibt es etwas Besonderes, was wir wissen sollten?"></textarea>
+            </div>
+            
+            <div class="form-group">
+                <label style="display: flex; align-items: center; gap: 10px;">
+                    <input type="checkbox" id="privacy" name="privacy" required style="width: auto;">
+                    Ich habe die <a href="datenschutz.html" target="_blank" style="color: #9DC900;">Datenschutzerklärung</a> gelesen und stimme zu <span class="required">*</span>
+                </label>
+            </div>
+            
+            <div class="form-group">
+                <label style="display: flex; align-items: center; gap: 10px;">
+                    <input type="checkbox" id="newsletter" name="newsletter" style="width: auto;">
+                    Ich möchte den kostenlosen Newsletter mit Tipps zur Digitalisierung erhalten
+                </label>
+            </div>
+            
+            <button type="submit" class="btn-weiter" id="submitBtn">
+                Weiter zur Bezahlung →
+            </button>
+        </form>
+    </div>
+    
+    <script>
+        // Produktdaten basierend auf URL-Parameter
+        const productData = {
+            'website-analyse': {
+                name: 'Website-Analyse',
+                price: '197€',
+                description: 'Detaillierte Analyse Ihrer Website mit Handlungsempfehlungen',
+                stripeLink: 'https://buy.stripe.com/00gdRbbWC8V82igcMH',
+                type: 'seo'
+            },
+            'website-quick': {
+                name: 'Quick-Start Website',
+                price: '497€',
+                description: '3-5 Seiten, responsive Design, 3 Tage Lieferzeit',
+                stripeLink: 'https://buy.stripe.com/14k7sL6Mq3AO3mkdQQ',
+                type: 'website'
+            },
+            'website-business': {
+                name: 'Business Website',
+                price: '997€',
+                description: '7-10 Seiten, Premium Design, SEO-Optimierung',
+                stripeLink: 'https://buy.stripe.com/4gM4gz5Im3AO0a8bIE',
+                type: 'website'
+            },
+            'website-professional': {
+                name: 'Professional Website',
+                price: '1.797€',
+                description: '10+ Seiten, Blog-System, E-Commerce ready',
+                stripeLink: 'https://buy.stripe.com/28EaEX2wa9Zc5us9Aw',
+                type: 'website'
+            },
+            'seo-starter': {
+                name: 'SEO Starter',
+                price: '297€/Monat',
+                description: '5 Keywords, monatlicher Report, für kleine Unternehmen',
+                stripeLink: 'https://buy.stripe.com/28E9AT3Ae5IW3mkaEA',
+                type: 'seo'
+            },
+            'seo-business': {
+                name: 'SEO Business',
+                price: '497€/Monat',
+                description: '15 Keywords, Backlink-Aufbau, für ambitionierte KMU',
+                stripeLink: 'https://buy.stripe.com/28E5kDeeS9Zc4qo5kg',
+                type: 'seo'
+            },
+            'seo-ads': {
+                name: 'SEO + Ads Komplett',
+                price: '797€/Monat',
+                description: '30 Keywords, Facebook/Instagram Ads, Maximum Performance',
+                stripeLink: 'https://buy.stripe.com/6oU4gzfiWc7k0a8bIE',
+                type: 'seo'
+            },
+            'google-setup': {
+                name: 'Google Basis-Setup',
+                price: '297€',
+                description: 'Google My Business, Analytics, Search Console',
+                stripeLink: 'https://buy.stripe.com/dRm8wPgn02wKf52bIE',
+                type: 'seo'
+            },
+            'seo-setup': {
+                name: 'SEO Komplett-Setup',
+                price: '497€',
+                description: 'Technical SEO Audit, Schema Markup, 15 Keywords',
+                stripeLink: 'https://buy.stripe.com/fZu9AT4Ei1sG3mkcMI',
+                type: 'seo'
+            },
+            'bundle': {
+                name: 'Website + Analyse Bundle',
+                price: '1.097€',
+                description: 'Business Website + Website-Analyse im Bundle',
+                stripeLink: 'https://buy.stripe.com/8x27sL5Im7R4e0Y284',
+                type: 'website'
+            },
+            'mega-bundle': {
+                name: 'MEGA-BUNDLE',
+                price: '1.997€',
+                description: 'Website + SEO-Setup + 3 Monate Betreuung',
+                stripeLink: 'https://buy.stripe.com/dRmcN5c6K2wKaOMh2Y',
+                type: 'website'
+            }
+        };
+        
+        // URL-Parameter auslesen
+        const urlParams = new URLSearchParams(window.location.search);
+        const productId = urlParams.get('product');
+        
+        // Produktinformationen anzeigen
+        function loadProduct() {
+            const product = productData[productId];
+            
+            if (!product) {
+                // Fallback wenn kein Produkt gefunden wird
+                document.getElementById('productName').textContent = 'Produkt auswählen';
+                document.getElementById('productPrice').textContent = '';
+                document.getElementById('productDescription').textContent = 'Bitte gehen Sie zurück und wählen Sie ein Produkt aus.';
+                document.getElementById('submitBtn').disabled = true;
+                return;
+            }
+            
+            document.getElementById('productName').textContent = product.name;
+            document.getElementById('productPrice').textContent = product.price;
+            document.getElementById('productDescription').textContent = product.description;
+            
+            // Zusätzliche Felder je nach Produkttyp anzeigen
+            if (product.type === 'website') {
+                document.getElementById('websiteFields').style.display = 'block';
+            } else if (product.type === 'seo') {
+                document.getElementById('seoFields').style.display = 'block';
+                // Website-URL als Pflichtfeld für SEO-Produkte
+                const websiteUrl = document.getElementById('websiteUrl');
+                if (websiteUrl) {
+                    websiteUrl.required = true;
+                }
+            }
+        }
+        
+        // Formular verarbeiten
+        document.getElementById('customerForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const product = productData[productId];
+            if (!product) {
+                alert('Fehler: Kein Produkt ausgewählt. Bitte gehen Sie zurück zur Übersicht.');
+                return;
+            }
+            
+            // Formulardaten sammeln
+            const formData = new FormData(this);
+            const customerData = {};
+            
+            for (let [key, value] of formData.entries()) {
+                customerData[key] = value;
+            }
+            
+            // Produktdaten hinzufügen
+            customerData.product = productId;
+            customerData.productName = product.name;
+            customerData.productPrice = product.price;
+            
+            // Daten im LocalStorage speichern für die Danke-Seite
+            localStorage.setItem('customerData', JSON.stringify(customerData));
+            localStorage.setItem('orderData', JSON.stringify({
+                product: product.name,
+                price: product.price,
+                customer: customerData.firstName + ' ' + customerData.lastName,
+                email: customerData.email,
+                company: customerData.company
+            }));
+            
+            // Button während der Weiterleitung deaktivieren
+            document.getElementById('submitBtn').innerHTML = 'Daten werden übertragen... ⏳';
+            document.getElementById('submitBtn').disabled = true;
+            
+            try {
+                // Kundendaten per E-Mail an Server senden
+                const emailResponse = await fetch('/api/send-customer-data', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(customerData)
+                });
+                
+                if (emailResponse.ok) {
+                    document.getElementById('submitBtn').innerHTML = 'Weiterleitung zur Bezahlung... 💳';
+                    
+                    // Kurz warten und dann zur Stripe-Bezahlseite weiterleiten
+                    setTimeout(() => {
+                        window.location.href = product.stripeLink;
+                    }, 1500);
+                } else {
+                    // Bei E-Mail-Fehler trotzdem weiterleiten, aber Warnung anzeigen
+                    console.warn('E-Mail konnte nicht gesendet werden, aber Zahlung wird fortgesetzt');
+                    document.getElementById('submitBtn').innerHTML = 'Weiterleitung zur Bezahlung... 💳';
+                    
+                    setTimeout(() => {
+                        window.location.href = product.stripeLink;
+                    }, 1000);
+                }
+                
+            } catch (error) {
+                console.error('Fehler beim Senden der E-Mail:', error);
+                
+                // Bei Fehler trotzdem zur Bezahlung weiterleiten
+                document.getElementById('submitBtn').innerHTML = 'Weiterleitung zur Bezahlung... 💳';
+                
+                setTimeout(() => {
+                    window.location.href = product.stripeLink;
+                }, 1000);
+            }
+        });
+        
+        // Produkt beim Laden der Seite anzeigen
+        loadProduct();
+        
+        // Lokale Daten vorausfüllen falls vorhanden
+        const savedData = localStorage.getItem('customerData');
+        if (savedData) {
+            const data = JSON.parse(savedData);
+            Object.keys(data).forEach(key => {
+                const field = document.getElementById(key);
+                if (field && field.type !== 'checkbox') {
+                    field.value = data[key] || '';
+                } else if (field && field.type === 'checkbox') {
+                    field.checked = data[key] === 'on' || data[key] === true;
+                }
+            });
+        }
+    </script>
+</body>
+</html>

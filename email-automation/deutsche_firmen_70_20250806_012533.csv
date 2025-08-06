@@ -1,0 +1,71 @@
+email,first_name,last_name,company,position,industry,company_size,phone,website,source
+mail@bauer-bau.de,,,Bauer Bau GmbH,Geschäftsführer,Bauunternehmen,50-200,,www.bauer-bau.de,Gelbe Seiten
+kontakt@schmidt-elektro.de,,,Schmidt Elektrotechnik,Geschäftsführer,Elektriker,10-50,,www.schmidt-elektro.de,Gelbe Seiten
+info@mueller-sanitaer.de,,,Müller Sanitär & Heizung,Geschäftsführer,Sanitär,10-50,,www.mueller-sanitaer.de,Gelbe Seiten
+info@weber-dach.de,,,Weber Dachdeckerei,Geschäftsführer,Dachdecker,10-50,,www.weber-dach.de,Gelbe Seiten
+kontakt@meyer-maler.de,,,Meyer Malerbetrieb,Geschäftsführer,Maler,20-100,,www.meyer-maler.de,Gelbe Seiten
+mail@wagner-holz.de,,,Wagner Schreinerei,Geschäftsführer,Schreiner,30-150,,www.wagner-holz.de,Gelbe Seiten
+kontakt@fischer-metall.de,,,Fischer Metallbau,Geschäftsführer,Metallbau,10-50,,www.fischer-metall.de,Gelbe Seiten
+kontakt@schneider-zimmerei.de,,,Schneider Zimmerei,Geschäftsführer,Zimmerei,10-50,,www.schneider-zimmerei.de,Gelbe Seiten
+info@klein-fliesen.de,,,Klein Fliesen GmbH,Geschäftsführer,Fliesenleger,30-150,,www.klein-fliesen.de,Gelbe Seiten
+kontakt@braun-geruest.de,,,Braun Gerüstbau,Geschäftsführer,Gerüstbau,30-150,,www.braun-geruest.de,Gelbe Seiten
+info@autohaus-hoffmann.de,,,Autohaus Hoffmann,Geschäftsführer,Autohaus,10-50,,www.autohaus-hoffmann.de,Gelbe Seiten
+kontakt@kfz-peters.de,,,KFZ-Werkstatt Peters,Geschäftsführer,Autowerkstatt,30-150,,www.kfz-peters.de,Gelbe Seiten
+mail@wolf-fahrzeuge.de,,,Fahrzeugtechnik Wolf,Geschäftsführer,Fahrzeugtechnik,10-50,,www.wolf-fahrzeuge.de,Gelbe Seiten
+mail@reifen-lange.de,,,Reifenservice Lange,Geschäftsführer,Reifenhandel,20-100,,www.reifen-lange.de,Gelbe Seiten
+mail@koch-lack.de,,,Autolackiererei Koch,Geschäftsführer,Lackiererei,20-100,,www.koch-lack.de,Gelbe Seiten
+mail@schulz-praezision.de,,,Präzisionstechnik Schulz,Geschäftsführer,Maschinenbau,30-150,,www.schulz-praezision.de,Gelbe Seiten
+info@cnc-richter.de,,,CNC-Fertigung Richter,Geschäftsführer,CNC-Fertigung,10-50,,www.cnc-richter.de,Gelbe Seiten
+mail@hermann-tools.de,,,Werkzeugbau Hermann,Geschäftsführer,Werkzeugbau,10-50,,www.hermann-tools.de,Gelbe Seiten
+kontakt@krueger-industrie.de,,,Industrieservice Krüger,Geschäftsführer,Industrieservice,50-200,,www.krueger-industrie.de,Gelbe Seiten
+mail@vogt-anlagen.de,,,Anlagentechnik Vogt,Geschäftsführer,Anlagenbau,30-150,,www.vogt-anlagen.de,Gelbe Seiten
+mail@neumann-it.de,,,IT-Solutions Neumann,Geschäftsführer,IT-Service,50-200,,www.neumann-it.de,Gelbe Seiten
+info@berger-web.de,,,Webdesign Studio Berger,Geschäftsführer,Webdesign,50-200,,www.berger-web.de,Gelbe Seiten
+mail@koenig-software.de,,,Software-Entwicklung König,Geschäftsführer,Software,50-200,,www.koenig-software.de,Gelbe Seiten
+kontakt@schuster-digital.de,,,Digital Marketing Schuster,Geschäftsführer,Marketing,30-150,,www.schuster-digital.de,Gelbe Seiten
+info@hartmann-cloud.de,,,Cloud Services Hartmann,Geschäftsführer,Cloud-Service,30-150,,www.hartmann-cloud.de,Gelbe Seiten
+kontakt@werner-grosshandel.de,,,Großhandel Werner,Geschäftsführer,Großhandel,10-50,,www.werner-grosshandel.de,Gelbe Seiten
+kontakt@zimmermann-logistik.de,,,Spedition Zimmermann,Geschäftsführer,Spedition,30-150,,www.zimmermann-logistik.de,Gelbe Seiten
+mail@schmitt-lager.de,,,Lagerlogistik Schmitt,Geschäftsführer,Lagerlogistik,50-200,,www.schmitt-lager.de,Gelbe Seiten
+info@beck-transport.de,,,Transport Service Beck,Geschäftsführer,Transport,50-200,,www.beck-transport.de,Gelbe Seiten
+kontakt@franke-express.de,,,Express Kurier Franke,Geschäftsführer,Kurierdienst,50-200,,www.franke-express.de,Gelbe Seiten
+mail@hotel-zur-post.de,,,Hotel zur Post,Geschäftsführer,Hotel,30-150,,www.hotel-zur-post.de,Gelbe Seiten
+info@restaurant-adler.de,,,Restaurant Adler,Geschäftsführer,Restaurant,10-50,,www.restaurant-adler.de,Gelbe Seiten
+info@roth-catering.de,,,Catering Service Roth,Geschäftsführer,Catering,30-150,,www.roth-catering.de,Gelbe Seiten
+mail@gasthof-loewen.de,,,Gasthof zum Löwen,Geschäftsführer,Gasthof,30-150,,www.gasthof-loewen.de,Gelbe Seiten
+kontakt@sommer-events.de,,,Event-Catering Sommer,Geschäftsführer,Event-Catering,30-150,,www.sommer-events.de,Gelbe Seiten
+kontakt@schaefer-pflege.de,,,Pflegedienst Schäfer,Geschäftsführer,Pflegedienst,30-150,,www.schaefer-pflege.de,Gelbe Seiten
+mail@winter-sanitaet.de,,,Sanitätshaus Winter,Geschäftsführer,Sanitätshaus,10-50,,www.winter-sanitaet.de,Gelbe Seiten
+kontakt@physio-martin.de,,,Physiotherapie Martin,Geschäftsführer,Physiotherapie,30-150,,www.physio-martin.de,Gelbe Seiten
+kontakt@lang-medtech.de,,,Medizintechnik Lang,Geschäftsführer,Medizintechnik,20-100,,www.lang-medtech.de,Gelbe Seiten
+kontakt@mayer-gesundheit.de,,,Gesundheitszentrum Mayer,Geschäftsführer,Gesundheit,50-200,,www.mayer-gesundheit.de,Gelbe Seiten
+info@becker-verwaltung.de,,,Hausverwaltung Becker,Geschäftsführer,Hausverwaltung,30-150,,www.becker-verwaltung.de,Gelbe Seiten
+info@huber-immobilien.de,,,Immobilien Service Huber,Geschäftsführer,Immobilien,20-100,,www.huber-immobilien.de,Gelbe Seiten
+info@otto-facility.de,,,Facility Management Otto,Geschäftsführer,Facility,30-150,,www.otto-facility.de,Gelbe Seiten
+kontakt@krause-reinigung.de,,,Gebäudereinigung Krause,Geschäftsführer,Reinigung,30-150,,www.krause-reinigung.de,Gelbe Seiten
+kontakt@friedrich-garten.de,,,Gartenbau Friedrich,Geschäftsführer,Gartenbau,20-100,,www.friedrich-garten.de,Gelbe Seiten
+info@schwarz-druck.de,,,Druckerei Schwarz,Geschäftsführer,Druckerei,30-150,,www.schwarz-druck.de,Gelbe Seiten
+mail@weiss-werbung.de,,,Werbeagentur Weiß,Geschäftsführer,Werbeagentur,10-50,,www.weiss-werbung.de,Gelbe Seiten
+info@gruen-messe.de,,,Messebau Grün,Geschäftsführer,Messebau,10-50,,www.gruen-messe.de,Gelbe Seiten
+kontakt@blau-schilder.de,,,Schilderwerk Blau,Geschäftsführer,Schilder,30-150,,www.blau-schilder.de,Gelbe Seiten
+kontakt@rot-copy.de,,,Copyshop Rot,Geschäftsführer,Copyshop,30-150,,www.rot-copy.de,Gelbe Seiten
+info@ernst-beratung.de,,,Unternehmensberatung Ernst,Geschäftsführer,Beratung,50-200,,www.ernst-beratung.de,Gelbe Seiten
+kontakt@fuchs-steuer.de,,,Steuerberatung Fuchs,Geschäftsführer,Steuerberatung,30-150,,www.fuchs-steuer.de,Gelbe Seiten
+mail@jung-personal.de,,,Personalservice Jung,Geschäftsführer,Personal,10-50,,www.jung-personal.de,Gelbe Seiten
+mail@alt-versicherung.de,,,Versicherungsmakler Alt,Geschäftsführer,Versicherung,20-100,,www.alt-versicherung.de,Gelbe Seiten
+info@neu-finanz.de,,,Finanzberatung Neu,Geschäftsführer,Finanzberatung,20-100,,www.neu-finanz.de,Gelbe Seiten
+mail@sauber-textil.de,,,Textilreinigung Sauber,Geschäftsführer,Reinigung,20-100,,www.sauber-textil.de,Gelbe Seiten
+info@schnell-schluessel.de,,,Schlüsseldienst Schnell,Geschäftsführer,Schlüsseldienst,20-100,,www.schnell-schluessel.de,Gelbe Seiten
+kontakt@stark-umzug.de,,,Umzugsservice Stark,Geschäftsführer,Umzug,20-100,,www.stark-umzug.de,Gelbe Seiten
+kontakt@klar-entsorgung.de,,,Entsorgung Klar,Geschäftsführer,Entsorgung,50-200,,www.klar-entsorgung.de,Gelbe Seiten
+kontakt@gruen-recycling.de,,,Recycling Grün,Geschäftsführer,Recycling,30-150,,www.gruen-recycling.de,Gelbe Seiten
+kontakt@schmidt-buero.de,,,Büroservice Schmidt,Geschäftsführer,Büroservice,50-200,,www.schmidt-buero.de,Gelbe Seiten
+info@mueller-zeitarbeit.de,,,Zeitarbeit Müller,Geschäftsführer,Zeitarbeit,30-150,,www.mueller-zeitarbeit.de,Gelbe Seiten
+info@wagner-sicherheit.de,,,Sicherheitsdienst Wagner,Geschäftsführer,Sicherheit,10-50,,www.wagner-sicherheit.de,Gelbe Seiten
+kontakt@meyer-reinigung.de,,,Reinigungsservice Meyer,Geschäftsführer,Reinigung,30-150,,www.meyer-reinigung.de,Gelbe Seiten
+mail@weber-hausmeister.de,,,Hausmeisterservice Weber,Geschäftsführer,Hausmeister,20-100,,www.weber-hausmeister.de,Gelbe Seiten
+info@fischer-elektro.de,,,Elektrohandel Fischer,Geschäftsführer,Elektrohandel,30-150,,www.fischer-elektro.de,Gelbe Seiten
+kontakt@schneider-baustoffe.de,,,Baustoffhandel Schneider,Geschäftsführer,Baustoffhandel,50-200,,www.schneider-baustoffe.de,Gelbe Seiten
+kontakt@klein-fenster.de,,,Fenster & Türen Klein,Geschäftsführer,Fensterbau,20-100,,www.klein-fenster.de,Gelbe Seiten
+mail@braun-solar.de,,,Solartechnik Braun,Geschäftsführer,Solartechnik,20-100,,www.braun-solar.de,Gelbe Seiten
+info@hoffmann-klima.de,,,Klimatechnik Hoffmann,Geschäftsführer,Klimatechnik,30-150,,www.hoffmann-klima.de,Gelbe Seiten

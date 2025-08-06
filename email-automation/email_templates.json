@@ -1,0 +1,106 @@
+{
+  "sequences": [
+    {
+      "name": "Initial Contact",
+      "day": 0,
+      "subject": "🚀 {company} - Digitaler Reifegrad in 24h erfahren",
+      "text": "Hallo {first_name},\n\nwussten Sie, dass 67% der deutschen KMU nicht wissen, wo sie bei der Digitalisierung im Vergleich zur Konkurrenz stehen?\n\n{company} könnte in nur 24 Stunden absolute Klarheit haben:\n\n✓ Digitaler Reifegrad Score (0-100 Punkte)\n✓ Direkter Vergleich mit Ihrer Branche\n✓ 3 konkrete, priorisierte Handlungsschritte\n✓ ROI-Berechnung für jede Maßnahme\n\nDas Beste: Statt 10.000€+ für klassische Berater zahlen Sie nur 197€ (Early-Bird Preis).\n\n👉 Hier mehr erfahren und direkt starten:\nhttps://zukunfts-check.com\n\nWir haben bereits über 50 {industry}-Unternehmen analysiert. Die durchschnittliche Effizienzsteigerung lag bei 35% im ersten Jahr.\n\nBeste Grüße\nMarcel Gärtner\nGründer FutureCheck\n\nPS: Die Early-Bird Aktion gilt nur für die ersten 20 Kunden. Aktuell sind noch 8 Plätze frei."
+    },
+    {
+      "name": "Follow-up 1",
+      "day": 2,
+      "subject": "Re: {company} - Kurze Nachfrage (2 Min Video)",
+      "text": "Hallo {first_name},\n\nich wollte sichergehen, dass meine Email von vor 2 Tagen angekommen ist.\n\nFalls Sie keine Zeit hatten: Hier ein kurzes Video (2:14 Min), das zeigt, was genau wir für {company} analysieren würden:\n\nhttps://zukunfts-check.com\n\nHighlights aus dem Video:\n• Live-Demo einer echten Analyse\n• Die 5 wichtigsten Digitalisierungs-Metriken\n• Beispiel-Report eines {industry}-Unternehmens\n\nÜbrigens: Letzte Woche hat ein Kunde nach unserer Analyse 40% seiner manuellen Prozesse automatisiert. ROI nach 3 Monaten: 2.400%.\n\nHaben Sie 15 Minuten diese Woche für ein kurzes Gespräch?\n\nBeste Grüße\nMarcel\n\nPS: Unter diesem Link können Sie direkt einen Termin buchen:\nhttps://zukunfts-check.com"
+    },
+    {
+      "name": "Value Email",
+      "day": 5,
+      "subject": "💡 {first_name}, kostenlose Checkliste für {industry}",
+      "text": "Hallo {first_name},\n\nich möchte nicht aufdringlich sein, aber ich dachte, das könnte für {company} nützlich sein:\n\nIch habe eine Checkliste erstellt: \"Die 10 wichtigsten Digitalisierungs-Quick-Wins für {industry}-Unternehmen\"\n\n📥 Hier kostenlos downloaden (kein Formular, direkter Download):\nhttps://zukunfts-check.com\n\nDarin finden Sie:\n• 10 sofort umsetzbare Maßnahmen\n• Geschätzte Kosten & Zeitaufwand\n• Erwarteter ROI für jede Maßnahme\n• Konkrete Tool-Empfehlungen\n\nEgal ob Sie unseren FutureCheck nutzen oder nicht - diese Tipps bringen garantiert was!\n\nViele Grüße\nMarcel\n\nPS: Falls Sie doch Interesse an einer professionellen Analyse haben - der Early-Bird Preis gilt noch bis Freitag."
+    },
+    {
+      "name": "Case Study",
+      "day": 7,
+      "subject": "📊 Erfolgsgeschichte: 150 MA Unternehmen aus {industry}",
+      "text": "Hallo {first_name},\n\nkurze Erfolgsgeschichte, die für {company} relevant sein könnte:\n\n🏢 Der Kunde:\n- {industry}-Unternehmen, 150 Mitarbeiter\n- 25 Mio € Jahresumsatz\n- Problem: Verlor Marktanteile an digitale Wettbewerber\n\n📈 Nach unserem FutureCheck:\n- Digital Maturity Score: Von 42 auf 78 Punkte in 6 Monaten\n- 40% weniger manuelle Prozesse\n- 25% mehr Online-Umsatz\n- 2 Stunden Zeitersparnis pro Mitarbeiter/Woche\n\n💰 ROI:\n- Investment: 197€ für Analyse + 15.000€ Umsetzung\n- Ersparnis Jahr 1: 380.000€\n- ROI: 2.400%\n\nDie komplette Case Study mit allen Details:\nhttps://zukunfts-check.com\n\nWollen wir mal unverbindlich telefonieren, wie das für {company} aussehen könnte?\n\nBeste Grüße\nMarcel"
+    },
+    {
+      "name": "Urgency",
+      "day": 14,
+      "subject": "⏰ {first_name}, nur noch 3 Early-Bird Plätze",
+      "text": "Hallo {first_name},\n\nkurzes Update: Von den 20 Early-Bird Plätzen sind nur noch 3 verfügbar.\n\nDanach kostet der FutureCheck 497€ statt 197€.\n\nFalls {company} Interesse hat, wäre jetzt der richtige Zeitpunkt:\n\n✅ Was Sie für 197€ bekommen:\n- Komplette Website & Digital-Analyse\n- 30-seitiger Report als PDF\n- Digital Maturity Score + Benchmark\n- 3 priorisierte Handlungsempfehlungen\n- ROI-Berechnungen\n- 30 Min persönliche Beratung\n\n❌ Was Sie NICHT bekommen:\n- Lange Berater-Projekte\n- Unklare Empfehlungen\n- Versteckte Kosten\n- Binding Verträge\n\nHier direkt buchen:\nhttps://zukunfts-check.com\n\nOder kurz anrufen: 0170-1234567\n\nBeste Grüße\nMarcel\n\nPS: Die 300€ Differenz zum Normalpreis können Sie auch in die Umsetzung der Empfehlungen investieren!"
+    },
+    {
+      "name": "Last Chance",
+      "day": 21,
+      "subject": "🎁 {first_name}, mein letztes Angebot für {company}",
+      "text": "Hallo {first_name},\n\ndas ist meine letzte Email zu diesem Thema - versprochen!\n\nIch verstehe, wenn der Zeitpunkt gerade nicht passt. Digitalisierung ist ein Marathon, kein Sprint.\n\nTrotzdem möchte ich Ihnen ein finales Angebot machen:\n\n🎁 EXKLUSIV-DEAL (nur für Sie, 48h gültig):\n- FutureCheck zum Early-Bird Preis (197€)\n- PLUS: 60 Min Strategie-Call (Wert: 250€)\n- PLUS: 3 Monate Email-Support\n- PLUS: Quartals-Update Ihrer Metriken\n\nGesamtwert: 697€\nIhr Preis: 197€\n\nWarum dieses Angebot?\nWeil ich überzeugt bin, dass {company} davon profitieren würde. Und weil zufriedene Kunden die beste Werbung sind.\n\nHier Ihr persönlicher Link:\nhttps://zukunfts-check.com\n\nFalls nicht - alles Gute für {company}! \nVielleicht klappt es ja in der Zukunft.\n\nBeste Grüße\nMarcel\n\nPS: Als kleines Dankeschön fürs Lesen: Unser Digital-Readiness Selbsttest (kostenlos, 5 Min):\nhttps://zukunfts-check.com"
+    },
+    {
+      "name": "Break-up Email",
+      "day": 30,
+      "subject": "👋 {first_name}, alles Gute für {company}",
+      "text": "Hallo {first_name},\n\nkeine Sorge - das ist wirklich meine letzte Email!\n\nIch wollte mich nur kurz verabschieden und Ihnen alles Gute für {company} wünschen.\n\nFalls sich in Zukunft doch Bedarf ergibt, wissen Sie ja, wo Sie uns finden.\n\nBis dahin habe ich noch 3 Tipps, die nichts kosten:\n\n1. 🔍 Googeln Sie mal '{company} Bewertungen' im Inkognito-Modus\n   → So sehen Neukunden Sie wirklich\n\n2. 📱 Testen Sie Ihre Website auf dem Handy\n   → 65% der B2B-Suchen starten mobil\n\n3. 🤖 Probieren Sie ChatGPT für Ihre Branche aus\n   → Ihre Konkurrenz tut es bereits\n\nKostenloses Whitepaper '2025 Digital Trends für KMU':\nhttps://zukunfts-check.com\n\nAlles Gute und viel Erfolg!\n\nBeste Grüße\nMarcel\n\nPS: Falls Sie uns weiterempfehlen - es gibt 20% Provision 😉\nPPS: Sie werden keine weiteren Emails von mir erhalten."
+    }
+  ],
+  "special_templates": {
+    "meeting_confirmation": {
+      "subject": "✅ Termin bestätigt: FutureCheck Demo für {company}",
+      "text": "Hallo {first_name},\n\nvielen Dank für Ihre Zeit!\n\nHier die Bestätigung für unseren Termin:\n\n📅 Datum: [DATUM]\n🕐 Uhrzeit: [UHRZEIT]\n📞 Zoom-Link: [LINK]\n\nWas wir besprechen werden:\n• Ihre aktuellen digitalen Herausforderungen\n• Live-Demo des FutureCheck Prozesses\n• Mögliche Quick-Wins für {company}\n• Ihre Fragen\n\nBitte bringen Sie mit:\n• Ihre Website-URL\n• Größte digitale Baustelle aktuell\n• Verfügbares Budget für Digitalisierung 2025\n\nBis gleich!\n\nBeste Grüße\nMarcel"
+    },
+    "after_meeting": {
+      "subject": "📋 {first_name}, Ihre FutureCheck Zusammenfassung",
+      "text": "Hallo {first_name},\n\nvielen Dank für das produktive Gespräch heute!\n\nWie besprochen hier die nächsten Schritte:\n\n1. ✅ Sie füllen den Analyse-Fragebogen aus:\n   https://zukunfts-check.com\n\n2. ✅ Wir analysieren {company} (24-48h)\n\n3. ✅ Sie erhalten:\n   - 30-seitigen Report als PDF\n   - Digital Maturity Score\n   - 3 Top-Prioritäten\n   - ROI-Berechnungen\n\n4. ✅ Gemeinsame Besprechung der Ergebnisse (30 Min)\n\nInvestition: 197€ (Early-Bird)\nZahlbar per Rechnung nach Erhalt des Reports\n\n👉 Hier direkt starten:\nhttps://zukunfts-check.com\n\nFragen? Einfach auf diese Email antworten!\n\nBeste Grüße\nMarcel"
+    },
+    "customer_onboarding": {
+      "subject": "🚀 Willkommen bei FutureCheck, {first_name}!",
+      "text": "Hallo {first_name},\n\nwillkommen bei FutureCheck! Die Analyse für {company} läuft bereits.\n\nIhre Timeline:\n⏰ Jetzt: Analyse gestartet\n⏰ +24h: Report fertig\n⏰ +48h: Beratungstermin\n\nWas gerade passiert:\n🔍 Website-Analyse läuft\n🔍 Konkurrenz-Vergleich\n🔍 Branchen-Benchmark\n🔍 KI-gestützte Auswertung\n\nSie erhalten automatisch Updates per Email.\n\nIhr persönliches Dashboard:\nhttps://zukunfts-check.com\nPasswort: [PASSWORT]\n\nBei Fragen: Einfach antworten!\n\nBeste Grüße\nMarcel\n\nPS: Schon mal über LinkedIn verbunden? linkedin.com/in/marcelgaertner"
+    },
+    "report_delivery": {
+      "subject": "📊 {first_name}, Ihr FutureCheck Report ist fertig!",
+      "text": "Hallo {first_name},\n\nGute Nachrichten! Die Analyse für {company} ist abgeschlossen.\n\n📊 Ihr Digital Maturity Score: [SCORE]/100\n🏆 Branchen-Ranking: Platz [RANG] von [TOTAL]\n\nDie wichtigsten Erkenntnisse:\n1. [ERKENNTNIS 1]\n2. [ERKENNTNIS 2]\n3. [ERKENNTNIS 3]\n\n📥 Report herunterladen (PDF, 30 Seiten):\nhttps://zukunfts-check.com\n\n📞 Beratungstermin buchen (30 Min):\nhttps://zukunfts-check.com\n\nTop-Priorität für {company}:\n[PRIORITÄT] - Geschätzter ROI: [ROI]%\n\nLassen Sie uns das gemeinsam besprechen!\n\nBeste Grüße\nMarcel"
+    },
+    "upsell_implementation": {
+      "subject": "🛠️ {first_name}, Hilfe bei der Umsetzung?",
+      "text": "Hallo {first_name},\n\nwie läuft die Umsetzung der FutureCheck-Empfehlungen?\n\nViele Kunden fragen nach Unterstützung bei der Implementierung. Deshalb bieten wir jetzt auch Umsetzungspakete an:\n\n📦 STARTER (1.500€)\n- Tool-Setup (1 Tool Ihrer Wahl)\n- Prozess-Dokumentation\n- 2h Mitarbeiter-Schulung\n\n📦 PROFESSIONAL (4.500€)\n- 3 Tools einrichten\n- Prozess-Automatisierung\n- 8h Schulungen\n- 3 Monate Support\n\n📦 ENTERPRISE (9.500€)\n- Komplette Digital-Transformation\n- Alle empfohlenen Tools\n- Change Management\n- 6 Monate Begleitung\n\nInteresse? Hier mehr erfahren:\nhttps://zukunfts-check.com\n\nOder direkt anrufen: 0170-1234567\n\nBeste Grüße\nMarcel\n\nPS: FutureCheck-Kunden erhalten 20% Rabatt!"
+    }
+  },
+  "ab_test_variants": {
+    "subject_lines": [
+      "🚀 {company} digitalisieren - aber richtig!",
+      "{first_name}, wissen Sie wo {company} digital steht?",
+      "Digitalisierung: {company} vs. Konkurrenz",
+      "⚡ Quick-Win für {company} (2 Min)",
+      "{industry}-Benchmark: Wo steht {company}?",
+      "Achtung {first_name}: Ihre Konkurrenz digitalisiert",
+      "ROI 2.400% - Case Study für {industry}",
+      "❓ {company} + Digitalisierung = ???",
+      "Geheimwaffe gegen digitale Konkurrenz",
+      "197€ für klare Digital-Strategie - interessiert?"
+    ],
+    "cta_variations": [
+      "Hier klicken für mehr Infos",
+      "Jetzt FutureCheck starten",
+      "Kostenloses Info-Video ansehen",
+      "Early-Bird Platz sichern",
+      "Ja, ich will Klarheit!",
+      "Zeig mir die Demo",
+      "Termin vereinbaren",
+      "Report-Beispiel ansehen",
+      "Mehr erfahren →",
+      "Sofort-Analyse starten"
+    ],
+    "ps_lines": [
+      "PS: Nur noch {X} Early-Bird Plätze verfügbar!",
+      "PS: 30 Tage Geld-zurück-Garantie",
+      "PS: Über 500 zufriedene KMU analysiert",
+      "PS: Keine Vertragsbindung, einmalige Zahlung",
+      "PS: Fragen? Einfach antworten!",
+      "PS: Empfehlung = 20% Provision für Sie",
+      "PS: Dauert wirklich nur 24h",
+      "PS: Auch als Geschenk-Gutschein verfügbar",
+      "PS: Kostenlose Nachanalyse nach 6 Monaten",
+      "PS: 100% Made in Germany 🇩🇪"
+    ]
+  }
+}
