@@ -801,55 +801,59 @@
     <!-- Stripe Config Script -->
     <script src="stripe-config.js"></script>
     
-    <!-- Contact Form Script - GANZ AM ENDE -->
+    <!-- Contact Form Script - FINAL FIX -->
     <script>
-        // Warte bis ALLES geladen ist
-        window.addEventListener('load', function() {
-            console.log('=== FORMULAR SCRIPT STARTET ===');
+        // Entferne alle alten Event Listener
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('=== FORMULAR SCRIPT LÄDT ===');
             
-            const form = document.getElementById('contactForm');
-            if (!form) {
-                console.error('Formular nicht gefunden!');
-                return;
-            }
-            
-            console.log('Formular gefunden:', form);
-            
-            // Test ob Felder existieren
-            console.log('Felder Check:', {
-                firstName: !!document.getElementById('firstName'),
-                lastName: !!document.getElementById('lastName'),
-                email: !!document.getElementById('email'),
-                phone: !!document.getElementById('phone'),
-                company: !!document.getElementById('company'),
-                message: !!document.getElementById('message')
-            });
-            
-            form.addEventListener('submit', function(e) {
-                e.preventDefault();
-                console.log('=== FORMULAR WIRD ABGESENDET ===');
+            // Warte kurz, damit alles geladen ist
+            setTimeout(function() {
+                const form = document.getElementById('contactForm');
+                const submitBtn = document.getElementById('submitBtn');
                 
-                // Werte direkt auslesen
-                const firstName = document.getElementById('firstName').value;
-                const lastName = document.getElementById('lastName').value;
-                const email = document.getElementById('email').value;
-                const phone = document.getElementById('phone').value || 'Nicht angegeben';
-                const company = document.getElementById('company').value;
-                const message = document.getElementById('message').value || 'Keine Nachricht';
+                if (!form || !submitBtn) {
+                    console.error('Formular oder Button nicht gefunden!');
+                    return;
+                }
                 
-                const fullName = firstName + ' ' + lastName;
+                console.log('Formular gefunden, entferne alte Listener...');
                 
-                // Debug
-                console.log('Ausgelesene Werte:', {
-                    firstName, lastName, email, phone, company, message
-                });
+                // Entferne den Submit-Button und ersetze ihn
+                const newBtn = submitBtn.cloneNode(true);
+                submitBtn.parentNode.replaceChild(newBtn, submitBtn);
                 
-                // Test Alert
-                alert(`FORMULAR DATEN:\nName: ${fullName}\nE-Mail: ${email}\nFirma: ${company}`);
-                
-                // E-Mail Body
-                const subject = 'Kontaktanfrage von FutureCheck Website';
-                const body = `Neue Kontaktanfrage:
+                // Neuer Click-Handler NUR auf Button
+                newBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    
+                    console.log('=== BUTTON GEKLICKT ===');
+                    
+                    // Werte SOFORT auslesen
+                    const firstName = document.getElementById('firstName').value;
+                    const lastName = document.getElementById('lastName').value;
+                    const email = document.getElementById('email').value;
+                    const phone = document.getElementById('phone').value || 'Nicht angegeben';
+                    const company = document.getElementById('company').value;
+                    const message = document.getElementById('message').value || 'Keine Nachricht';
+                    
+                    const fullName = firstName + ' ' + lastName;
+                    
+                    // Debug
+                    console.log('Ausgelesene Werte:', {
+                        firstName, lastName, email, phone, company, message
+                    });
+                    
+                    // Validierung
+                    if (!firstName || !lastName || !email || !company) {
+                        alert('Bitte füllen Sie alle Pflichtfelder aus!');
+                        return false;
+                    }
+                    
+                    // E-Mail Body
+                    const subject = 'Kontaktanfrage von FutureCheck Website';
+                    const body = `Neue Kontaktanfrage:
 
 Name: ${fullName}
 E-Mail: ${email}
@@ -861,30 +865,41 @@ ${message}
 
 ---
 Gesendet am ${new Date().toLocaleDateString('de-DE')} um ${new Date().toLocaleTimeString('de-DE')} Uhr`;
-                
-                // Mailto Link
-                const mailtoLink = `mailto:gaertner-marcel@web.de?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-                
-                // Link öffnen
-                const link = document.createElement('a');
-                link.href = mailtoLink;
-                link.click();
-                
-                // Success Message
-                const formMessage = document.getElementById('formMessage');
-                if (formMessage) {
-                    formMessage.style.display = 'block';
-                    formMessage.style.background = 'rgba(34, 197, 94, 0.1)';
-                    formMessage.style.color = '#22C55E';
-                    formMessage.style.border = '1px solid rgba(34, 197, 94, 0.3)';
-                    formMessage.innerHTML = '✓ E-Mail-Programm wurde geöffnet. Bitte senden Sie die E-Mail ab.';
                     
-                    setTimeout(() => {
-                        form.reset();
-                        formMessage.style.display = 'none';
-                    }, 5000);
-                }
-            });
+                    // Mailto Link
+                    const mailtoLink = `mailto:gaertner-marcel@web.de?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+                    
+                    console.log('Öffne E-Mail mit:', mailtoLink);
+                    
+                    // Öffne E-Mail
+                    window.location.href = mailtoLink;
+                    
+                    // Success Message
+                    const formMessage = document.getElementById('formMessage');
+                    if (formMessage) {
+                        formMessage.style.display = 'block';
+                        formMessage.style.background = 'rgba(34, 197, 94, 0.1)';
+                        formMessage.style.color = '#22C55E';
+                        formMessage.style.border = '1px solid rgba(34, 197, 94, 0.3)';
+                        formMessage.innerHTML = '✓ E-Mail-Programm wurde geöffnet. Bitte senden Sie die E-Mail ab.';
+                        
+                        // Reset erst nach 10 Sekunden
+                        setTimeout(() => {
+                            form.reset();
+                            formMessage.style.display = 'none';
+                        }, 10000);
+                    }
+                    
+                    return false;
+                });
+                
+                // Verhindere Standard-Submit
+                form.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    return false;
+                });
+                
+            }, 100);
         });
     </script>
 </body>
