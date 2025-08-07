@@ -30,13 +30,13 @@ const stripePaymentLinks = {
         type: 'einmalig'
     },
     'business-website': {
-        url: 'https://buy.stripe.com/28E5kDeeS9Zc4qo5kg8Ra0a',
+        url: 'https://buy.stripe.com/4gM4gz5Im3AO0a8bIE8Ra02',
         price: 997,
         name: 'Business Website',
         type: 'einmalig'
     },
     'professional-website': {
-        url: 'https://buy.stripe.com/28E9AT3Ae5IW3mkaEA8Ra09',
+        url: 'https://buy.stripe.com/28EaEX2wa9Zc5us9Aw8Ra03',
         price: 1797,
         name: 'Professional Website',
         type: 'einmalig'
@@ -69,7 +69,7 @@ const stripePaymentLinks = {
     },
     'local-seo-boost': {
         url: 'https://buy.stripe.com/00w6oHc6Kfjw7CAaEA8Ra06',
-        price: 397,
+        price: 297,
         name: 'Local SEO Boost',
         type: 'einmalig'
     },
@@ -135,7 +135,7 @@ const stripePaymentLinks = {
     },
     'mega-bundle': {
         url: 'https://buy.stripe.com/dRmcN5c6K2wKaOMh2Y8Ra08',
-        price: 2997,
+        price: 1997,
         name: 'MEGA Bundle',
         type: 'einmalig'
     },
