@@ -797,7 +797,7 @@
             document.body.style.opacity = '1';
         });
         
-        // Contact Form Handler - Mailto System
+        // Contact Form Handler - Mailto System mit Debug
         document.getElementById('contactForm').addEventListener('submit', function(e) {
             e.preventDefault();
             
@@ -805,7 +805,7 @@
             const submitText = document.getElementById('submitText');
             const formMessage = document.getElementById('formMessage');
             
-            // Get form data
+            // Get form data mit Debug
             const firstName = document.getElementById('firstName').value;
             const lastName = document.getElementById('lastName').value;
             const fullName = firstName + ' ' + lastName;
@@ -814,43 +814,61 @@
             const company = document.getElementById('company').value;
             const message = document.getElementById('message').value || 'Keine zusätzliche Nachricht';
             
-            // Format the email body
+            // Debug - Werte in Console ausgeben
+            console.log('Formular-Daten:', {
+                firstName, lastName, fullName, email, phone, company, message
+            });
+            
+            // Format the email body - Vereinfacht
             const subject = 'Kontaktanfrage von FutureCheck Website';
-            const body = `Neue Kontaktanfrage von Ihrer Website:
+            const body = `Neue Kontaktanfrage:
 
-KONTAKTDATEN:
-================================
 Name: ${fullName}
 E-Mail: ${email}
 Telefon: ${phone}
 Firma: ${company}
 
-NACHRICHT:
-================================
+Nachricht:
 ${message}
 
-================================
-Diese Anfrage wurde über das Kontaktformular auf FutureCheck gesendet.
-Datum: ${new Date().toLocaleDateString('de-DE')} um ${new Date().toLocaleTimeString('de-DE')} Uhr`;
+---
+Gesendet am ${new Date().toLocaleDateString('de-DE')} um ${new Date().toLocaleTimeString('de-DE')} Uhr`;
             
             // Create mailto link
             const mailtoLink = `mailto:gaertner-marcel@web.de?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
             
-            // Open email client
-            window.location.href = mailtoLink;
+            // Debug - Link ausgeben
+            console.log('Mailto-Link:', mailtoLink);
+            console.log('Link-Länge:', mailtoLink.length);
             
-            // Show success message
+            // Alternative Methode: Versteckter Link
+            const tempLink = document.createElement('a');
+            tempLink.href = mailtoLink;
+            tempLink.style.display = 'none';
+            document.body.appendChild(tempLink);
+            tempLink.click();
+            document.body.removeChild(tempLink);
+            
+            // Show success message mit Copy-Option
             formMessage.style.display = 'block';
             formMessage.style.background = 'rgba(34, 197, 94, 0.1)';
             formMessage.style.color = '#22C55E';
             formMessage.style.border = '1px solid rgba(34, 197, 94, 0.3)';
-            formMessage.innerHTML = '✓ Ihr E-Mail-Programm wurde geöffnet. Bitte senden Sie die E-Mail ab.';
+            formMessage.innerHTML = `
+                <div>✓ Ihr E-Mail-Programm wurde geöffnet. Bitte senden Sie die E-Mail ab.</div>
+                <div style="margin-top: 10px;">
+                    <button onclick="navigator.clipboard.writeText(\`${body.replace(/`/g, '\\`')}\`).then(() => alert('Daten kopiert!'))" 
+                            style="padding: 5px 10px; background: white; border: 1px solid #22C55E; border-radius: 4px; cursor: pointer; font-size: 12px;">
+                        📋 Falls nicht funktioniert: Daten kopieren
+                    </button>
+                </div>
+            `;
             
-            // Reset form after 3 seconds
+            // Reset form after 10 seconds (mehr Zeit zum Kopieren)
             setTimeout(() => {
                 document.getElementById('contactForm').reset();
                 formMessage.style.display = 'none';
-            }, 5000);
+            }, 10000);
         });
     </script>
     
