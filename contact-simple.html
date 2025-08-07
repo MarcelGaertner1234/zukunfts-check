@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontakt Test - FutureCheck</title>
+    <link rel="stylesheet" href="styles-modern.css">
+    <style>
+        .test-container {
+            max-width: 800px;
+            margin: 100px auto;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 30px;
+        }
+        .test-btn {
+            display: inline-block;
+            padding: 15px 30px;
+            margin: 10px;
+            background: linear-gradient(135deg, #667EEA 0%, #764BA2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: 600;
+            transition: transform 0.3s ease;
+        }
+        .test-btn:hover {
+            transform: translateY(-3px);
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <h1>📧 Kontakt-Optionen testen</h1>
+        
+        <h2>Option 1: Direkter E-Mail Link (Funktioniert sofort)</h2>
+        <a href="mailto:gaertner-marcel@web.de?subject=Anfrage%20von%20FutureCheck%20Website&body=Hallo%20Herr%20Gärtner,%0A%0AIch%20interessiere%20mich%20für%20Ihre%20Dienstleistungen.%0A%0AMit%20freundlichen%20Grüßen" class="test-btn">
+            E-Mail senden (öffnet Mail-Programm)
+        </a>
+        
+        <h2>Option 2: WhatsApp Business (Funktioniert sofort)</h2>
+        <a href="https://wa.me/41768015330?text=Hallo,%20ich%20komme%20von%20Ihrer%20FutureCheck%20Website" class="test-btn" style="background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);">
+            WhatsApp schreiben
+        </a>
+        
+        <h2>Option 3: Formspree Test-Formular</h2>
+        <form action="https://formspree.io/f/mwpkkjoq" method="POST" style="margin-top: 20px;">
+            <input type="text" name="name" placeholder="Ihr Name" required style="width: 100%; padding: 12px; margin: 10px 0; border: 1px solid #ddd; border-radius: 8px;">
+            <input type="email" name="email" placeholder="Ihre E-Mail" required style="width: 100%; padding: 12px; margin: 10px 0; border: 1px solid #ddd; border-radius: 8px;">
+            <textarea name="message" placeholder="Ihre Nachricht" required style="width: 100%; padding: 12px; margin: 10px 0; border: 1px solid #ddd; border-radius: 8px; min-height: 100px;"></textarea>
+            <button type="submit" class="test-btn" style="border: none; cursor: pointer;">
+                Formular absenden (Test)
+            </button>
+        </form>
+        
+        <p style="margin-top: 30px; padding: 20px; background: #f0f0f0; border-radius: 10px;">
+            <strong>Hinweis:</strong> Das Test-Formular oben verwendet einen temporären Formspree-Endpoint. 
+            Für die Live-Website müssen Sie sich bei Formspree registrieren und Ihren eigenen Endpoint erstellen.
+        </p>
+    </div>
+</body>
+</html>

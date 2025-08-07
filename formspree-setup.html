@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Mail Service Setup - FutureCheck</title>
+    <style>
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #667EEA 0%, #764BA2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 600px;
+            width: 100%;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+        .subtitle {
+            color: #666;
+            margin-bottom: 30px;
+        }
+        .option {
+            background: #f8f9fa;
+            border: 2px solid #e0e0e0;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+        .option:hover {
+            border-color: #667EEA;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.2);
+        }
+        .option h2 {
+            color: #667EEA;
+            margin-top: 0;
+            font-size: 20px;
+        }
+        .option p {
+            color: #666;
+            line-height: 1.6;
+            margin: 10px 0;
+        }
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: linear-gradient(135deg, #667EEA 0%, #764BA2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: transform 0.3s ease;
+        }
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+        .code {
+            background: #f0f0f0;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            margin: 15px 0;
+            word-break: break-all;
+        }
+        .success {
+            background: #d4edda;
+            color: #155724;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        .warning {
+            background: #fff3cd;
+            color: #856404;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📧 E-Mail Service aktivieren</h1>
+        <p class="subtitle">Wählen Sie eine Option, um E-Mails zu empfangen:</p>
+
+        <div class="option">
+            <h2>Option 1: Formspree (Empfohlen - 50 E-Mails/Monat kostenlos)</h2>
+            <p><strong>Schnellste Lösung - In 2 Minuten fertig!</strong></p>
+            <ol>
+                <li>Gehen Sie zu <a href="https://formspree.io" target="_blank">formspree.io</a></li>
+                <li>Klicken Sie auf "Get Started"</li>
+                <li>Geben Sie Ihre E-Mail ein: <strong>gaertner-marcel@web.de</strong></li>
+                <li>Erstellen Sie ein neues Formular namens "FutureCheck Kontakt"</li>
+                <li>Kopieren Sie Ihre Form ID (sieht so aus: xwpejrql)</li>
+                <li>Ersetzen Sie in index.html diese Zeile:</li>
+            </ol>
+            <div class="code">
+                action="https://formspree.io/f/IHRE_FORM_ID"
+            </div>
+            <p>Mit Ihrer Form ID, z.B.:</p>
+            <div class="code">
+                action="https://formspree.io/f/xwpejrql"
+            </div>
+            <a href="https://formspree.io/register" target="_blank" class="btn">Zu Formspree →</a>
+        </div>
+
+        <div class="option">
+            <h2>Option 2: Web3Forms (100 E-Mails/Monat kostenlos)</h2>
+            <p><strong>Keine Registrierung nötig!</strong></p>
+            <ol>
+                <li>Gehen Sie zu <a href="https://web3forms.com" target="_blank">web3forms.com</a></li>
+                <li>Klicken Sie auf "Create your Access Key"</li>
+                <li>Geben Sie ein: <strong>gaertner-marcel@web.de</strong></li>
+                <li>Kopieren Sie den Access Key</li>
+                <li>Ersetzen Sie in index.html diese Zeile:</li>
+            </ol>
+            <div class="code">
+                web3FormData.append('access_key', 'IHR_ACCESS_KEY');
+            </div>
+            <a href="https://web3forms.com/#start" target="_blank" class="btn">Zu Web3Forms →</a>
+        </div>
+
+        <div class="option">
+            <h2>Option 3: EmailJS (200 E-Mails/Monat kostenlos)</h2>
+            <p><strong>Mehr Features, aber etwas komplexer</strong></p>
+            <ol>
+                <li>Registrieren bei <a href="https://www.emailjs.com" target="_blank">emailjs.com</a></li>
+                <li>Email Service verbinden (Gmail, Outlook, etc.)</li>
+                <li>Template erstellen</li>
+                <li>Public Key und Service ID kopieren</li>
+                <li>Code in index.html anpassen</li>
+            </ol>
+            <a href="https://www.emailjs.com/docs/tutorial/overview/" target="_blank" class="btn">EmailJS Tutorial →</a>
+        </div>
+
+        <div class="warning">
+            <strong>⚠️ Wichtig:</strong> Das PHP-Script funktioniert nur auf einem echten Webserver mit Mail-Funktion. Für lokale Tests oder GitHub Pages benötigen Sie einen der obigen Services.
+        </div>
+
+        <div class="success">
+            <strong>✅ Tipp:</strong> Formspree ist die schnellste Lösung und funktioniert sofort nach der Registrierung. Sie erhalten eine Bestätigungs-E-Mail und müssen nur einmal die erste Test-E-Mail bestätigen.
+        </div>
+    </div>
+</body>
+</html>

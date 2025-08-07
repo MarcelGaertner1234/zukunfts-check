@@ -821,14 +821,25 @@
             submitText.textContent = 'Wird gesendet...';
             
             try {
-                const response = await fetch('send-contact.php', {
+                // Formspree - Ihre persönliche Form ID
+                const formspreeData = new FormData();
+                formspreeData.append('name', fullName);
+                formspreeData.append('email', document.getElementById('email').value);
+                formspreeData.append('phone', document.getElementById('phone').value || 'Nicht angegeben');
+                formspreeData.append('company', document.getElementById('company').value);
+                formspreeData.append('message', 'Firma: ' + document.getElementById('company').value + '\n\n' + (document.getElementById('message').value || 'Keine zusätzliche Nachricht'));
+                
+                const response = await fetch('https://formspree.io/f/movlkqpp', {
                     method: 'POST',
-                    body: formData
+                    body: formspreeData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
                 });
                 
                 const result = await response.json();
                 
-                if (result.success) {
+                if (response.ok) {
                     // Success message
                     formMessage.style.display = 'block';
                     formMessage.style.background = 'rgba(34, 197, 94, 0.1)';
